@@ -88,10 +88,10 @@ create-react-app for the frontend
 
    -> $ heroku addons:create mongolab  // install mlab (free sandbox not suitable for production) mlab is a cloud based mongodb
 
-   -> $ heroku config:get MONGODB_URI  // gives you the credentials for connecting to mlab
+   -> $ heroku config:get MONGO_URI  // gives you the credentials for connecting to mlab
    -> $ heroku config:set MONGO_URI='<mongodb_uri address>'
 
-   -> go to you models (or configdb file if you have one) and connect to the result of heroku config:get MONGODB_URI 
+   -> go to you models (or configdb file if you have one) and connect to the result of heroku config:get MONGO_URI 
 
      ../api/models/index.js
 
