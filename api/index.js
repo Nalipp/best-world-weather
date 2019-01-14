@@ -11,7 +11,13 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
 app.get('/api/forcasts/', function(req, res){
-  res.json({"hi": "there"});
+  db.Forcast.find()
+  .then(function(forcasts){
+    res.json(forcasts);
+  })
+  .catch(function(err){
+    res.send(err);
+  })
 })
 
 app.listen(port, function(){
