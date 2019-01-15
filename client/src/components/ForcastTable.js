@@ -3,20 +3,44 @@ import PropTypes from 'prop-types';
 import './ForcastTable.css';
 
 class ForcastTable extends Component {
-  handleSort = (e) => {
-    console.log('handleing sort', e.target.id);
+  constructor(props) {
+    super(props);
+    this.state = {
+      sortedArr: null,
+      sortedby: null,
+    }
   }
+  handleSort = (e) => {
+    const id = e.target.id;
+    let arrCopy = this.props.forcasts.slice();
+
+    if (this.state.sortedBy === id) {
+      this.setState({
+        sortedArr: this.state.sortedArr.reverse(),
+        sortedBy: null,
+      });
+    } else {
+      arrCopy.sort((a, cityObject) => {
+        return cityObject[id] < a[id] ? 1 : -1;
+      });
+      this.setState({
+        sortedArr: arrCopy,
+        sortedBy: id,
+      });
+    }
+  }
+
   render() {
-    const { forcasts } = this.props;
+    let forcasts = this.state.sortedArr || this.props.forcasts;
     return (
       <table className="forcast-table">
         <thead>
           <tr onClick={this.handleSort}>
-            <th id="city">city</th>
+            <th id="cityName">city</th>
             <th id="summary">summray</th>
             <th id="temperature">temperature</th>
-            <th id="wind_speed">wind speed</th>
-            <th id="cloud_cover">cloud cover</th>
+            <th id="windSpeed">wind speed</th>
+            <th id="cloudCover">cloud cover</th>
           </tr>
         </thead>
         {forcasts.map(forcast => (
