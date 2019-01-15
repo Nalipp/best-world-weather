@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { getForcasts } from '../actions/index';
 import { connect } from 'react-redux';
+import './ForcastList.css';
 
 const CityTable = ({ forcasts }) => {
   return (
@@ -43,9 +44,11 @@ class ForcastList extends Component {
 
   render() {
     return (
-      <div>
+      <div className={'forcast-list'}>
         <h1>Best City Weather</h1>
-        <CityTable forcasts={this.state.sortedForcasts || this.props.forcasts} />
+        <CityTable 
+          forcasts={this.state.sortedForcasts ||
+          this.props.forcasts} />
       </div>
     );
   }
