@@ -22,8 +22,8 @@ app.get('/api/forcasts/', function(req, res){
 })
 
 setInterval(function() {
-  updateCityData(); // update cities in the database every 2 hours
-}, 7200000);
+  updateCityData(); // update cities in the database every 4 hours
+}, 14400000);
 
 app.listen(port, function(){
     console.log("APP IS RUNNING ON PORT " + port);

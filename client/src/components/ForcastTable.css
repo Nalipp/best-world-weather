@@ -1,0 +1,6 @@
+.forcast-table {
+}
+
+.forcast-table > thead {
+  cursor: pointer;
+}
