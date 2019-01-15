@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import * as apiCalls from './api';
+import { getForcasts } from '../actions/index';
+import { connect } from 'react-redux';
 
 const CityTable = ({ forcasts }) => {
   return (
@@ -32,27 +33,34 @@ class ForcastList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      forcasts: []
+      sortedForcasts: null
     }
   }
 
-  componentWillMount() {
-    this.loadForcasts();
+  componentDidMount() {
+    this.props.getForcasts();
   }
 
-  async loadForcasts() {
-    let forcasts = await apiCalls.getForcasts();
-    console.log('got forcasts!!!!!', forcasts);
-    this.setState({ forcasts: forcasts });
-  }
   render() {
     return (
       <div>
         <h1>Best City Weather</h1>
-        <CityTable forcasts={this.state.forcasts} />
+        <CityTable forcasts={this.state.sortedForcasts || this.props.forcasts} />
       </div>
     );
   }
 }
 
-export default ForcastList;
+const mapStateToProps = state => {
+  return {
+    forcasts: state.forcasts
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    getForcasts: () => dispatch(getForcasts())
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ForcastList);
