@@ -12,7 +12,6 @@ class ForcastList extends Component {
   render() {
     return (
       <div className={'forcast-list'}>
-        <h1>Best City Weather</h1>
         <ForcastTable forcasts={this.props.forcasts} />
       </div>
     );
