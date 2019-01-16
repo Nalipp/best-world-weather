@@ -1,22 +1,18 @@
 import React, { Component } from 'react';
 import './ForcastFilter.css';
-import { connect } from 'react-redux';
+import FilterInput from './FilterInput';
 
 class ForcastFilter extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-    }
-  }
-
   render() {
     return (
       <form className={'forcast-filter'}>
-        <input />
-        <button type="button">update</button>
+        <FilterInput name="max_temp" initialVal={80}/>
+        <FilterInput name="min_temp" initialVal={65}/>
+        <FilterInput name="max_wind" initialVal={10}/>
+        <FilterInput name="max_cloud_cover" initialVal={20}/>
       </form>
     )
   }
 }
 
-export default connect()(ForcastFilter);
+export default ForcastFilter;

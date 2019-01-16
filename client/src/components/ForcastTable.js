@@ -31,6 +31,7 @@ class ForcastTable extends Component {
   }
 
   render() {
+    console.log('props...', this.props);
     let forcasts = this.state.sortedArr || this.props.forcasts;
     return (
       <table className="forcast-table">

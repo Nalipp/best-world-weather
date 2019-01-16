@@ -5,7 +5,7 @@ export const getForcasts = () => async dispatch =>  {
     .then(res => {
       if (res.status === 200) {
         dispatch({ 
-          type: 'ALL_CITIES', 
+          type: 'ALL_FORCASTS', 
           payload: res.data 
         })
       } else {
@@ -15,5 +15,28 @@ export const getForcasts = () => async dispatch =>  {
         })
       }
     })
+};
+
+export const applyFilter = (forcastState, filter, name) => async dispatch => {
+  console.log('forcastState...', forcastState);
+  let copy;
+
+  if (forcastState.forcastsAreFiltered) {
+    copy = forcastState.filteredForcasts.slice();
+  } else {
+    copy = forcastState.allForcasts.slice();
+    dispatch({
+      type: 'FORCASTS_ARE_FILTERED',
+      payload: true,
+    });
+  }
+
+  copy.pop();
+
+  dispatch({
+    type: 'FILTERED_FORCASTS',
+    payload: copy,
+  });
+
 };
 

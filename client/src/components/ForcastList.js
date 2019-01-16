@@ -10,17 +10,23 @@ class ForcastList extends Component {
   }
 
   render() {
+    let filtered = this.props.filteredForcasts;
+    let all = this.props.allForcasts;
+    let forcasts = this.props.forcastsAreFiltered ? filtered : all;
     return (
       <div className={'forcast-list'}>
-        <ForcastTable forcasts={this.props.forcasts} />
+        <ForcastTable forcasts={forcasts} />
       </div>
     );
   }
 }
 
 const mapStateToProps = state => {
+  console.log('ForcastList state...', state.forcasts);
   return {
-    forcasts: state.forcasts
+    filteredForcasts: state.forcasts.filteredForcasts,
+    allForcasts: state.forcasts.allForcasts,
+    forcastsAreFiltered: state.forcasts.forcastsAreFiltered,
   }
 }
 
