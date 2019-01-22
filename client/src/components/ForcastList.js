@@ -10,9 +10,10 @@ class ForcastList extends Component {
   }
 
   render() {
-    let filtered = this.props.filteredForcasts;
+    let forcasts = this.props.filteredForcasts;
     let all = this.props.allForcasts;
-    let forcasts = this.props.forcastsAreFiltered ? filtered : all;
+
+    console.log('this.props.filteredForcasts......', forcasts);
     return (
       <div className={'forcast-list'}>
         <ForcastTable forcasts={forcasts} />

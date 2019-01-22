@@ -8,6 +8,9 @@ export const getForcasts = () => async dispatch =>  {
           type: 'ALL_FORCASTS', 
           payload: res.data 
         })
+        dispatch({ 
+          type: 'FILTER_FORCASTS', 
+        })
       } else {
         dispatch({ 
           type: 'ERROR_MESSAGE', 
@@ -17,26 +20,35 @@ export const getForcasts = () => async dispatch =>  {
     })
 };
 
-export const applyFilter = (forcastState, filter, name) => async dispatch => {
-  console.log('forcastState...', forcastState);
-  let copy;
-
-  if (forcastState.forcastsAreFiltered) {
-    copy = forcastState.filteredForcasts.slice();
-  } else {
-    copy = forcastState.allForcasts.slice();
-    dispatch({
-      type: 'FORCASTS_ARE_FILTERED',
-      payload: true,
-    });
-  }
-
-  copy.pop();
-
+export const updateCurrentValue = (filterName, value) => async dispatch => {
+  // appliedValues update
+  // currentValues update
+  // filter is applied in reducer
   dispatch({
-    type: 'FILTERED_FORCASTS',
-    payload: copy,
+    type: 'UPDATE_CURRENT_VALUE',
+    filterName,
+    value,
   });
+  dispatch({
+    type: 'FILTER_FORCASTS',
+  });
+}
 
-};
+export const applyCurrentValue = filterName => async dispatch => {
+  // appliedValues is updated with currentValue for filterName
+  // filter is applied in reducer
+  dispatch({
+    type: 'APPLY_CURRENT_VALUE',
+    filterName,
+  });
+}
 
+export const resetAppliedValue = filterName => async dispatch => {
+  // appliedValues is updated with resetValue for filterName
+  // currentValues is not touched
+  // filter is applied in reducer
+  dispatch({
+    type: 'RESET_APPLIED_VALUE',
+    filterName,
+  });
+}

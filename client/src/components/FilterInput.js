@@ -1,37 +1,35 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { applyFilter } from '../actions';
+import { updateCurrentValue } from '../actions';
 
 class FilterInput extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: this.props.initialVal,
-      name: this.props.name,
-      areFiltered: this.props.forcastsAreFiltered,
+      value: this.props.initialVal, // move to component did mount
     }
-    this.startIncrease = this.startIncrease.bind(this);
+    this.startIncrease = this.startIncrease.bind(this); // make arrow
     this.startDecrease = this.startDecrease.bind(this);
     this.stopIncrement = this.stopIncrement.bind(this);
   }
   startIncrease() {
     this.setState({value: this.state.value + 1}, () => {
-      this.props.applyFilter(this.props.forcastState, this.state.value, this.props.name);
+      this.props.updateCurrentValue(this.props.name, this.state.value);
     });
     this.incrementId = setInterval(() => {
       this.setState({value: this.state.value + 1}, () => {
-        this.props.applyFilter(this.props.forcastState, this.state.value, this.props.name);
+        this.props.updateCurrentValue(this.props.name, this.state.value);
       });
     }, 200);
   }
   startDecrease() {
     this.setState({value: this.state.value - 1}, () => {
-      this.props.applyFilter(this.props.forcastState, this.state.value, this.props.name);
+      this.props.updateCurrentValue(this.props.name, this.state.value);
     });
     this.incrementId = setInterval(() => {
       this.setState({value: this.state.value - 1}, () => {
-        this.props.applyFilter(this.props.forcastState, this.state.value, this.props.name);
+        this.props.updateCurrentValue(this.props.name, this.state.value);
       });
     }, 200);
   }
@@ -71,7 +69,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    applyFilter: (val, name) => dispatch(applyFilter(val, name)),
+    updateCurrentValue: (name, val) => dispatch(updateCurrentValue(name, val)),
   }
 }
 

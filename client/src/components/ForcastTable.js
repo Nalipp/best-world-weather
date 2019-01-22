@@ -31,7 +31,6 @@ class ForcastTable extends Component {
   }
 
   render() {
-    console.log('props...', this.props);
     let forcasts = this.state.sortedArr || this.props.forcasts;
     return (
       <table className="forcast-table">
@@ -51,7 +50,7 @@ class ForcastTable extends Component {
               <td>{forcast.summary}</td>
               <td>{forcast.temperature}</td>
               <td>{forcast.windSpeed}</td>
-              <td>{forcast.cloudCover}</td>
+              <td>{Math.floor(forcast.cloudCover)}</td>
             </tr>
           </tbody>
         ))}
