@@ -58,3 +58,26 @@ export const removeCurrentFilter = filterName => async dispatch => {
     type: 'FILTER_FORCASTS',
   });
 }
+
+export const resetFilters = () => async dispatch => {
+  dispatch({
+    type: 'RESET_FILTERS',
+  });
+  dispatch({
+    type: 'FILTER_FORCASTS',
+  });
+}
+
+export const showInputFilter = filterName => async dispatch => {
+  dispatch({
+    type: 'SHOW_INPUT_FILTER',
+    filterName,
+  });
+}
+
+export const hideInputFilter = filterName => async dispatch => {
+  dispatch({
+    type: 'HIDE_INPUT_FILTER',
+    filterName,
+  });
+}

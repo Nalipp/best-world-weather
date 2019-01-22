@@ -9,15 +9,21 @@ const initialState = {
   },
   currentValues: { // filter values (may or may not be applied)
     max_temperature: 80,
-    min_temperature: 65,
+    min_temperature: 45,
     max_windSpeed: 10,
-    max_cloudCover: 20
+    max_cloudCover: 50
   },
   resetValues: { // when applied show all forcasts
     max_temperature: Infinity,
     min_temperature: -Infinity,
     max_windSpeed: Infinity,
     max_cloudCover: Infinity,
+  },
+  isShowing: {
+    max_temperature: false,
+    min_temperature: false,
+    max_windSpeed: false,
+    max_cloudCover: false,
   }
 }
 
@@ -68,6 +74,27 @@ const forcasts = (state = initialState, action) => {
           ...state.appliedValues, [action.filterName]: resetValue, 
         },
         filteredForcasts: filterForcasts(action.filterName, resetValue),
+      }
+    case 'RESET_FILTERS':
+      return {
+        ...state,
+        appliedValues: {...state.resetValues},
+        currentValues: {...initialState.currentValues},
+        isShowing: {...initialState.isShowing},
+      }
+    case 'SHOW_INPUT_FILTER':
+      return {
+        ...state,
+        isShowing: {
+          ...state.isShowing, [action.filterName]: true,
+        }
+      }
+    case 'HIDE_INPUT_FILTER':
+      return {
+        ...state,
+        isShowing: {
+          ...state.isShowing, [action.filterName]: false,
+        }
       }
     default:
       return state
