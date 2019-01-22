@@ -39,7 +39,7 @@ const forcasts = (state = initialState, action) => {
         ...state, 
         filteredForcasts: filterForcasts(),
       }
-    case 'UPDATE_CURRENT_VALUE':
+    case 'UPDATE_CURRENT_FILTER':
       return {
         ...state, 
         appliedValues: {
@@ -49,7 +49,7 @@ const forcasts = (state = initialState, action) => {
           ...state.currentValues, [action.filterName]: action.value,
         },
       }
-    case 'APPLY_CURRENT_VALUE':
+    case 'APPLY_CURRENT_FILTER':
       const currentValue = state.currentValues[action.filterName];
 
       return {
@@ -59,8 +59,8 @@ const forcasts = (state = initialState, action) => {
         },
         filteredForcasts: filterForcasts(action.filterName, currentValue),
       }
-    case 'RESET_APPLIED_VALUE':
-      const resetValue = state.resetValue[action.filterName];
+    case 'REMOVE_CURRENT_FILTER':
+      const resetValue = state.resetValues[action.filterName];
 
       return {
         ...state,

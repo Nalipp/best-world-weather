@@ -1,19 +1,32 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { updateCurrentValue } from '../actions';
+import { updateCurrentValue, applyCurrentFilter, removeCurrentFilter } from '../actions';
+import './FilterInput.css';
 
 class FilterInput extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      isShowing: false,
       value: this.props.initialVal, // move to component did mount
     }
     this.startIncrease = this.startIncrease.bind(this); // make arrow
     this.startDecrease = this.startDecrease.bind(this);
     this.stopIncrement = this.stopIncrement.bind(this);
+    this.hide = this.hide.bind(this);
+    this.show = this.show.bind(this);
+  }
+  hide() {
+    this.setState({ isShowing: false});
+    this.props.removeCurrentFilter(this.props.name);
+  }
+  show() {
+    this.setState({ isShowing: true});
+    this.props.applyCurrentFilter(this.props.name);
   }
   startIncrease() {
+    this.show();
     this.setState({value: this.state.value + 1}, () => {
       this.props.updateCurrentValue(this.props.name, this.state.value);
     });
@@ -24,6 +37,7 @@ class FilterInput extends Component {
     }, 200);
   }
   startDecrease() {
+    this.show();
     this.setState({value: this.state.value - 1}, () => {
       this.props.updateCurrentValue(this.props.name, this.state.value);
     });
@@ -38,7 +52,13 @@ class FilterInput extends Component {
   }
   render() {
     return (
-      <div>
+      <div className={'filter-input'} 
+           style={!this.state.isShowing ? {color: '#bbb'} : null}>
+        {this.state.isShowing 
+          ?
+          <button onClick={this.hide} type="button">X</button>
+          :
+          <button onClick={this.show} type="button">O</button>}
         <label>{this.props.name}
           <button 
             onMouseDown={this.startDecrease} 
@@ -70,6 +90,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     updateCurrentValue: (name, val) => dispatch(updateCurrentValue(name, val)),
+    applyCurrentFilter: filterName => dispatch(applyCurrentFilter(filterName)),
+    removeCurrentFilter: filterName => dispatch(removeCurrentFilter(filterName)),
   }
 }
 

@@ -25,7 +25,7 @@ export const updateCurrentValue = (filterName, value) => async dispatch => {
   // currentValues update
   // filter is applied in reducer
   dispatch({
-    type: 'UPDATE_CURRENT_VALUE',
+    type: 'UPDATE_CURRENT_FILTER',
     filterName,
     value,
   });
@@ -34,21 +34,27 @@ export const updateCurrentValue = (filterName, value) => async dispatch => {
   });
 }
 
-export const applyCurrentValue = filterName => async dispatch => {
+export const applyCurrentFilter = filterName => async dispatch => {
   // appliedValues is updated with currentValue for filterName
   // filter is applied in reducer
   dispatch({
-    type: 'APPLY_CURRENT_VALUE',
+    type: 'APPLY_CURRENT_FILTER',
     filterName,
+  });
+  dispatch({
+    type: 'FILTER_FORCASTS',
   });
 }
 
-export const resetAppliedValue = filterName => async dispatch => {
+export const removeCurrentFilter = filterName => async dispatch => {
   // appliedValues is updated with resetValue for filterName
   // currentValues is not touched
   // filter is applied in reducer
   dispatch({
-    type: 'RESET_APPLIED_VALUE',
+    type: 'REMOVE_CURRENT_FILTER',
     filterName,
+  });
+  dispatch({
+    type: 'FILTER_FORCASTS',
   });
 }
