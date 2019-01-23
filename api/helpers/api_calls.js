@@ -1,17 +1,18 @@
 var axios = require('axios');
 var db = require('../models');
-var allCities = require('./cities_list').allCities;
+var worldCities = require('./cities_list').worldCities;
 var DARKSKY_API_KEY = process.env.DARKSKY_API_KEY;
 
 function initializeCityData() {
   // db.forcasts.drop() before running so there are no duplicates
   var promises = [];
 
-  allCities.forEach(function(city) {
+  worldCities.forEach(function(city) {
     var curCityName = city[0];
-    var lng = city[1];
-    var lat = city[2];
-    var promise = axios.get(`https://api.darksky.net/forecast/${DARKSKY_API_KEY}/${lng},${lat}?exclude=minutely,hourly`, { cityName: curCityName})
+    var lat = city[1];
+    var lng = city[2];
+
+    var promise = axios.get(`https://api.darksky.net/forecast/${DARKSKY_API_KEY}/${lat},${lng}?exclude=minutely,hourly`, { cityName: curCityName})
     promises.push(promise);
   });
 
@@ -46,7 +47,7 @@ function initializeCityData() {
 function updateCityData() {
   var promises = [];
 
-  allCities.forEach(function(city) {
+  worldCities.forEach(function(city) {
     var curCityName = city[0]
     var lng = city[1];
     var lat = city[2];
