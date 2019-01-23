@@ -21,9 +21,6 @@ export const getForcasts = () => async dispatch =>  {
 };
 
 export const updateCurrentValue = (filterName, value) => async dispatch => {
-  // appliedValues update
-  // currentValues update
-  // filter is applied in reducer
   dispatch({
     type: 'UPDATE_CURRENT_FILTER',
     filterName,
@@ -35,8 +32,6 @@ export const updateCurrentValue = (filterName, value) => async dispatch => {
 }
 
 export const applyCurrentFilter = filterName => async dispatch => {
-  // appliedValues is updated with currentValue for filterName
-  // filter is applied in reducer
   dispatch({
     type: 'APPLY_CURRENT_FILTER',
     filterName,
@@ -47,9 +42,6 @@ export const applyCurrentFilter = filterName => async dispatch => {
 }
 
 export const removeCurrentFilter = filterName => async dispatch => {
-  // appliedValues is updated with resetValue for filterName
-  // currentValues is not touched
-  // filter is applied in reducer
   dispatch({
     type: 'REMOVE_CURRENT_FILTER',
     filterName,
@@ -79,5 +71,12 @@ export const hideInputFilter = filterName => async dispatch => {
   dispatch({
     type: 'HIDE_INPUT_FILTER',
     filterName,
+  });
+}
+
+export const sortFilteredForcasts = sortBy => async dispatch => {
+  dispatch({
+    type: 'SORT_FILTERED_FORCASTS',
+    sortBy,
   });
 }

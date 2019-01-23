@@ -96,8 +96,18 @@ const forcasts = (state = initialState, action) => {
           ...state.isShowing, [action.filterName]: false,
         }
       }
+    case 'SORT_FILTERED_FORCASTS':
+      return {
+        ...state,
+        filteredForcasts: getSort(action.sortBy, [...state.filteredForcasts]),
+      }
     default:
       return state
+  }
+  function getSort(sortBy, forcasts) {
+    return forcasts.sort(function(acc, forcast) {
+      return acc[sortBy] > forcast[sortBy] ? 1 : -1;
+    });
   }
   function filterForcasts() {
     const applied = state.appliedValues;

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import './ForcastTable.css';
+import { connect } from 'react-redux';
+import { sortFilteredForcasts } from '../actions';
 
 class ForcastTable extends Component {
   constructor(props) {
@@ -11,27 +12,12 @@ class ForcastTable extends Component {
     }
   }
   handleSort = (e) => {
-    const id = e.target.id;
-    let arrCopy = this.props.forcasts.slice();
-
-    if (this.state.sortedBy === id) {
-      this.setState({
-        sortedArr: this.state.sortedArr.reverse(),
-        sortedBy: null,
-      });
-    } else {
-      arrCopy.sort((a, cityObject) => {
-        return cityObject[id] < a[id] ? 1 : -1;
-      });
-      this.setState({
-        sortedArr: arrCopy,
-        sortedBy: id,
-      });
-    }
+    const sortBy = e.target.id;
+    this.props.sortFilteredForcasts(sortBy);
   }
 
   render() {
-    let forcasts = this.state.sortedArr || this.props.forcasts;
+    let forcasts = this.props.forcasts;
     return (
       <table className="forcast-table">
         <thead>
@@ -59,8 +45,16 @@ class ForcastTable extends Component {
   }
 }
 
-ForcastTable.propTypes = {
-  forcasts: PropTypes.array,
+const mapStateToProps = state => {
+  return {
+    forcasts: state.forcasts.filteredForcasts,
+  }
 }
 
-export default ForcastTable;
+const mapDispatchToProps = dispatch => {
+  return {
+    sortFilteredForcasts: (sortBy) => dispatch(sortFilteredForcasts(sortBy))
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ForcastTable);

@@ -10,20 +10,11 @@ class ForcastList extends Component {
   }
 
   render() {
-    let forcasts = this.props.filteredForcasts;
-
     return (
       <div className={'forcast-list'}>
-        <ForcastTable forcasts={forcasts} />
+        <ForcastTable />
       </div>
     );
-  }
-}
-
-const mapStateToProps = state => {
-  return {
-    filteredForcasts: state.forcasts.filteredForcasts,
-    forcastsAreFiltered: state.forcasts.forcastsAreFiltered,
   }
 }
 
@@ -33,4 +24,4 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(ForcastList);
+export default connect(null, mapDispatchToProps)(ForcastList);
