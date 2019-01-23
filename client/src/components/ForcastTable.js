@@ -1,19 +1,12 @@
 import React, { Component } from 'react';
 import './ForcastTable.css';
 import { connect } from 'react-redux';
-import { sortFilteredForcasts } from '../actions';
+import { setSortedBy } from '../actions';
 
 class ForcastTable extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      sortedArr: null,
-      sortedby: null,
-    }
-  }
   handleSort = (e) => {
     const sortBy = e.target.id;
-    this.props.sortFilteredForcasts(sortBy);
+    this.props.setSortedBy(sortBy);
   }
 
   render() {
@@ -48,12 +41,13 @@ class ForcastTable extends Component {
 const mapStateToProps = state => {
   return {
     forcasts: state.forcasts.filteredForcasts,
+    sortedBy: state.forcasts.sortedBy,
   }
 }
 
 const mapDispatchToProps = dispatch => {
   return {
-    sortFilteredForcasts: (sortBy) => dispatch(sortFilteredForcasts(sortBy))
+    setSortedBy: (sortBy) => dispatch(setSortedBy(sortBy)),
   }
 }
 

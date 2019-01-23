@@ -1,6 +1,8 @@
 const initialState = {
   allForcasts: [],
   filteredForcasts: [],
+  sortedBy: 'temperature',
+  reverseSort: false,
   appliedValues: { // filters actually applied to forcast list
     max_temperature: Infinity,
     min_temperature: -Infinity,
@@ -8,10 +10,10 @@ const initialState = {
     max_cloudCover: Infinity,
   },
   currentValues: { // filter values (may or may not be applied)
-    max_temperature: 80,
-    min_temperature: 45,
+    max_temperature: 72,
+    min_temperature: 65,
     max_windSpeed: 10,
-    max_cloudCover: 50
+    max_cloudCover: 10
   },
   resetValues: { // when applied show all forcasts
     max_temperature: Infinity,
@@ -63,7 +65,7 @@ const forcasts = (state = initialState, action) => {
         appliedValues: {
           ...state.appliedValues, [action.filterName]: currentValue, 
         },
-        filteredForcasts: filterForcasts(action.filterName, currentValue),
+        filteredForcasts: filterForcasts(),
       }
     case 'REMOVE_CURRENT_FILTER':
       const resetValue = state.resetValues[action.filterName];
@@ -73,7 +75,13 @@ const forcasts = (state = initialState, action) => {
         appliedValues: {
           ...state.appliedValues, [action.filterName]: resetValue, 
         },
-        filteredForcasts: filterForcasts(action.filterName, resetValue),
+        filteredForcasts: filterForcasts(),
+      }
+    case 'SET_SORTED_BY':
+      return {
+        ...state,
+        sortedBy: action.sortBy,
+        reverseSort: !state.reverseSort,
       }
     case 'RESET_FILTERS':
       return {
@@ -96,27 +104,25 @@ const forcasts = (state = initialState, action) => {
           ...state.isShowing, [action.filterName]: false,
         }
       }
-    case 'SORT_FILTERED_FORCASTS':
-      return {
-        ...state,
-        filteredForcasts: getSort(action.sortBy, [...state.filteredForcasts]),
-      }
     default:
       return state
   }
-  function getSort(sortBy, forcasts) {
-    return forcasts.sort(function(acc, forcast) {
-      return acc[sortBy] > forcast[sortBy] ? 1 : -1;
-    });
-  }
   function filterForcasts() {
     const applied = state.appliedValues;
-    return [...state.allForcasts].filter(forcast => {
+    const sortBy = state.sortedBy;
+
+    let filtered = [...state.allForcasts].filter(forcast => {
       return forcast.temperature > applied.min_temperature &&
              forcast.temperature < applied.max_temperature &&
              forcast.windSpeed < applied.max_windSpeed &&
              forcast.cloudCover < applied.max_cloudCover
-    })
+    });
+
+    let sorted = filtered.sort(function(acc, forcast) {
+      return acc[sortBy] < forcast[sortBy] ? 1 : -1;
+    });
+
+    return state.reverseSort ? sorted.reverse() : sorted;
   }
 
 }

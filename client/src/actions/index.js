@@ -8,9 +8,7 @@ export const getForcasts = () => async dispatch =>  {
           type: 'ALL_FORCASTS', 
           payload: res.data 
         })
-        dispatch({ 
-          type: 'FILTER_FORCASTS', 
-        })
+        dispatch(filterForcasts())
       } else {
         dispatch({ 
           type: 'ERROR_MESSAGE', 
@@ -20,15 +18,19 @@ export const getForcasts = () => async dispatch =>  {
     })
 };
 
+export const filterForcasts = () => async dispatch => {
+  dispatch({
+    type: 'FILTER_FORCASTS',
+  });
+}
+
 export const updateCurrentValue = (filterName, value) => async dispatch => {
   dispatch({
     type: 'UPDATE_CURRENT_FILTER',
     filterName,
     value,
   });
-  dispatch({
-    type: 'FILTER_FORCASTS',
-  });
+  dispatch(filterForcasts());
 }
 
 export const applyCurrentFilter = filterName => async dispatch => {
@@ -36,9 +38,7 @@ export const applyCurrentFilter = filterName => async dispatch => {
     type: 'APPLY_CURRENT_FILTER',
     filterName,
   });
-  dispatch({
-    type: 'FILTER_FORCASTS',
-  });
+  dispatch(filterForcasts());
 }
 
 export const removeCurrentFilter = filterName => async dispatch => {
@@ -46,18 +46,22 @@ export const removeCurrentFilter = filterName => async dispatch => {
     type: 'REMOVE_CURRENT_FILTER',
     filterName,
   });
+  dispatch(filterForcasts());
+}
+
+export const setSortedBy = sortBy => async dispatch => {
   dispatch({
-    type: 'FILTER_FORCASTS',
+    type: 'SET_SORTED_BY',
+    sortBy,
   });
+  dispatch(filterForcasts());
 }
 
 export const resetFilters = () => async dispatch => {
   dispatch({
     type: 'RESET_FILTERS',
   });
-  dispatch({
-    type: 'FILTER_FORCASTS',
-  });
+  dispatch(filterForcasts());
 }
 
 export const showInputFilter = filterName => async dispatch => {
@@ -74,9 +78,3 @@ export const hideInputFilter = filterName => async dispatch => {
   });
 }
 
-export const sortFilteredForcasts = sortBy => async dispatch => {
-  dispatch({
-    type: 'SORT_FILTERED_FORCASTS',
-    sortBy,
-  });
-}
