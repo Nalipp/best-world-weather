@@ -5,7 +5,8 @@ var bodyParser = require('body-parser');
 var path = require('path');
 var db = require('./models');
 var axios = require('axios');
-var initializeCityData = require('./helpers/api_calls').initializeCityData;    
+var getForcasts = require('./helpers/api_calls').getForcasts;
+var getForcast = require('./helpers/api_calls').getForcast;
 
 app.use(express.static(path.resolve(__dirname, '../client/build')));
 app.use(bodyParser.json());
@@ -21,11 +22,17 @@ app.get('/api/forcasts/', function(req, res){
   })
 })
 
-// daily limit exceeded
-// initializeCityData();
+app.post('/api/forcast/', function(req, res) {
+ getForcast(req.body.lng, req.body.lat, function(data) {
+   res.send(data);
+ });
+})
+
+// getForcasts('initialize') // 'only run after db.forcasts.drop()'
+// getForcasts('update');
 
 // setInterval(function() {
-//   updateCityData(); // update cities in the database every 4 hours
+//   getForcasts('update'); // update cities in the database every 4 hours
 // }, 14400000);
 
 app.listen(port, function(){

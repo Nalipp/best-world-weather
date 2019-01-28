@@ -15,9 +15,7 @@ class ForcastFilter extends Component {
         <FilterInput name="min_temperature" />
         <FilterInput name="max_windSpeed" />
         <FilterInput name="max_cloudCover" />
-        <button 
-          type="button"
-          onClick={this.handleReset}>reset</button>
+        <button type="button" onClick={this.handleReset}>reset</button>
       </form>
     )
   }

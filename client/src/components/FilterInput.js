@@ -14,46 +14,66 @@ class FilterInput extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: this.props.currentValue, // move to component did mount
+      value: '',
+      incrementId: null,
+      currentCount: 0,
     }
-    this.startIncrease = this.startIncrease.bind(this); // make arrow
-    this.startDecrease = this.startDecrease.bind(this);
-    this.stopIncrement = this.stopIncrement.bind(this);
-    this.hide = this.hide.bind(this);
-    this.show = this.show.bind(this);
   }
-  hide() {
+  componentDidMount() {
+    this.setState({ value: this.props.currentValue });
+  }
+  hide = () => {
     this.props.hideInputFilter(this.props.name);
     this.props.removeCurrentFilter(this.props.name);
   }
-  show() {
+  show = () => {
     this.props.showInputFilter(this.props.name);
     this.props.applyCurrentFilter(this.props.name);
   }
-  startIncrease() {
+  startIncrease = () => {
     this.show();
-    this.setState({value: this.state.value + 1}, () => {
+    this.setState({ value: this.state.value + 1}, () => {
       this.props.updateCurrentValue(this.props.name, this.state.value);
     });
-    this.incrementId = setInterval(() => {
-      this.setState({value: this.state.value + 1}, () => {
+    this.setState({ incrementId: setInterval(() => {
+      this.setState({ value: this.state.value + 1, currentCount: this.state.currentCount + 1}, () => {
         this.props.updateCurrentValue(this.props.name, this.state.value);
+        if (this.state.currentCount > 2) {
+          this.stopIncrement();
+          this.setState({ currentCount: 0 }, () => {
+            this.setState({ incrementId: setInterval(() => {
+              this.setState({ value: this.state.value + 1 }, () => {
+                this.props.updateCurrentValue(this.props.name, this.state.value);
+              });
+            }, 80) });
+          });
+        }
       });
-    }, 200);
+    }, 160) });
   }
-  startDecrease() {
+  startDecrease = () => {
     this.show();
-    this.setState({value: this.state.value - 1}, () => {
+    this.setState({ value: this.state.value - 1}, () => {
       this.props.updateCurrentValue(this.props.name, this.state.value);
     });
-    this.incrementId = setInterval(() => {
-      this.setState({value: this.state.value - 1}, () => {
+    this.setState({ incrementId: setInterval(() => {
+      this.setState({value: this.state.value - 1, currentCount: this.state.currentCount + 1}, () => {
         this.props.updateCurrentValue(this.props.name, this.state.value);
+        if (this.state.currentCount > 2) {
+          this.stopIncrement();
+          this.setState({ currentCount: 0 }, () => {
+            this.setState({ incrementId: setInterval(() => {
+              this.setState({ value: this.state.value - 1 }, () => {
+                this.props.updateCurrentValue(this.props.name, this.state.value);
+              });
+            }, 80) });
+          });
+        }
       });
-    }, 200);
+    }, 160) });
   }
-  stopIncrement() {
-    clearInterval(this.incrementId);
+  stopIncrement = () => {
+    this.setState({ incrementId: clearInterval(this.state.incrementId) });
   }
   render() {
     return (

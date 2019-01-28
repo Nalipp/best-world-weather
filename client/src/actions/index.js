@@ -18,6 +18,23 @@ export const getForcasts = () => async dispatch =>  {
     })
 };
 
+export const getForcast = (lng, lat) => async dispatch => {
+  axios.post('/api/forcast/', { lng, lat, })
+    .then(res => {
+      if (res.status === 200) {
+        dispatch({
+          type: 'SINGLE_FORCAST',
+          payload: res.data
+        })
+      } else {
+        dispatch({
+          type: 'ERROR_MESSAGE', 
+          payload: 'error connecting to the database'
+        })
+      }
+    })
+}
+
 export const filterForcasts = () => async dispatch => {
   dispatch({
     type: 'FILTER_FORCASTS',
