@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { hideSingleForcast } from '../actions';
 
 class ForcastDetail extends Component {
   render() {
@@ -7,13 +8,18 @@ class ForcastDetail extends Component {
 
     return (
       <div>
-        {forcast && <ul>
-          <li>{forcast.cityName}</li>
-          <li>{forcast.summary}</li>
-          <li>{forcast.temperature}</li>
-          <li>{forcast.windSpeed}</li>
-          <li>{Math.floor(forcast.cloudCover)}</li>
-        </ul>}
+        {forcast && 
+          <div>
+            <span onClick={this.props.hideSingleForcast}>x</span>
+            <ul>
+              <li>{forcast.cityName}</li>
+              <li>{forcast.summary}</li>
+              <li>{forcast.temperature}</li>
+              <li>{forcast.windSpeed}</li>
+              <li>{Math.floor(forcast.cloudCover)}</li>
+            </ul>
+          </div>
+        }
       </div>
     )
   }
@@ -25,4 +31,10 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps, null)(ForcastDetail);
+const mapDispatchToProps = dispatch => {
+  return {
+    hideSingleForcast: () => dispatch(hideSingleForcast()),
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ForcastDetail);

@@ -1,6 +1,7 @@
 const initialState = {
   allForcasts: [],
   filteredForcasts: [],
+  showingSingleForcast: false,
   singleForcast: null,
   sortedBy: 'temperature',
   reverseSort: false,
@@ -109,6 +110,16 @@ const forcasts = (state = initialState, action) => {
       return {
         ...state,
         singleForcast: action.payload,
+      }
+    case 'HIDE_SINGLE_FORCAST':
+      return {
+        ...state,
+        showingSingleForcast: false,
+      }
+    case 'DISPLAY_SINGLE_FORCAST':
+      return {
+        ...state,
+        showingSingleForcast: true,
       }
     default:
       return state

@@ -13,10 +13,16 @@ class ForcastList extends Component {
   render() {
     return (
       <div className={'forcast-list'}>
-        <ForcastDetail />
+        {this.props.showingSingleForcast && <ForcastDetail />}
         <ForcastTable />
       </div>
     );
+  }
+}
+
+const mapStateToProps = state => {
+  return {
+    showingSingleForcast: state.forcasts.showingSingleForcast,
   }
 }
 
@@ -26,4 +32,4 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-export default connect(null, mapDispatchToProps)(ForcastList);
+export default connect(mapStateToProps, mapDispatchToProps)(ForcastList);

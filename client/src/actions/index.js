@@ -28,6 +28,9 @@ export const getForcast = (cityName, lat, lng) => async dispatch => {
           type: 'SINGLE_FORCAST',
           payload: data
         })
+        dispatch({
+          type: 'DISPLAY_SINGLE_FORCAST',
+        })
       } else {
         dispatch({
           type: 'ERROR_MESSAGE', 
@@ -35,6 +38,12 @@ export const getForcast = (cityName, lat, lng) => async dispatch => {
         })
       }
     })
+}
+
+export const hideSingleForcast = () => async dispatch => {
+  dispatch({
+    type: 'HIDE_SINGLE_FORCAST',
+  });
 }
 
 export const filterForcasts = () => async dispatch => {
