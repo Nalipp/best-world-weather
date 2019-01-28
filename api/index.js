@@ -23,7 +23,7 @@ app.get('/api/forcasts/', function(req, res){
 })
 
 app.post('/api/forcast/', function(req, res) {
- getForcast(req.body.lng, req.body.lat, function(data) {
+ getForcast(req.body.lat, req.body.lng, function(data) {
    res.send(data);
  });
 })

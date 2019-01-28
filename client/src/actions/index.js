@@ -18,13 +18,15 @@ export const getForcasts = () => async dispatch =>  {
     })
 };
 
-export const getForcast = (lng, lat) => async dispatch => {
-  axios.post('/api/forcast/', { lng, lat, })
+export const getForcast = (cityName, lat, lng) => async dispatch => {
+  axios.post('/api/forcast/', { lat, lng, })
     .then(res => {
       if (res.status === 200) {
+        const data = res.data
+        data.cityName = cityName;
         dispatch({
           type: 'SINGLE_FORCAST',
-          payload: res.data
+          payload: data
         })
       } else {
         dispatch({

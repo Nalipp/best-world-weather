@@ -8,6 +8,7 @@ class ForcastDetail extends Component {
     return (
       <div>
         {forcast && <ul>
+          <li>{forcast.cityName}</li>
           <li>{forcast.summary}</li>
           <li>{forcast.temperature}</li>
           <li>{forcast.windSpeed}</li>
@@ -19,7 +20,6 @@ class ForcastDetail extends Component {
 }
 
 const mapStateToProps = state => {
-  console.log('state....', state);
   return {
     singleForcast: state.forcasts.singleForcast,
   }

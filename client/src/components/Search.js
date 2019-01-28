@@ -1,17 +1,39 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getForcast } from '../actions';
-import ForcastDetail from './ForcastDetail';
+import { getGeoCode } from '../helpers/geoCoding';
 
 class Search extends Component {
-  handleGetForcast = (lng, lat) => {
-     this.props.getForcast(34.0194, -118.4108);
+  constructor(props) {
+    super(props)
+    this.state = {
+      value: '',
+    }
+  }
+  handleGetForcast = (e) => {
+    e.preventDefault();
+    const cityName = this.state.value;
+
+    getGeoCode(cityName, (lat, lng) => {
+      this.props.getForcast(cityName, lat, lng);
+    });
+
+    this.setState({ value: '' });
+  }
+  handleChange = (e) => {
+    this.setState({value: e.target.value})
   }
   render() {
     return (
       <div>
-        <h1 onClick={this.handleGetForcast}>search</h1>
-        <ForcastDetail />
+        <form onSubmit={this.handleGetForcast}>
+          <input 
+            id="city"
+            placeholder="City Search"
+            onChange={this.handleChange}
+            value={this.state.value}
+          />
+        </form>
       </div>
     )
   }
@@ -19,7 +41,7 @@ class Search extends Component {
 
 const mapDispatchToProps = dispatch => {
   return {
-    getForcast: (lng, lat) => dispatch(getForcast(lng, lat)),
+    getForcast: (cityName, lat, lng) => dispatch(getForcast(cityName, lat, lng)),
   }
 }
 
