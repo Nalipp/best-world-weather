@@ -36,7 +36,9 @@ class FilterInput extends Component {
       this.props.updateCurrentValue(this.props.name, this.state.value);
     });
     this.setState({ incrementId: setInterval(() => {
-      this.setState({ value: this.state.value + 1, currentCount: this.state.currentCount + 1}, () => {
+      this.setState({ 
+        value: this.state.value + 1,
+        currentCount: this.state.currentCount + 1}, () => {
         this.props.updateCurrentValue(this.props.name, this.state.value);
         if (this.state.currentCount > 2) {
           this.stopIncrement();
@@ -57,7 +59,9 @@ class FilterInput extends Component {
       this.props.updateCurrentValue(this.props.name, this.state.value);
     });
     this.setState({ incrementId: setInterval(() => {
-      this.setState({value: this.state.value - 1, currentCount: this.state.currentCount + 1}, () => {
+      this.setState({
+        value: this.state.value - 1,
+        currentCount: this.state.currentCount + 1}, () => {
         this.props.updateCurrentValue(this.props.name, this.state.value);
         if (this.state.currentCount > 2) {
           this.stopIncrement();
@@ -77,31 +81,38 @@ class FilterInput extends Component {
   }
   render() {
     return (
-      <div className={'filter-input'} 
-           style={!this.props.isShowing ? {color: '#bbb'} : null}>
-        {this.props.isShowing 
-          ?
-          <button onClick={this.hide} type="button">X</button>
-          :
-          <button onClick={this.show} type="button">O</button>}
-        <label>{this.props.name}
+      <div 
+        className={'filter-input'} 
+        style={!this.props.isShowing ? {color: '#bbb'} : null}>
+        <label 
+          onClick={this.props.isShowing ? this.hide : this.show}>
+          {this.props.label}
+        </label>
+        <div>
           <button 
+            style={!this.props.isShowing ? {color: '#bbb'} : null}
             onMouseDown={this.startDecrease} 
             onMouseUp={this.stopIncrement} 
+            onTouchStart={this.startDecrease}
+            onTouchEnd={this.stopIncrement}
             type="button">-</button>
           <input type="hidden" value={this.state.value}/>
           <span>{this.props.currentValue}</span>
           <button 
+            style={!this.props.isShowing ? {color: '#bbb'} : null}
             onMouseDown={this.startIncrease} 
             onMouseUp={this.stopIncrement} 
+            onTouchStart={this.startIncrease}
+            onTouchEnd={this.stopIncrement}
             type="button">+</button>
-        </label>
+        </div>
       </div>
     )
   }
 }
 
 FilterInput.propTypes = {
+  label: PropTypes.string,
   name: PropTypes.string,
 }
 

@@ -1,0 +1,14 @@
+.heading {
+  margin-bottom: 1.5em;
+}
+
+.heading > h1 {
+  font-size: 2em;
+  padding: 0.2em 0 0 0.2em;
+}
+
+.heading > p {
+  font-size: 0.8em;
+  padding: 0 0 0.5em 1em;
+  border-bottom: 2px solid #ddd;
+}

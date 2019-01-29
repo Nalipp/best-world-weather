@@ -13,7 +13,7 @@ class ForcastList extends Component {
   render() {
     return (
       <div className={'forcast-list'}>
-        {this.props.showingSingleForcast && <ForcastDetail />}
+        {this.props.forcastDisplay && <ForcastDetail />}
         <ForcastTable />
       </div>
     );
@@ -22,7 +22,7 @@ class ForcastList extends Component {
 
 const mapStateToProps = state => {
   return {
-    showingSingleForcast: state.forcasts.showingSingleForcast,
+    forcastDisplay: state.forcasts.forcastDisplay,
   }
 }
 

@@ -1,2 +1,27 @@
 .forcast-filter {
+  width: 14em;
+  margin: 0 auto;
+  border: 1px solid #ddd;
+  padding: .4em;
+}
+
+.forcast-filter > div {
+  display: flex;
+  justify-content: space-between;
+}
+
+.forcast-filter > div > p {
+  font-size: .6em;
+}
+
+form div:first-child {
+  border-bottom: 1px solid #ddd;
+  padding: 0 0 0.5em 0;
+  margin: 0 0 0.5em 0;
+}
+
+form div:first-child button {
+  border-radius: 0.5em;
+  border: 1px solid #ddd;
+  background: #fff;
 }

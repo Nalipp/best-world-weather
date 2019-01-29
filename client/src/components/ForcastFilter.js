@@ -11,11 +11,14 @@ class ForcastFilter extends Component {
   render() {
     return (
       <form className={'forcast-filter'}>
-        <FilterInput name="max_temperature" />
-        <FilterInput name="min_temperature" />
-        <FilterInput name="max_windSpeed" />
-        <FilterInput name="max_cloudCover" />
-        <button type="button" onClick={this.handleReset}>reset</button>
+        <div>
+          <p>Filters</p>
+          <button type="button" onClick={this.handleReset}>reset</button>
+        </div>
+        <FilterInput label="Max Temp" name="max_temperature" />
+        <FilterInput label="Min Temp" name="min_temperature" />
+        <FilterInput label="Max Wind" name="max_windSpeed" />
+        <FilterInput label="Max Clouds" name="max_cloudCover" />
       </form>
     )
   }
