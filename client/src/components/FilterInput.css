@@ -1,23 +1,28 @@
-.filter-input {
-  display: flex;
-}
-.filter-input > label {
-  font-size: 0.8em;
-  padding: 0.15em 0;
-  flex-grow: 2;
-}
-.filter-input div {
-  display: flex;
+/* .filter-input { */
+/*   display: flex; */
+/* } */
+/* .filter-input label { */
+/*   font-size: 0.8em; */
+/*   padding: 0.15em 0; */
+/*   flex-grow: 2; */
+/* } */
+/* .filter-input div { */
+/*   display: flex; */
+/* } */
+
+/* .filter-input div button { */
+/*   flex-grow: 1; */
+/* } */
+/* .filter-input div input { */
+/*   flex-grow: 1; */
+/* } */
+/* .filter-input div span { */
+/*   flex-grow: 1; */
+/* } */
+
+.showing {
+  color: #bbb;
 }
 
-.filter-input div button {
-  flex-grow: 1;
+.hidden {
 }
-.filter-input div input {
-  flex-grow: 1;
-}
-.filter-input div span {
-  flex-grow: 1;
-}
-
-

@@ -1,27 +1,22 @@
 .forcast-filter {
-  width: 14em;
+  width: 90%;
   margin: 0 auto;
   border: 1px solid #ddd;
-  padding: .4em;
+  border-radius: 0.3em;
 }
 
-.forcast-filter > div {
+.forcast-filter_heading {
   display: flex;
   justify-content: space-between;
+  border-bottom: 1px solid #ddd; 
 }
 
-.forcast-filter > div > p {
-  font-size: .6em;
+.forcast-filter_heading p {
+  font-size: 0.8em;
+  padding: 0.4em;
+  flex-grow: 2;
 }
 
-form div:first-child {
-  border-bottom: 1px solid #ddd;
-  padding: 0 0 0.5em 0;
-  margin: 0 0 0.5em 0;
+.forcast-filter_heading :last-child {
 }
 
-form div:first-child button {
-  border-radius: 0.5em;
-  border: 1px solid #ddd;
-  background: #fff;
-}

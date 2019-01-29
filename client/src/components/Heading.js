@@ -3,9 +3,9 @@ import './Heading.css';
 
 const Heading = () => {
   return (
-    <div className={"heading"}>
+    <div className={'heading'}>
       <h1>Best City Weather</h1>
-      <p>Filter and sort the best weather in the world</p>
+      <p>Filter and sort the worlds best weather</p>
     </div>
   )
 }

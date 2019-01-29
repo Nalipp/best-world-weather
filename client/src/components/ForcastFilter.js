@@ -11,16 +11,28 @@ class ForcastFilter extends Component {
   render() {
     return (
       <form className={'forcast-filter'}>
-        <div>
+        <div className={'forcast-filter_heading'}>
           <p>Filters</p>
-          <button type="button" onClick={this.handleReset}>reset</button>
+          {this.props.showResetButton &&
+            <button type="button" onClick={this.handleReset}>reset</button>}
+          <button type="button">X</button>
         </div>
-        <FilterInput label="Max Temp" name="max_temperature" />
-        <FilterInput label="Min Temp" name="min_temperature" />
-        <FilterInput label="Max Wind" name="max_windSpeed" />
-        <FilterInput label="Max Clouds" name="max_cloudCover" />
+        <div>
+          <FilterInput label="Max Temp" name="max_temperature" />
+          <FilterInput label="Min Temp" name="min_temperature" />
+          <FilterInput label="Max Wind" name="max_windSpeed" />
+          <FilterInput label="Max Clouds" name="max_cloudCover" />
+        </div>
       </form>
     )
+  }
+}
+
+const mapStateToProps = state => {
+  let filters = state.forcasts.isShowing;
+  let filterKeys = Object.keys(filters);
+  return {
+    showResetButton: filterKeys.some(key => filters[key] === true),
   }
 }
 
@@ -30,4 +42,4 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-export default connect(null, mapDispatchToProps)(ForcastFilter);
+export default connect(mapStateToProps, mapDispatchToProps)(ForcastFilter);
