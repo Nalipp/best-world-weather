@@ -80,17 +80,16 @@ class FilterInput extends Component {
     this.setState({ incrementId: clearInterval(this.state.incrementId) });
   }
   render() {
+    const showingClass = this.props.isShowing ? null : 'showing';
     return (
-      <div 
-        className={'filter-input'} 
-        style={!this.props.isShowing ? {color: '#bbb'} : null}>
+      <div className={`filter-input ${showingClass}`}>
         <label 
           onClick={this.props.isShowing ? this.hide : this.show}>
           {this.props.label}
         </label>
         <div>
           <button 
-            style={!this.props.isShowing ? {color: '#bbb'} : null}
+            className={showingClass}
             onMouseDown={this.startDecrease} 
             onMouseUp={this.stopIncrement} 
             onTouchStart={this.startDecrease}
@@ -99,7 +98,7 @@ class FilterInput extends Component {
           <input type="hidden" value={this.state.value}/>
           <span>{this.props.currentValue}</span>
           <button 
-            style={!this.props.isShowing ? {color: '#bbb'} : null}
+            className={showingClass}
             onMouseDown={this.startIncrease} 
             onMouseUp={this.stopIncrement} 
             onTouchStart={this.startIncrease}

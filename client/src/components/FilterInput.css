@@ -1,28 +1,36 @@
-/* .filter-input { */
-/*   display: flex; */
-/* } */
-/* .filter-input label { */
-/*   font-size: 0.8em; */
-/*   padding: 0.15em 0; */
-/*   flex-grow: 2; */
-/* } */
-/* .filter-input div { */
-/*   display: flex; */
-/* } */
+.filter-input {
+  height: 1em;
+  padding: 0.5em;
+  display: flex;
+}
 
-/* .filter-input div button { */
-/*   flex-grow: 1; */
-/* } */
-/* .filter-input div input { */
-/*   flex-grow: 1; */
-/* } */
-/* .filter-input div span { */
-/*   flex-grow: 1; */
-/* } */
+.filter-input > label:first-child {
+  flex-basis: 60%;
+  cursor: pointer;
+}
+
+.filter-input div {
+  flex-basis: 40%;
+  display: flex;
+  text-align: center;
+}
+
+.filter-input div button {
+  flex-grow: 1;
+  border: 2px solid #eee;
+  background: none;
+  border-radius: 10em;
+  height: 20px;
+  width: 1px;
+  outline: none;
+  cursor: pointer;
+}
+
+.filter-input div span {
+  flex-grow: 2;
+}
 
 .showing {
   color: #bbb;
 }
 
-.hidden {
-}
