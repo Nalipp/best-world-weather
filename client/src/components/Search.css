@@ -1,0 +1,21 @@
+.search {
+  height: 4em;
+  display: flex;
+}
+
+.search form {
+  align-self: center;
+  margin: auto;
+  width: 80%;
+}
+
+.search input {
+  width: 90%;
+  border: 2px solid #eee;
+  border-radius: 2em;
+  font-size: 0.8em;
+  height: 2em;
+  padding-left: 1em;
+  letter-spacing: 1.2px;
+  outline: none;
+}

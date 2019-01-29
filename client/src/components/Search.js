@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getForcast } from '../actions';
 import { getGeoCode } from '../helpers/geoCoding';
+import './Search.css';
 
 class Search extends Component {
   constructor(props) {
@@ -25,7 +26,7 @@ class Search extends Component {
   }
   render() {
     return (
-      <div>
+      <div className={'search'}>
         <form onSubmit={this.handleGetForcast}>
           <input 
             id="city"

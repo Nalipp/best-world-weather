@@ -12,6 +12,7 @@ class App extends Component {
         <Heading />
         <ForcastFilter />
         <Search />
+        <ForcastList />
       </div>
     )
   }

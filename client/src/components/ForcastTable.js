@@ -18,8 +18,8 @@ class ForcastTable extends Component {
             <th id="cityName">city</th>
             <th id="summary">summray</th>
             <th id="temperature">temperature</th>
-            <th id="windSpeed">wind speed</th>
-            <th id="cloudCover">cloud cover</th>
+            {/* <th id="windSpeed">wind speed</th> */}
+            {/* <th id="cloudCover">cloud cover</th> */}
           </tr>
         </thead>
         {forcasts.map(forcast => (
@@ -28,8 +28,8 @@ class ForcastTable extends Component {
               <td>{forcast.cityName}</td>
               <td>{forcast.summary}</td>
               <td>{forcast.temperature}</td>
-              <td>{forcast.windSpeed}</td>
-              <td>{Math.floor(forcast.cloudCover)}</td>
+              {/* <td>{forcast.windSpeed}</td> */}
+              {/* <td>{Math.floor(forcast.cloudCover)}</td> */}
             </tr>
           </tbody>
         ))}
