@@ -4,6 +4,7 @@ const initialState = {
   forcastDisplay: false,
   singleForcast: null,
   sortedBy: 'temperature',
+  displayFilters: false,
   reverseSort: false,
   appliedValues: { // filters actually applied to forcast list
     max_temperature: Infinity,
@@ -120,6 +121,16 @@ const forcasts = (state = initialState, action) => {
       return {
         ...state,
         forcastDisplay: true,
+      }
+    case 'SHOW_FILTERS':
+      return {
+        ...state,
+        displayFilters: true,
+      }
+    case 'HIDE_FILTERS':
+      return {
+        ...state,
+        displayFilters: false,
       }
     default:
       return state
