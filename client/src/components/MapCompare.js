@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import Map from './Map';
+import MapControl from './MapControl';
 import './MapCompare.css';
 
 class MapCompare extends Component {
@@ -6,8 +8,9 @@ class MapCompare extends Component {
     return (
       <div className={'map-compare'}>
         <div>
-          <div>map1</div>
-          <div>map2</div>
+          <Map />
+          <MapControl />
+          <Map />
         </div>
       </div>
     )
