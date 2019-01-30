@@ -1,6 +1,5 @@
 .search {
-  height: 4em;
-  display: flex;
+  margin: 1em;
 }
 
 .search form {

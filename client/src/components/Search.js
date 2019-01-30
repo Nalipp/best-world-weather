@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getForcast } from '../actions';
 import { getGeoCode } from '../helpers/geoCoding';
+import ForcastDetail from './ForcastDetail';
 import './Search.css';
 
 class Search extends Component {
@@ -35,8 +36,15 @@ class Search extends Component {
             value={this.state.value}
           />
         </form>
+        {this.props.forcastDisplay && <ForcastDetail />}
       </div>
     )
+  }
+}
+
+const mapStateToProps = state => {
+  return {
+    forcastDisplay: state.forcasts.forcastDisplay,
   }
 }
 
@@ -46,5 +54,5 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-export default connect(null, mapDispatchToProps)(Search);
+export default connect(mapStateToProps, mapDispatchToProps)(Search);
 
