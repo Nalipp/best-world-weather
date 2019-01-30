@@ -8,6 +8,9 @@ class ForcastTable extends Component {
     const sortBy = e.target.id;
     this.props.setSortedBy(sortBy);
   }
+  setMaxChar(str, num) {
+    return str.length > num ? str.slice(0, num) + '..' : str;
+  }
 
   render() {
     let forcasts = this.props.forcasts;
@@ -17,16 +20,17 @@ class ForcastTable extends Component {
           <tr onClick={this.handleSort}>
             <th id="cityName">city</th>
             <th id="summary">summray</th>
-            <th id="temperature">temperature</th>
-            <th id="windSpeed">wind speed</th>
-            <th id="cloudCover">cloud cover</th>
+            <th id="temperature">temp</th>
+            <th id="windSpeed">wind</th>
+            <th id="cloudCover">% cloud</th>
           </tr>
         </thead>
         {forcasts.map(forcast => (
           <tbody key={forcast.cityName}>
+            <tr className={'spacing'}></tr>
             <tr>
-              <td>{forcast.cityName}</td>
-              <td>{forcast.summary}</td>
+              <td>{this.setMaxChar(forcast.cityName, 9)}</td>
+              <td>{this.setMaxChar(forcast.summary, 5)}</td>
               <td>{forcast.temperature}</td>
               <td>{forcast.windSpeed}</td>
               <td>{Math.floor(forcast.cloudCover)}</td>

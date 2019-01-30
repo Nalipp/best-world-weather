@@ -1,6 +1,26 @@
 .forcast-table {
+  border-collapse: collapse; 
 }
 
-.forcast-table > thead {
+.forcast-table th {
   cursor: pointer;
+  text-align: start;
+  font-weigth: normal;
+  width: 25%;
 }
+
+.forcast-table > tbody {
+}
+
+.forcast-table td {
+  padding: 0.5em;
+}
+
+.forcast-table tbody > tr {
+  border: 2px dashed #ddd;
+}
+
+.spacing {
+  height: 1em;
+}
+
