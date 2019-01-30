@@ -1,11 +1,31 @@
 .map-control {
-  height: 3.5em;
+  height: 6em;
   display: flex;
+  margin: auto;
 }
 
 .map-control button {
-  flex-grow: 1;
   border: 1px solid #ddd;
   background: none;
+}
+
+.map-control span {
+  align-self: center;
+  width: 4em;
+  margin: auto 0.6em;
+}
+
+@media (min-width: 750px) {
+  .map-control {
+    flex-direction: column;
+    height: 10em;
+    flex-grow: 1;
+  }
+  .map-control > button {
+    flex-grow: 2;
+  }
+  .map-control > span {
+    flex-grow: 1;
+  }
 }
 

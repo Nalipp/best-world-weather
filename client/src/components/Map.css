@@ -2,3 +2,9 @@
   height: 11.5em;
   background: #ddd;
 }
+
+@media (min-width: 750px) {
+  .map {
+    flex-grow: 3;
+  }
+}
