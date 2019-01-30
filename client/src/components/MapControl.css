@@ -1,3 +1,11 @@
 .map-control {
-  height: 4em;
+  height: 3.5em;
+  display: flex;
 }
+
+.map-control button {
+  flex-grow: 1;
+  border: 1px solid #ddd;
+  background: none;
+}
+

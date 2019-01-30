@@ -5,7 +5,8 @@ class MapControl extends Component {
   render() {
     return (
       <div className={'map-control'}>
-        MapControl
+        <button type="button">+</button>
+        <button type="button">-</button>
       </div>
     )
   }
