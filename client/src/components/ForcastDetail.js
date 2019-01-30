@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { hideSingleForcast } from '../actions';
+import './ForcastDetail.css';
 
 class ForcastDetail extends Component {
   render() {
@@ -8,16 +9,30 @@ class ForcastDetail extends Component {
 
     return (
       <div>
-        {forcast && 
-          <div>
-            <span onClick={this.props.hideSingleForcast}>x</span>
+        {forcast && <div className={'forcast-detail'}>
             <ul>
-              <li>{forcast.cityName}</li>
-              <li>{forcast.summary}</li>
-              <li>{forcast.temperature}</li>
-              <li>{forcast.windSpeed}</li>
-              <li>{Math.floor(forcast.cloudCover)}</li>
+              <li>
+                <span>city</span>
+                <span>{forcast.cityName}</span>
+              </li>
+              <li>
+                <span>summary</span>
+                <span>{forcast.summary}</span>
+              </li>
+              <li>
+                <span>temp</span>
+                <span>{Math.floor(forcast.temperature)}</span>
+              </li>
+              <li>
+                <span>wind</span>
+                <span>{Math.floor(forcast.windSpeed)}</span>
+              </li>
+              <li>
+                <span>% cloud</span>
+                <span>{Math.floor(forcast.cloudCover)}</span>
+              </li>
             </ul>
+            <span onClick={this.props.hideSingleForcast}>x</span>
           </div>
         }
       </div>

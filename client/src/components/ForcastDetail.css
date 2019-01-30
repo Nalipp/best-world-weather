@@ -1,0 +1,38 @@
+.forcast-detail {
+  display: flex;
+  margin-top: 1em;
+  font-size: 0.8em;
+}
+
+.forcast-detail ul {
+  flex-grow: 10;
+  display: flex;
+  padding: 0.5em;
+  border-top: 1px dashed #ddd;
+  border-bottom: 1px dashed #ddd;
+  border-left: 1px dashed #ddd;
+}
+
+.forcast-detail li {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.forcast-detail li :first-child {
+  font-size: 0.4em;
+  text-align: center;
+  padding: 0 0 4px 0;
+}
+
+.forcast-detail li :last-child {
+  font-size: 1em;
+  text-align: center;
+}
+
+.forcast-detail > span {
+  flex-grow: 1;
+  font-size: 1.2em;
+  padding: 0.7em 0.5em 0 0.8em;
+  background: #eee;
+}
