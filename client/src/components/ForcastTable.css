@@ -9,7 +9,12 @@
   width: 25%;
 }
 
-.forcast-table > tbody {
+.forcast-table > tbody ul {
+  display: flex;
+}
+
+.forcast-table > tbody li {
+  height: 15px;
 }
 
 .forcast-table td {
@@ -23,4 +28,6 @@
 .spacing {
   height: 1em;
 }
+
+
 

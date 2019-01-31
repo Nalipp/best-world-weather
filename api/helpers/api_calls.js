@@ -117,22 +117,24 @@ function getSunlightAverage(forcasts) {
 
 function getIconPoints(forcasts) {
   var points = {
-    'clear-day': 6,
-    'clear-night': 6,
-    'partly-cloudy-day': 5,
-    'partly-cloudy-night': 5,
-    'cloudy': 4,
-    'wind': 4,
-    'fog': 3,
-    'rain': 2,
-    'snow': 1,
-    'sleet': 0,
+    'clear-day': 3,
+    'clear-night': 3,
+    'partly-cloudy-day': 2,
+    'partly-cloudy-night': 2,
+    'cloudy': 0,
+    'wind': 0,
+    'fog': -1,
+    'rain': -2,
+    'snow': -3,
+    'sleet': -4,
   }
 
   var total = 0;
 
-  forcasts.forEach(forcast => {
-    total += points[forcast.icon];
+  forcasts.forEach((forcast, idx) => {
+    if (idx < 5) {
+      total += points[forcast.icon] ? points[forcast.icon] : 0;
+    }
   });
 
   return total;

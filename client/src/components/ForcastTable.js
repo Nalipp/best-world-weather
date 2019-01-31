@@ -2,6 +2,17 @@ import React, { Component } from 'react';
 import './ForcastTable.css';
 import { connect } from 'react-redux';
 import { setSortedBy } from '../actions';
+import WeatherIcon from './WeatherIcon';
+
+const WeatherIconListItem = (allIcons) => {
+  return allIcons.map((icon, idx) => {
+    if (idx < 5) {
+      return <li key={idx}><WeatherIcon icon={icon} /></li>
+    } else {
+      return null;
+    }
+  })
+}
 
 class ForcastTable extends Component {
   handleSort = (e) => {
@@ -19,9 +30,9 @@ class ForcastTable extends Component {
         <thead>
           <tr onClick={this.handleSort}>
             <th id="cityName">city</th>
-            <th id="icon">icon</th>
+            <th id="iconPoints">icon</th>
             <th id="averageMaxTemp">avg max</th>
-            <th id="iconPoints">icon points</th>
+            <th id="averageMinTemp">avg min</th>
             <th id="sunlightHours">daylight</th>
           </tr>
         </thead>
@@ -30,9 +41,13 @@ class ForcastTable extends Component {
             <tr className={'spacing'}></tr>
             <tr>
               <td>{this.setMaxChar(forcast.cityName, 9)}</td>
-              <td>{this.setMaxChar(forcast.icon, 8)}</td>
+              <td>
+                <ul>
+                  {WeatherIconListItem(forcast.allIcons)}
+                </ul>
+              </td>
               <td>{forcast.averageMaxTemp}</td>
-              <td>{forcast.iconPoints}</td>
+              <td>{forcast.averageMinTemp}</td>
               <td>{forcast.sunlightHours}</td>
             </tr>
           </tbody>
