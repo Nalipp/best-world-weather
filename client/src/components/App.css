@@ -1,6 +1,11 @@
 .app {
   display: flex;
   flex-direction: column;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
 }
 
 @media (min-width: 750px) {
@@ -10,6 +15,7 @@
 
   .list {
     flex-grow: 3;
+    overflow: scroll;
   }
 
   .detail {
