@@ -17,7 +17,12 @@ function getForcast(lat, lng, cb) {
           windSpeed: city.data.currently.windSpeed,
           cloudCover: city.data.currently.cloudCover,
           uvIndex: city.data.currently.uvIndex,
-          visibility: city.data.currently.visibility
+          visibility: city.data.currently.visibility,
+          averageMaxTemp: getTempAverage(city.data.daily.data, 'max'),
+          averageMinTemp: getTempAverage(city.data.daily.data, 'min'),
+          sunlightHours: getSunlightAverage(city.data.daily.data),
+          iconPoints: getIconPoints(city.data.daily.data),
+          allIcons: getAllIcons(city.data.daily.data),
         };
 
         cb(currentCity)
@@ -55,7 +60,11 @@ function getForcasts(type) {
           windSpeed: city.data.currently.windSpeed,
           cloudCover: city.data.currently.cloudCover,
           uvIndex: city.data.currently.uvIndex,
-          visibility: city.data.currently.visibility
+          averageMaxTemp: getTempAverage(city.data.daily.data, 'max'),
+          averageMinTemp: getTempAverage(city.data.daily.data, 'min'),
+          sunlightHours: getSunlightAverage(city.data.daily.data),
+          iconPoints: getIconPoints(city.data.daily.data),
+          allIcons: getAllIcons(city.data.daily.data),
         };
 
         if (type === 'update') {
@@ -83,6 +92,62 @@ function getForcasts(type) {
     });
   })
 }
+
+function getTempAverage(forcasts, type) {
+  var total = 0;
+
+  forcasts.forEach(forcast => {
+    total += type === 'max' ? forcast.temperatureMax : forcast.temperatureMin;
+  });
+
+  return Math.round(total / forcasts.length);
+}
+
+function getSunlightAverage(forcasts) {
+  var sunrise = forcasts[0].sunriseTime;
+  var sunset = forcasts[0].sunsetTime;
+  var totalSeconds = sunset - sunrise;
+
+  var minutes = totalSeconds / 60;
+  var hours = minutes / 60;
+
+  var sections = String(hours).split('.');
+  return Number(sections[0] + '.' + sections[1].slice(0, 2));
+}
+
+function getIconPoints(forcasts) {
+  var points = {
+    'clear-day': 6,
+    'clear-night': 6,
+    'partly-cloudy-day': 5,
+    'partly-cloudy-night': 5,
+    'cloudy': 4,
+    'wind': 4,
+    'fog': 3,
+    'rain': 2,
+    'snow': 1,
+    'sleet': 0,
+  }
+
+  var total = 0;
+
+  forcasts.forEach(forcast => {
+    total += points[forcast.icon];
+  });
+
+  return total;
+}
+
+function getAllIcons(forcasts) {
+  var allIcons = [];
+
+  forcasts.forEach(forcast => {
+    allIcons.push(forcast.icon)
+  });
+
+  return allIcons;
+}
+
 
 module.exports = {
   getForcasts: getForcasts,

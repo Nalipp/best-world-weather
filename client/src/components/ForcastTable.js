@@ -19,10 +19,10 @@ class ForcastTable extends Component {
         <thead>
           <tr onClick={this.handleSort}>
             <th id="cityName">city</th>
-            <th id="summary">summray</th>
-            <th id="temperature">temp</th>
-            <th id="windSpeed">wind</th>
-            <th id="cloudCover">% cloud</th>
+            <th id="icon">icon</th>
+            <th id="averageMaxTemp">avg max</th>
+            <th id="iconPoints">icon points</th>
+            <th id="sunlightHours">daylight</th>
           </tr>
         </thead>
         {forcasts.map(forcast => (
@@ -30,10 +30,10 @@ class ForcastTable extends Component {
             <tr className={'spacing'}></tr>
             <tr>
               <td>{this.setMaxChar(forcast.cityName, 9)}</td>
-              <td>{this.setMaxChar(forcast.summary, 5)}</td>
-              <td>{forcast.temperature}</td>
-              <td>{forcast.windSpeed}</td>
-              <td>{Math.floor(forcast.cloudCover)}</td>
+              <td>{this.setMaxChar(forcast.icon, 8)}</td>
+              <td>{forcast.averageMaxTemp}</td>
+              <td>{forcast.iconPoints}</td>
+              <td>{forcast.sunlightHours}</td>
             </tr>
           </tbody>
         ))}

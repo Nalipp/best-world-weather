@@ -34,9 +34,24 @@ var forcastSchema = new mongoose.Schema({
     uvIndex: {
       type: Number,
     },
-    visibility: {
+    averageMaxTemp: {
       type: Number,
-    }
+    },
+    averageMinTemp: {
+      type: Number,
+    },
+    sunlightHours: {
+      type: Number,
+    },
+    iconPoints: {
+      type: Number,
+    },
+    iconPoints: {
+      type: Number,
+    },
+    allIcons: {
+      type: [String],
+    },
 });
 
 var Forcast = mongoose.model('Forcast', forcastSchema);
