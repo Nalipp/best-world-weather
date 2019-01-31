@@ -3,7 +3,7 @@ import Heading from './Heading';
 import ForcastFilter from './ForcastFilter';
 import ForcastList from './ForcastList';
 import Footer from './Footer';
-import MapCompare from './MapCompare';
+import CityDetail from './CityDetail';
 import Search from './Search';
 import './App.css';
 
@@ -20,7 +20,7 @@ class App extends Component {
             <ForcastList />
           </div>
           <div className={'detail'}>
-            <MapCompare />
+            <CityDetail />
           </div>
         </div>
 
