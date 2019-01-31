@@ -29,7 +29,7 @@ app.post('/api/forcast/', function(req, res) {
 })
 
 // getForcasts('initialize') // 'only run after db.forcasts.drop()'
-// getForcasts('update');
+getForcasts('update');
 
 // setInterval(function() {
 //   getForcasts('update'); // update cities in the database every 4 hours

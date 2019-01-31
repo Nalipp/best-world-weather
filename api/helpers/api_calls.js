@@ -17,9 +17,9 @@ function getForcast(lat, lng, cb) {
           windSpeed: city.data.currently.windSpeed,
           cloudCover: city.data.currently.cloudCover,
           uvIndex: city.data.currently.uvIndex,
-          visibility: city.data.currently.visibility,
-          averageMaxTemp: getTempAverage(city.data.daily.data, 'max'),
-          averageMinTemp: getTempAverage(city.data.daily.data, 'min'),
+          averageMaxTemp: getTempAverage(city.data.daily.data, 'apparentTemperatureMax'),
+          averageMinTemp: getTempAverage(city.data.daily.data, 'apparentTemperatureMin'),
+          averageApparentTemperatureMaxMin: getTempAverageMaxMin(city.data.daily.data),
           sunlightHours: getSunlightAverage(city.data.daily.data),
           iconPoints: getIconPoints(city.data.daily.data),
           allIcons: getAllIcons(city.data.daily.data),
@@ -60,8 +60,9 @@ function getForcasts(type) {
           windSpeed: city.data.currently.windSpeed,
           cloudCover: city.data.currently.cloudCover,
           uvIndex: city.data.currently.uvIndex,
-          averageMaxTemp: getTempAverage(city.data.daily.data, 'max'),
-          averageMinTemp: getTempAverage(city.data.daily.data, 'min'),
+          averageMaxTemp: getTempAverage(city.data.daily.data, 'apparentTemperatureMax'),
+          averageMinTemp: getTempAverage(city.data.daily.data, 'apparentTemperatureMin'),
+          averageApparentTemperatureMaxMin: getTempAverageMaxMin(city.data.daily.data),
           sunlightHours: getSunlightAverage(city.data.daily.data),
           iconPoints: getIconPoints(city.data.daily.data),
           allIcons: getAllIcons(city.data.daily.data),
@@ -93,11 +94,19 @@ function getForcasts(type) {
   })
 }
 
+function getTempAverageMaxMin(forcasts) {
+  var averageApparentTempMax = getTempAverage(forcasts, 'apparentTemperatureMax');
+  var averageApparentTempMin = getTempAverage(forcasts, 'apparentTemperatureMin');
+  var average = (averageApparentTempMin + averageApparentTempMax) / 2;
+
+  return average;
+}
+
 function getTempAverage(forcasts, type) {
   var total = 0;
 
   forcasts.forEach(forcast => {
-    total += type === 'max' ? forcast.temperatureMax : forcast.temperatureMin;
+    total += forcast[type];
   });
 
   return Math.round(total / forcasts.length);

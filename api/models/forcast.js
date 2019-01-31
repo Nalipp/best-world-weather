@@ -40,6 +40,9 @@ var forcastSchema = new mongoose.Schema({
     averageMinTemp: {
       type: Number,
     },
+    averageApparentTemperatureMaxMin: {
+      type: Number,
+    },
     sunlightHours: {
       type: Number,
     },

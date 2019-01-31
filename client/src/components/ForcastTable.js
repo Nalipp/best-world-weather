@@ -32,7 +32,8 @@ class ForcastTable extends Component {
             <th id="cityName">city</th>
             <th id="iconPoints">icon</th>
             <th id="averageMaxTemp">avg max</th>
-            <th id="averageMinTemp">avg min</th>
+            <th id="averageApparentTemperatureMaxMin">avg</th>
+            <th id="humidity">humidity</th>
             <th id="sunlightHours">daylight</th>
           </tr>
         </thead>
@@ -47,7 +48,8 @@ class ForcastTable extends Component {
                 </ul>
               </td>
               <td>{forcast.averageMaxTemp}</td>
-              <td>{forcast.averageMinTemp}</td>
+              <td>{Math.round(forcast.averageApparentTemperatureMaxMin)}</td>
+              <td>{Math.round(forcast.humidity * 100)}</td>
               <td>{forcast.sunlightHours}</td>
             </tr>
           </tbody>
