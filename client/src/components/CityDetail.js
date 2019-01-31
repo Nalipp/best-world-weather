@@ -6,7 +6,7 @@ class CityDetail extends Component {
   render() {
     return (
       <div className={'city-detail'}>
-        <MapCompare />
+        city detail
       </div>
     )
   }

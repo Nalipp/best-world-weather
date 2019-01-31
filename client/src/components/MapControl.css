@@ -1,31 +1,39 @@
 .map-control {
-  height: 6em;
+  height: 2em;
   display: flex;
-  margin: auto;
+  margin: 0.6em;
 }
 
 .map-control button {
-  border: 1px solid #ddd;
+  border: 2px solid #ddd;
+  border-radius: 0.5em;
   background: none;
+  font-size: 1.6em;
+  line-height: 0;
+  padding-bottom: 6px;
+  color: #444;
+  flex-grow: 4;
 }
 
 .map-control span {
   align-self: center;
-  width: 4em;
-  margin: auto 0.6em;
+  text-align: center;
+  color: #444;
+  flex-grow: 1;
 }
 
 @media (min-width: 750px) {
-  .map-control {
-    flex-direction: column;
-    height: 10em;
-    flex-grow: 1;
-  }
-  .map-control > button {
-    flex-grow: 2;
-  }
-  .map-control > span {
-    flex-grow: 1;
-  }
+  /* .map-control { */
+  /*   flex-direction: column; */
+  /*   height: 10em; */
+  /*   flex-grow: 1; */
+  /* } */
+  /* .map-control > button { */
+  /*   flex-grow: 2; */
+  /* } */
+  /* .map-control > span { */
+  /*   flex-grow: 1; */
+  /* } */
 }
+
 

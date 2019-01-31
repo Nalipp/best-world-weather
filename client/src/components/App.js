@@ -3,7 +3,7 @@ import Heading from './Heading';
 import ForcastFilter from './ForcastFilter';
 import ForcastList from './ForcastList';
 import Footer from './Footer';
-import CityDetail from './CityDetail';
+import SelectedCity from './SelectedCity';
 import Search from './Search';
 import './App.css';
 
@@ -11,6 +11,7 @@ class App extends Component {
   render() {
     return (
       <div className={'app'}>
+        <div className={"modal-background"}></div>
         <Heading />
 
         <div className={'main'}>
@@ -19,8 +20,8 @@ class App extends Component {
             <Search />
             <ForcastList />
           </div>
-          <div className={'detail'}>
-            <CityDetail />
+          <div className={'selected'}>
+            <SelectedCity />
           </div>
         </div>
 

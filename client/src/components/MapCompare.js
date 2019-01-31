@@ -9,9 +9,9 @@ class MapCompare extends Component {
       <div className={'map-compare'}>
         <div>
           <Map />
-          <MapControl />
           <Map />
         </div>
+        <MapControl />
       </div>
     )
   }

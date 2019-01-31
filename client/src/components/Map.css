@@ -1,10 +1,12 @@
 .map {
-  height: 11.5em;
+  height: 8em;
   background: #ddd;
+  margin: 0.4em;
+  flex-grow: 1;
 }
 
 @media (min-width: 750px) {
-  .map {
-    flex-grow: 3;
-  }
+  /* .map { */
+  /*   flex-grow: 10; */
+  /* } */
 }
