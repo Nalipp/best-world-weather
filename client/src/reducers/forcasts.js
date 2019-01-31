@@ -3,7 +3,7 @@ const initialState = {
   filteredForcasts: [],
   forcastDisplay: false,
   singleForcast: null,
-  sortedBy: 'temperature',
+  sortedBy: 'iconPoints',
   displayFilters: false,
   reverseSort: false,
   appliedValues: { // filters actually applied to forcast list
@@ -110,6 +110,8 @@ const forcasts = (state = initialState, action) => {
     case 'SINGLE_FORCAST':
       return {
         ...state,
+        allForcasts: [...state.allForcasts, action.payload],
+        filteredForcasts: [action.payload, ...state.filteredForcasts],
         singleForcast: action.payload,
       }
     case 'HIDE_SINGLE_FORCAST':

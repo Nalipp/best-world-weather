@@ -60,6 +60,7 @@ class ForcastTable extends Component {
 }
 
 const mapStateToProps = state => {
+  console.log('state...', state);
   return {
     forcasts: state.forcasts.filteredForcasts,
     sortedBy: state.forcasts.sortedBy,
