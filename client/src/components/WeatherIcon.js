@@ -33,7 +33,7 @@ export default props => {
     )
   } else {
     return (
-      <svg width="32" height="30" viewBox="0 650 500 200">
+      <svg width="32" height="36" viewBox="0 650 500 200">
         <path d={icons[props.icon]}></path>
       </svg>
     )

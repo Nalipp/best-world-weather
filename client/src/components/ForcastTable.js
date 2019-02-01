@@ -2,17 +2,7 @@ import React, { Component } from 'react';
 import './ForcastTable.css';
 import { connect } from 'react-redux';
 import { setSortedBy, setSingleForcast, showSingleForcast } from '../actions';
-import WeatherIcon from './WeatherIcon';
-
-const WeatherIconListItem = (allIcons) => {
-  return allIcons.map((icon, idx) => {
-    if (idx < 5) {
-      return <li key={idx}><WeatherIcon icon={icon} /></li>
-    } else {
-      return null;
-    }
-  })
-}
+import WeatherIconList from './WeatherIconList';
 
 class ForcastTable extends Component {
   handleSort = (e) => {
@@ -50,7 +40,7 @@ class ForcastTable extends Component {
               <td>{this.setMaxChar(forcast.cityName, 9)}</td>
               <td>
                 <ul>
-                  {WeatherIconListItem(forcast.allIcons)}
+                  <WeatherIconList allIcons={forcast.allIcons} />
                 </ul>
               </td>
               <td>{forcast.averageMaxTemp}</td>
