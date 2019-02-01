@@ -39,6 +39,7 @@ export const getForcast = (cityName, lat, lng) => async dispatch => {
 }
 
 export const setSingleForcast = data => async dispatch => {
+  console.log('setting single forcast...', data)
   dispatch({
     type: 'SET_SINGLE_FORCAST',
     payload: data

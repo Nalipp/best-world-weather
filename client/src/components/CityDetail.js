@@ -8,7 +8,7 @@ class CityDetail extends Component {
   render() {
     return (
       <div className={'city-detail'}>
-        {this.props.forcastDisplayOn && <ForcastDetail />}
+        <ForcastDetail />
       </div>
     )
   }
