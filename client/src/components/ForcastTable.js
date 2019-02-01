@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './ForcastTable.css';
 import { connect } from 'react-redux';
-import { setSortedBy } from '../actions';
+import { setSortedBy, setSingleForcast } from '../actions';
 import WeatherIcon from './WeatherIcon';
 
 const WeatherIconListItem = (allIcons) => {
@@ -38,7 +38,9 @@ class ForcastTable extends Component {
           </tr>
         </thead>
         {forcasts.map(forcast => (
-          <tbody key={forcast.cityName}>
+          <tbody 
+            onClick={this.props.setSingleForcast.bind(this, forcast)}
+            key={forcast.cityName}>
             <tr className={'spacing'}></tr>
             <tr>
               <td>{this.setMaxChar(forcast.cityName, 9)}</td>
@@ -60,7 +62,6 @@ class ForcastTable extends Component {
 }
 
 const mapStateToProps = state => {
-  console.log('state...', state);
   return {
     forcasts: state.forcasts.filteredForcasts,
     sortedBy: state.forcasts.sortedBy,
@@ -69,7 +70,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    setSortedBy: (sortBy) => dispatch(setSortedBy(sortBy)),
+    setSingleForcast: forcast => dispatch(setSingleForcast(forcast)),
+    setSortedBy: sortBy => dispatch(setSortedBy(sortBy)),
   }
 }
 

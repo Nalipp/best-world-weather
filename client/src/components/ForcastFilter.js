@@ -35,6 +35,7 @@ class ForcastFilter extends Component {
 }
 
 const mapStateToProps = state => {
+  console.log('state.....', state);
   let filters = state.forcasts.isShowing;
   let filterKeys = Object.keys(filters);
   return {

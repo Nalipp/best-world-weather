@@ -24,13 +24,11 @@ export const getForcast = (cityName, lat, lng) => async dispatch => {
       if (res.status === 200) {
         const data = res.data
         data.cityName = cityName;
+        dispatch(setSingleForcast(data));
         dispatch({
-          type: 'SINGLE_FORCAST',
-          payload: data
-        })
-        dispatch({
-          type: 'DISPLAY_SINGLE_FORCAST',
-        })
+          type: 'ADD_SINGLE_FORCAST',
+          payload: data,
+        });
       } else {
         dispatch({
           type: 'ERROR_MESSAGE', 
@@ -38,6 +36,20 @@ export const getForcast = (cityName, lat, lng) => async dispatch => {
         })
       }
     })
+}
+
+export const setSingleForcast = data => async dispatch => {
+  dispatch(showSingleForcast());
+  dispatch({
+    type: 'SET_SINGLE_FORCAST',
+    payload: data
+  })
+}
+
+export const showSingleForcast = () => async dispatch => {
+  dispatch({
+    type: 'SHOW_SINGLE_FORCAST',
+  })
 }
 
 export const hideSingleForcast = () => async dispatch => {

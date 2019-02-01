@@ -107,11 +107,15 @@ const forcasts = (state = initialState, action) => {
           ...state.isShowing, [action.filterName]: false,
         }
       }
-    case 'SINGLE_FORCAST':
+    case 'ADD_SINGLE_FORCAST':
       return {
         ...state,
         allForcasts: [...state.allForcasts, action.payload],
         filteredForcasts: [action.payload, ...state.filteredForcasts],
+      }
+    case 'SET_SINGLE_FORCAST':
+      return {
+        ...state,
         singleForcast: action.payload,
       }
     case 'HIDE_SINGLE_FORCAST':
@@ -119,7 +123,7 @@ const forcasts = (state = initialState, action) => {
         ...state,
         forcastDisplay: false,
       }
-    case 'DISPLAY_SINGLE_FORCAST':
+    case 'SHOW_SINGLE_FORCAST':
       return {
         ...state,
         forcastDisplay: true,
