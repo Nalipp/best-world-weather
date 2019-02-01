@@ -13,18 +13,16 @@ class App extends Component {
       <div className={'app'}>
         <div className={"modal-background"}></div>
         <Heading />
-
-        <div className={'main'}>
-          <div className={'list'}>
-            <ForcastFilter />
-            <Search />
-            <ForcastList />
+          <div style={{display: 'flex'}}>
+            <div style={{flexGrow: '3'}}>
+              <ForcastFilter />
+              <Search />
+              <ForcastList />
+            </div>
+            <div style={{flexGrow: '4'}}>
+              <SelectedCity />
+            </div>
           </div>
-          <div className={'selected'}>
-            <SelectedCity />
-          </div>
-        </div>
-
         <Footer />
       </div>
     )

@@ -1,6 +1,10 @@
 .forcast-list {
-  width: 92%;
-  margin: auto;
+  padding: 2em;
+  margin: 2em;
   font-size: 0.6em;
   padding: 1%;
+  height: 64vh;
+  margin-bottom: 2em;
+  overflow: scroll;
+  flex-grow: 2;
 }
