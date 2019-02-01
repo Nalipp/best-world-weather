@@ -28,12 +28,12 @@ app.post('/api/forcast/', function(req, res) {
  });
 })
 
-getForcasts('initialize') // 'only run after db.forcasts.drop()'
+// getForcasts('initialize') // 'only run after db.forcasts.drop()'
 // getForcasts('update');
 
-// setInterval(function() {
-//   getForcasts('update'); // update cities in the database every 12 hours
-// }, 43200000);
+setInterval(function() {
+  getForcasts('update'); // update cities in the database every 12 hours
+}, 43200000);
 
 app.listen(port, function(){
     console.log("APP IS RUNNING ON PORT " + port);
