@@ -11,7 +11,6 @@ class App extends Component {
   render() {
     return (
       <div className={'app'}>
-        <div className={"modal-background"}></div>
         <Heading />
           <div style={{display: 'flex'}}>
             <div style={{flexGrow: '3'}}>

@@ -8,16 +8,6 @@
   bottom: 0;
 }
 
-.modal-background {
-  background: rgba(68, 68, 68, 0.6);
-  position: fixed;
-  top: 0;
-  right: 0;
-  left: 0;
-  bottom: 0;
-  z-index: 1;
-}
-
 .forcast-control {
   position: fixed;
   background: #fff;
@@ -32,10 +22,3 @@
 .list {
   overflow: scroll;
 }
-
-@media (min-width: 750px) {
-  .modal-background {
-    display: none;
-  }
-}
-

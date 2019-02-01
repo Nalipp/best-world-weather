@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './ForcastTable.css';
 import { connect } from 'react-redux';
-import { setSortedBy, setSingleForcast } from '../actions';
+import { setSortedBy, setSingleForcast, showSingleForcast } from '../actions';
 import WeatherIcon from './WeatherIcon';
 
 const WeatherIconListItem = (allIcons) => {
@@ -22,6 +22,10 @@ class ForcastTable extends Component {
   setMaxChar(str, num) {
     return str.length > num ? str.slice(0, num) + '..' : str;
   }
+  handleSetSingleForcast(forcast) {
+    this.props.setSingleForcast(forcast);
+    this.props.showSingleForcast();
+  }
 
   render() {
     let forcasts = this.props.forcasts;
@@ -39,7 +43,7 @@ class ForcastTable extends Component {
         </thead>
         {forcasts.map(forcast => (
           <tbody 
-            onClick={this.props.setSingleForcast.bind(this, forcast)}
+            onClick={this.handleSetSingleForcast.bind(this, forcast)}
             key={forcast.cityName}>
             <tr className={'spacing'}></tr>
             <tr>
@@ -72,6 +76,7 @@ const mapDispatchToProps = dispatch => {
   return {
     setSingleForcast: forcast => dispatch(setSingleForcast(forcast)),
     setSortedBy: sortBy => dispatch(setSortedBy(sortBy)),
+    showSingleForcast: () => dispatch(showSingleForcast()),
   }
 }
 

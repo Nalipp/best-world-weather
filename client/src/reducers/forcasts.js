@@ -1,7 +1,7 @@
 const initialState = {
   allForcasts: [],
   filteredForcasts: [],
-  forcastDisplay: false,
+  forcastDisplayOn: false,
   singleForcast: null,
   sortedBy: 'iconPoints',
   displayFilters: false,
@@ -121,12 +121,12 @@ const forcasts = (state = initialState, action) => {
     case 'HIDE_SINGLE_FORCAST':
       return {
         ...state,
-        forcastDisplay: false,
+        forcastDisplayOn: false,
       }
     case 'SHOW_SINGLE_FORCAST':
       return {
         ...state,
-        forcastDisplay: true,
+        forcastDisplayOn: true,
       }
     case 'SHOW_FILTERS':
       return {

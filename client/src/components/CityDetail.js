@@ -8,7 +8,7 @@ class CityDetail extends Component {
   render() {
     return (
       <div className={'city-detail'}>
-        {this.props.forcastDisplay && <ForcastDetail />}
+        {this.props.forcastDisplayOn && <ForcastDetail />}
       </div>
     )
   }
@@ -16,7 +16,7 @@ class CityDetail extends Component {
 
 const mapStateToProps = state => {
   return {
-    forcastDisplay: state.forcasts.forcastDisplay,
+    forcastDisplayOn: state.forcasts.forcastDisplayOn,
   }
 }
 
