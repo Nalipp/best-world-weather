@@ -1,40 +1,26 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { hideSingleForcast } from '../actions';
+import WeatherIcon from './WeatherIcon';
 import './ForcastDetail.css';
 
 class ForcastDetail extends Component {
   render() {
     const forcast = this.props.singleForcast;
-
     return (
       <div>
         {forcast && <div className={'forcast-detail'}>
-            <ul>
-              <li>
-                <span>city</span>
-                <span>{forcast.cityName}</span>
-              </li>
-              <li>
-                <span>summary</span>
-                <span>{forcast.summary}</span>
-              </li>
-              <li>
-                <span>temp</span>
-                <span>{Math.floor(forcast.temperature)}</span>
-              </li>
-              <li>
-                <span>wind</span>
-                <span>{Math.floor(forcast.windSpeed)}</span>
-              </li>
-              <li>
-                <span>% cloud</span>
-                <span>{Math.floor(forcast.cloudCover)}</span>
-              </li>
-            </ul>
-            <span onClick={this.props.hideSingleForcast}>x</span>
+          <div className={`forcast-detail_heading`}>
+            <h1>{forcast.cityName}</h1>
+            <span>{Math.floor(forcast.apparentTemperature)}</span>
+            <span><WeatherIcon size={'medium'} icon={forcast.icon}/></span>
           </div>
-        }
+          <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+          </ul>
+        </div>}
       </div>
     )
   }
