@@ -28,7 +28,7 @@ class ForcastTable extends Component {
             <th id="averageMaxTemp">avg max</th>
             <th id="averageApparentTemperatureMaxMin">avg</th>
             <th id="humidity">humidity</th>
-            <th id="sunlightHours">daylight</th>
+            <th id="sunlightHours">sunlight</th>
           </tr>
         </thead>
         {forcasts.map(forcast => (
