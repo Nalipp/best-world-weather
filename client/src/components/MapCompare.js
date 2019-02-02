@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Map from './Map';
+import MapContainer from './MapContainer';
 import MapControl from './MapControl';
 import './MapCompare.css';
 
@@ -7,9 +7,13 @@ class MapCompare extends Component {
   render() {
     return (
       <div className={'map-compare'}>
-        <div>
-          <Map />
-          <Map />
+        <div className={'map-compare_maps'}>
+          <div className={'map-container'}>
+            <MapContainer />
+          </div>
+          <div className={'map-container'}>
+            <MapContainer />
+          </div>
         </div>
         <MapControl />
       </div>

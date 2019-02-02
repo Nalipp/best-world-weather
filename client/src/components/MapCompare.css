@@ -3,9 +3,23 @@
   flex-direction: column;
 }
 
-.map-compare > div {
+.map-compare_maps {
   display: flex;
+  height: 11em;
+  width: 97.5%;
+  padding-left: 0.3em;
+  margin: auto;
   flex-direction: row;
 }
 
+.map-container {
+  position: relative;
+  flex-grow: 1;
+}
 
+@media (min-width: 750px) {
+  .map-compare_maps {
+    height: 13em;
+    padding-left: 0.5em;
+  }
+}
