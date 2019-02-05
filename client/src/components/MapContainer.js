@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import { Map } from 'google-maps-react';
-import { InfoWindow } from 'google-maps-react';
-import { GoogleApiWrapper } from 'google-maps-react';
+import { GoogleApiWrapper, Map, InfoWindow } from 'google-maps-react';
+import Search from './Search';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import './MapContainer.css';
@@ -35,7 +34,7 @@ class MapContainer extends Component {
               </Map>
             :
               <div>
-                <h2>search</h2>
+                <Search searchType={'setMapLocation2'} />
               </div>
         }
       </div>

@@ -28,11 +28,11 @@ class Search extends Component {
   }
   render() {
     return (
-      <div className={'search'}>
+      <div className={`search ${this.props.searchType}`}>
         <form onSubmit={this.handleGetForcast}>
           <input 
             id="city"
-            placeholder="City Search"
+            placeholder="Search"
             onChange={this.handleChange}
             value={this.state.value}
           />

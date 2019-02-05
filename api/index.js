@@ -23,9 +23,9 @@ app.get('/api/forcasts/', function(req, res){
 })
 
 app.post('/api/forcast/', function(req, res) {
- getForcast(req.body.lat, req.body.lng, function(data) {
-   res.send(data);
- });
+  getForcast(req.body.lat, req.body.lng, function(data) {
+    res.send(data);
+  });
 })
 
 // getForcasts('initialize') // 'only run after db.forcasts.drop()'

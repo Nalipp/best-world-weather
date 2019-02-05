@@ -1,7 +1,7 @@
 const initialState = {
   mapLocation1: null,
   mapLocation2: null,
-  mapZoomLevel: 8,
+  mapZoomLevel: 9,
 }
 
 const maps = (state = initialState, action) => {

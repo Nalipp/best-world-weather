@@ -14,7 +14,7 @@
 
 .map-container {
   position: relative;
-  flex-grow: 1;
+  width: 50%;
 }
 
 @media (min-width: 750px) {
