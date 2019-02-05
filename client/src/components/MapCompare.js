@@ -9,10 +9,10 @@ class MapCompare extends Component {
       <div className={'map-compare'}>
         <div className={'map-compare_maps'}>
           <div className={'map-container'}>
-            <MapContainer />
+            <MapContainer mapLocation={'mapLocation1'} />
           </div>
           <div className={'map-container'}>
-            <MapContainer />
+            <MapContainer mapLocation={'mapLocation2'} />
           </div>
         </div>
         <MapControl />

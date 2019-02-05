@@ -40,7 +40,7 @@ function getForcasts(type) {
     var lat = city[1];
     var lng = city[2];
 
-    var promise = axios.get(`https://api.darksky.net/forecast/${DARKSKY_API_KEY}/${lat},${lng}?exclude=minutely,hourly`, { cityName: curCityName})
+    var promise = axios.get(`https://api.darksky.net/forecast/${DARKSKY_API_KEY}/${lat},${lng}?exclude=minutely,hourly`, { cityName: curCityName, lat: lat, lng: lng })
     promises.push(promise);
   });
 
@@ -50,6 +50,8 @@ function getForcasts(type) {
 
         var currentCity = {
           cityName: city.config.cityName,
+          lat: city.config.lat,
+          lng: city.config.lng,
           summary: city.data.currently.summary,
           icon: city.data.currently.icon,
           precipIntensity: city.data.currently.precipIntensity,

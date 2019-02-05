@@ -1,7 +1,7 @@
 const initialState = {
   allForcasts: [],
   filteredForcasts: [],
-  forcastDisplayOn: false,
+  locationDetailOn: false,
   singleForcast: null,
   sortedBy: 'iconPoints',
   displayFilters: false,
@@ -113,20 +113,20 @@ const forcasts = (state = initialState, action) => {
         allForcasts: [...state.allForcasts, action.payload],
         filteredForcasts: [action.payload, ...state.filteredForcasts],
       }
-    case 'SET_SINGLE_FORCAST':
+    case 'SET_LOCATION_DETAIL':
       return {
         ...state,
         singleForcast: action.payload,
       }
-    case 'HIDE_SINGLE_FORCAST':
+    case 'SHOW_LOCATION_DETAIL':
       return {
         ...state,
-        forcastDisplayOn: false,
+        locationDetailOn: true,
       }
-    case 'SHOW_SINGLE_FORCAST':
+    case 'HIDE_LOCATION_DETAIL':
       return {
         ...state,
-        forcastDisplayOn: true,
+        locationDetailOn: false,
       }
     case 'SHOW_FILTERS':
       return {

@@ -1,20 +1,19 @@
 import React, { Component } from 'react';
 import MapCompare from './MapCompare';
-import CityDetail from './CityDetail';
+import ForcastDetail from './ForcastDetail';
 import { connect } from 'react-redux';
-import { hideSingleForcast } from '../actions';
+import { hideLocationDetail } from '../actions';
 import './SelectedCity.css';
 
 class SelectedCity extends Component {
   render() {
-    const displayStatus = this.props.forcastDisplayOn ? 'display-on' : 'display-off';
+    const displayStatus = this.props.locationDetailOn ? 'display-on' : 'display-off';
     return (
       <div>
-        <div 
-          onClick={this.props.hideSingleForcast}
+        <div onClick={this.props.hideLocationDetail}
           className={`modal-background ${displayStatus}`}></div>
         <div className={`selected-city ${displayStatus}`}>
-          <CityDetail />
+          <ForcastDetail />
           <MapCompare />
         </div>
       </div>
@@ -24,13 +23,13 @@ class SelectedCity extends Component {
 
 const mapStateToProps = state => {
   return {
-    forcastDisplayOn: state.forcasts.forcastDisplayOn, 
+    locationDetailOn: state.forcasts.locationDetailOn, 
   }
 }
 
 const mapDispatchToProps = dispatch => {
   return {
-    hideSingleForcast: () => dispatch(hideSingleForcast()),
+    hideLocationDetail: () => dispatch(hideLocationDetail()),
   }
 }
 

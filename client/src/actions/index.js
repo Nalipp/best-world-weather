@@ -24,7 +24,9 @@ export const getForcast = (cityName, lat, lng) => async dispatch => {
       if (res.status === 200) {
         const data = res.data
         data.cityName = cityName;
-        dispatch(setSingleForcast(data));
+        data.lat = lat;
+        data.lng = lng;
+        dispatch(setLocationDetail(data));
         dispatch({
           type: 'ADD_SINGLE_FORCAST',
           payload: data,
@@ -38,24 +40,67 @@ export const getForcast = (cityName, lat, lng) => async dispatch => {
     })
 }
 
-export const setSingleForcast = data => async dispatch => {
-  console.log('setting single forcast...', data)
+
+// Maps
+// ************************************************** 
+
+export const increaseMapZoom = () => async dispatch => {
   dispatch({
-    type: 'SET_SINGLE_FORCAST',
-    payload: data
+    type: 'INCREASE_MAP_ZOOM',
   })
 }
 
-export const showSingleForcast = () => async dispatch => {
+export const decreaseMapZoom = () => async dispatch => {
   dispatch({
-    type: 'SHOW_SINGLE_FORCAST',
+    type: 'DECREASE_MAP_ZOOM',
   })
 }
 
-export const hideSingleForcast = () => async dispatch => {
+export const setMapLocation1 = mapLocation => async dispatch => {
   dispatch({
-    type: 'HIDE_SINGLE_FORCAST',
-  });
+    type: 'SET_MAP_LOCATION_1',
+    payload: mapLocation,
+  })
+}
+
+export const setMapLocation2 = mapLocation => async dispatch => {
+  dispatch({
+    type: 'SET_MAP_LOCATION_2',
+    payload: mapLocation,
+  })
+}
+
+export const resetMapZoom = () => async dispatch => {
+  dispatch({
+    type: 'RESET_MAP_ZOOM',
+  })
+}
+
+
+// Forcasts
+// ************************************************** 
+
+
+export const setLocationDetail = forcast => async dispatch => {
+  dispatch({
+    type: 'SET_LOCATION_DETAIL',
+    payload: forcast,
+  })
+}
+
+export const showLocationDetail = () => async dispatch => {
+  dispatch({
+    type: 'SHOW_LOCATION_DETAIL',
+  })
+}
+
+export const hideLocationDetail = () => async dispatch => {
+  dispatch({
+    type: 'HIDE_LOCATION_DETAIL',
+  })
+  dispatch({
+    type: 'RESET_MAP_ZOOM',
+  })
 }
 
 export const filterForcasts = () => async dispatch => {

@@ -1,5 +1,8 @@
 .forcast-detail {
   padding: 0 0 0 0.3em;
+  border: 2px solid #ddd;
+  margin: 0.3em;
+  height: 10em;
 }
 
 .forcast-detail_heading {

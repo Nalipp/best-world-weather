@@ -4,6 +4,12 @@ var forcastSchema = new mongoose.Schema({
     cityName: {
       type: String,
     },
+    lat: {
+      type: Number,
+    },
+    lng: {
+      type: Number,
+    },
     summary: {
       type: String,
     },

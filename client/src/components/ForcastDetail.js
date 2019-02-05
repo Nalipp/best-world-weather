@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { hideSingleForcast } from '../actions';
 import WeatherIcon from './WeatherIcon';
 import WeatherIconList from './WeatherIconList';
 import './ForcastDetail.css';
@@ -50,10 +49,4 @@ const mapStateToProps = state => {
   }
 }
 
-const mapDispatchToProps = dispatch => {
-  return {
-    hideSingleForcast: () => dispatch(hideSingleForcast()),
-  }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(ForcastDetail);
+export default connect(mapStateToProps, null)(ForcastDetail);

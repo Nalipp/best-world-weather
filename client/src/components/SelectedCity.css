@@ -31,7 +31,6 @@
   .selected-city {
     position: static;
     margin: 0 2em 1em 1em;
-    display: inherit;
   }
 
   .modal-background {
