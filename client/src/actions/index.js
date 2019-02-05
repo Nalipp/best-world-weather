@@ -86,6 +86,13 @@ export const setLocationDetail = forcast => async dispatch => {
     type: 'SET_LOCATION_DETAIL',
     payload: forcast,
   })
+  dispatch({
+    type: 'RESET_MAP_ZOOM',
+  })
+  dispatch({
+    type: 'SET_MAP_LOCATION_1',
+    payload: forcast,
+  })
 }
 
 export const showLocationDetail = () => async dispatch => {
@@ -97,9 +104,6 @@ export const showLocationDetail = () => async dispatch => {
 export const hideLocationDetail = () => async dispatch => {
   dispatch({
     type: 'HIDE_LOCATION_DETAIL',
-  })
-  dispatch({
-    type: 'RESET_MAP_ZOOM',
   })
 }
 

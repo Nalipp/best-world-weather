@@ -1,7 +1,7 @@
 const initialState = {
-  mapLocation1: { lat: 34.0194, lng: -118.4108 },
-  mapLocation2: { lat: 13.752753, lng: 100.494086 },
-  mapZoomLevel: 6,
+  mapLocation1: {},
+  mapLocation2: {},
+  mapZoomLevel: 8,
 }
 
 const maps = (state = initialState, action) => {
