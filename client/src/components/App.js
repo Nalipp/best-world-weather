@@ -5,12 +5,14 @@ import ForcastList from './ForcastList';
 import Footer from './Footer';
 import SelectedCity from './SelectedCity';
 import Search from './Search';
+import Loader from './Loader';
 import './App.css';
 
 class App extends Component {
   render() {
     return (
       <div className={'app'}>
+        <Loader />
         <Heading />
           <div style={{display: 'flex'}}>
             <div style={{flexGrow: '3'}}>

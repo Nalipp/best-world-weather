@@ -9,6 +9,7 @@ export const getForcasts = () => async dispatch =>  {
           payload: res.data 
         })
         dispatch(filterForcasts())
+        dispatch(hideLoader())
       } else {
         dispatch({ 
           type: 'ERROR_MESSAGE', 
@@ -19,6 +20,7 @@ export const getForcasts = () => async dispatch =>  {
 };
 
 export const getForcast = (cityName, lat, lng) => async dispatch => {
+  dispatch(showLoader());
   axios.post('/api/forcast/', { lat, lng, })
     .then(res => {
       if (res.status === 200) {
@@ -31,6 +33,7 @@ export const getForcast = (cityName, lat, lng) => async dispatch => {
           type: 'ADD_SINGLE_FORCAST',
           payload: data,
         });
+        dispatch(hideLoader())
       } else {
         dispatch({
           type: 'ERROR_MESSAGE', 
@@ -38,6 +41,22 @@ export const getForcast = (cityName, lat, lng) => async dispatch => {
         })
       }
     })
+}
+
+
+// UserInterface
+// ************************************************** 
+
+export const showLoader = () => async dispatch => {
+  dispatch({
+    type: 'SHOW_LOADER',
+  })
+}
+
+export const hideLoader = () => async dispatch => {
+  dispatch({
+    type: 'HIDE_LOADER',
+  })
 }
 
 
@@ -55,13 +74,6 @@ export const decreaseMapZoom = () => async dispatch => {
     type: 'DECREASE_MAP_ZOOM',
   })
 }
-
-// export const setMapLocation1 = mapLocation => async dispatch => {
-//   dispatch({
-//     type: 'SET_MAP_LOCATION_1',
-//     payload: mapLocation,
-//   })
-// }
 
 export const setMapLocation1 = (cityName, lat, lng) => async dispatch => {
   dispatch({
