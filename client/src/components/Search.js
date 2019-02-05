@@ -12,7 +12,7 @@ class Search extends Component {
       value: '',
     }
   }
-  handleGetForcast = (e) => {
+  handleSearch = (e) => {
     e.preventDefault();
     const cityName = this.state.value;
 
@@ -29,7 +29,7 @@ class Search extends Component {
   render() {
     return (
       <div className={`search ${this.props.searchType}`}>
-        <form onSubmit={this.handleGetForcast}>
+        <form onSubmit={this.handleSearch}>
           <input 
             id="city"
             placeholder="Search"

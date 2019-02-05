@@ -63,10 +63,10 @@ export const setMapLocation1 = mapLocation => async dispatch => {
   })
 }
 
-export const setMapLocation2 = mapLocation => async dispatch => {
+export const setMapLocation2 = (cityName, lat, lng) => async dispatch => {
   dispatch({
     type: 'SET_MAP_LOCATION_2',
-    payload: mapLocation,
+    payload: { cityName, lat, lng, },
   })
 }
 
