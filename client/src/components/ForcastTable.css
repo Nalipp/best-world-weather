@@ -1,5 +1,7 @@
 .forcast-table {
   border-collapse: collapse; 
+  width: 90%;
+  margin: auto;
 }
 
 .forcast-table th {
