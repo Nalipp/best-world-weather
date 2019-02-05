@@ -28,7 +28,7 @@ app.post('/api/forcast/', function(req, res) {
   });
 })
 
-// getForcasts('initialize') // 'only run after db.forcasts.drop()'
+getForcasts('initialize') // 'only run after db.forcasts.drop()'
 // getForcasts('update');
 
 setInterval(function() {
