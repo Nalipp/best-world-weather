@@ -15,7 +15,7 @@ class App extends Component {
           <div style={{display: 'flex'}}>
             <div style={{flexGrow: '3'}}>
               <ForcastFilter />
-              <Search />
+              <Search searchType={'getForcast'}/>
               <ForcastList />
             </div>
             <div style={{flexGrow: '4'}}>

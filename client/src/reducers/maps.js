@@ -1,6 +1,6 @@
 const initialState = {
-  mapLocation1: {},
-  mapLocation2: {},
+  mapLocation1: null,
+  mapLocation2: null,
   mapZoomLevel: 8,
 }
 

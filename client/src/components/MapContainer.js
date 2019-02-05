@@ -16,20 +16,28 @@ class MapContainer extends Component {
     }
     return (
       <div>
-        {this.props[this.props.mapLocation] && <Map  
-          className={'map'} 
-          google={this.props.google}
-          style={style}
-          zoom={this.props.mapZoomLevel}
-          draggableCursor={'default'}
-          initialCenter={{
-            lat: this.props[this.props.mapLocation].lat,
-            lng: this.props[this.props.mapLocation].lng}}
-          center={{
-            lat: this.props[this.props.mapLocation].lat,
-            lng: this.props[this.props.mapLocation].lng}}
-          disableDefaultUI={true}>
-        </Map>}
+        {
+          this.props[this.props.mapLocation] 
+            ? 
+              <Map  
+                className={'map'} 
+                google={this.props.google}
+                style={style}
+                zoom={this.props.mapZoomLevel}
+                draggableCursor={'default'}
+                initialCenter={{
+                  lat: this.props[this.props.mapLocation].lat,
+                  lng: this.props[this.props.mapLocation].lng}}
+                center={{
+                  lat: this.props[this.props.mapLocation].lat,
+                  lng: this.props[this.props.mapLocation].lng}}
+                disableDefaultUI={true}>
+              </Map>
+            :
+              <div>
+                <h2>search</h2>
+              </div>
+        }
       </div>
     );
   }
@@ -40,7 +48,6 @@ MapContainer.propTypes = {
 }
 
 const mapStateToProps = state => {
-  console.log('state...', state);
   return {
     mapZoomLevel: state.maps.mapZoomLevel,
     mapLocation1: state.maps.mapLocation1,
