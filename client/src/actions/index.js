@@ -56,10 +56,17 @@ export const decreaseMapZoom = () => async dispatch => {
   })
 }
 
-export const setMapLocation1 = mapLocation => async dispatch => {
+// export const setMapLocation1 = mapLocation => async dispatch => {
+//   dispatch({
+//     type: 'SET_MAP_LOCATION_1',
+//     payload: mapLocation,
+//   })
+// }
+
+export const setMapLocation1 = (cityName, lat, lng) => async dispatch => {
   dispatch({
     type: 'SET_MAP_LOCATION_1',
-    payload: mapLocation,
+    payload: { cityName, lat, lng, },
   })
 }
 
@@ -67,6 +74,20 @@ export const setMapLocation2 = (cityName, lat, lng) => async dispatch => {
   dispatch({
     type: 'SET_MAP_LOCATION_2',
     payload: { cityName, lat, lng, },
+  })
+}
+
+export const resetMapLocation1 = () => async dispatch => {
+  dispatch ({
+    type: 'SET_MAP_LOCATION_1',
+    payload: null,
+  })
+}
+
+export const resetMapLocation2 = () => async dispatch => {
+  dispatch ({
+    type: 'SET_MAP_LOCATION_2',
+    payload: null,
   })
 }
 

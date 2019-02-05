@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { getForcast, setMapLocation2 } from '../actions';
+import { getForcast, setMapLocation1, setMapLocation2 } from '../actions';
 import { getGeoCode } from '../helpers/geoCoding';
 import PropTypes from 'prop-types';
 import './Search.css';
@@ -17,7 +17,8 @@ class Search extends Component {
     const cityName = this.state.value;
 
     getGeoCode(cityName, (lat, lng) => {
-      let searchType = this.props.searchType;
+      let searchType = 'setM' + this.props.searchType.slice(1);
+      console.log('searchType...', searchType)
       this.props[searchType](cityName, lat, lng);
     });
 
@@ -49,6 +50,7 @@ Search.propTypes = {
 const mapDispatchToProps = dispatch => {
   return {
     getForcast: (cityName, lat, lng) => dispatch(getForcast(cityName, lat, lng)),
+    setMapLocation1: (cityName, lat, lng) => dispatch(setMapLocation1(cityName, lat, lng)),
     setMapLocation2: (cityName, lat, lng) => dispatch(setMapLocation2(cityName, lat, lng)),
   }
 }

@@ -1,1 +1,10 @@
-
+.change-city {
+  position: absolute;
+  z-index: 1;
+  font-size: 0.4em;
+  background: #fff;
+  padding: .5em 1em;
+  border: 2px solid #eee;
+  letter-spacing: 1.5px;
+  cursor: pointer;
+}
