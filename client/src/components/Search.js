@@ -17,9 +17,12 @@ class Search extends Component {
     const cityName = this.state.value;
 
     getGeoCode(cityName, (lat, lng) => {
-      let searchType = 'setM' + this.props.searchType.slice(1);
-      console.log('searchType...', searchType)
-      this.props[searchType](cityName, lat, lng);
+      if (this.props.searchType === 'getForcast') {
+        this.props[this.props.searchType](cityName, lat, lng);
+      } else {
+        let searchType = 'setM' + this.props.searchType.slice(1);
+        this.props[searchType](cityName, lat, lng);
+      }
     });
 
     this.setState({ value: '' });
