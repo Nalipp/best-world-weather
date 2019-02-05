@@ -15,6 +15,19 @@
 .map-container {
   position: relative;
   width: 50%;
+  height: 11em;
+  margin: 0.5em auto 0 auto;
+}
+
+.map-container input {
+  font-size: 0.8em;
+  padding: .5em;
+  margin: 3em 0 0 1em;
+  width: 80%;
+  letter-spacing: 1.2px;
+  outline: none;
+  border: 2px solid #ddd;
+  border-radius: 1em;
 }
 
 @media (min-width: 750px) {
@@ -23,3 +36,5 @@
     padding-left: 0.5em;
   }
 }
+
+

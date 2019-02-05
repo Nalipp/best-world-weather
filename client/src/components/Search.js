@@ -32,16 +32,14 @@ class Search extends Component {
   }
   render() {
     return (
-      <div className={`search ${this.props.searchType}`}>
-        <form onSubmit={this.handleSearch}>
-          <input 
-            id="city"
-            placeholder="Search"
-            onChange={this.handleChange}
-            value={this.state.value}
-          />
-        </form>
-      </div>
+      <form onSubmit={this.handleSearch}>
+        <input 
+          id="city"
+          placeholder="Search"
+          onChange={this.handleChange}
+          value={this.state.value}
+        />
+      </form>
     )
   }
 }

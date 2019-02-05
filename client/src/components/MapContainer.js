@@ -45,7 +45,7 @@ class MapContainer extends Component {
                 </Map>
               </div>
             :
-              <div>
+              <div className='search-form'>
                 <Search searchType={this.props.mapLocation} />
               </div>
         }
