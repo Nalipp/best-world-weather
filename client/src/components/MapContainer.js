@@ -20,7 +20,7 @@ class MapContainer extends Component {
           className={'map'} 
           google={this.props.google}
           style={style}
-          zoom={this.props.mapZoom}
+          zoom={this.props.mapZoomLevel}
           draggableCursor={'default'}
           initialCenter={{
             lat: this.props[this.props.mapLocation].lat,
@@ -40,10 +40,11 @@ MapContainer.propTypes = {
 }
 
 const mapStateToProps = state => {
+  console.log('state...', state);
   return {
-    mapZoom: state.forcasts.mapZoom,
-    mapLocation1: state.forcasts.mapLocation1,
-    mapLocation2: state.forcasts.mapLocation2,
+    mapZoomLevel: state.maps.mapZoomLevel,
+    mapLocation1: state.maps.mapLocation1,
+    mapLocation2: state.maps.mapLocation2,
   }
 }
 

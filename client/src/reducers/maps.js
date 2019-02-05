@@ -1,6 +1,6 @@
 const initialState = {
-  mapLocation1: null,
-  mapLocation2: null,
+  mapLocation1: { lat: 34.0194, lng: -118.4108 },
+  mapLocation2: { lat: 13.752753, lng: 100.494086 },
   mapZoomLevel: 6,
 }
 
@@ -19,17 +19,17 @@ const maps = (state = initialState, action) => {
     case 'INCREASE_MAP_ZOOM':
       return {
         ...state, 
-        mapZoom: state.mapZoomLevel + 1,
+        mapZoomLevel: state.mapZoomLevel + 1,
       }
     case 'DECREASE_MAP_ZOOM':
       return {
         ...state, 
-        mapZoom: state.mapZoomLevel - 1,
+        mapZoomLevel: state.mapZoomLevel - 1,
       }
     case 'RESET_MAP_ZOOM':
       return {
         ...state,
-        mapZoom: initialState.mapZoomLevel,
+        mapZoomLevel: initialState.mapZoomLevel,
       }
     default:
       return state;

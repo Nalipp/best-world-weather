@@ -8,7 +8,7 @@ class MapControl extends Component {
     return (
       <div className={'map-control'}>
         <button onClick={this.props.decreaseMapZoom} type="button">-</button>
-        <span>{this.props.mapZoom}</span>
+        <span>{this.props.mapZoomLevel}</span>
         <button onClick={this.props.increaseMapZoom} type="button">+</button>
       </div>
     )
@@ -17,7 +17,7 @@ class MapControl extends Component {
 
 const mapStateToProps = state => {
   return {
-    mapZoom: state.forcasts.mapZoom,
+    mapZoomLevel: state.maps.mapZoomLevel,
   }
 }
 
