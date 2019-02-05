@@ -32,14 +32,16 @@ class Search extends Component {
   }
   render() {
     return (
-      <form onSubmit={this.handleSearch}>
-        <input 
-          id="city"
-          placeholder="Search"
-          onChange={this.handleChange}
-          value={this.state.value}
-        />
-      </form>
+      <div className={'search'}>
+        <form onSubmit={this.handleSearch}>
+          <input 
+            id="city"
+            placeholder="Search"
+            onChange={this.handleChange}
+            value={this.state.value}
+          />
+        </form>
+      </div>
     )
   }
 }
