@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import MapCompare from './MapCompare';
 import ForcastDetail from './ForcastDetail';
+import StreetImagesContainer from './StreetImagesContainer';
 import { connect } from 'react-redux';
 import { hideLocationDetail } from '../actions';
 import './SelectedCity.css';
@@ -15,6 +16,7 @@ class SelectedCity extends Component {
         <div className={`selected-city ${displayStatus}`}>
           <ForcastDetail />
           <MapCompare />
+          <StreetImagesContainer />
         </div>
       </div>
     )

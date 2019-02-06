@@ -1,0 +1,9 @@
+.street-image {
+  display: flex;
+  overflow: scroll;
+  padding: 1em;
+}
+
+.street-image > img {
+  padding: 0 0.5em;
+}
