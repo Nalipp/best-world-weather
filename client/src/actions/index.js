@@ -6,7 +6,12 @@ export const getForcasts = () => async dispatch =>  {
       if (res.status === 200) {
         dispatch({ 
           type: 'ALL_FORCASTS', 
-          payload: res.data 
+          payload: res.data.map(forcast => {
+            return {
+              ...forcast, 
+              cityName: removeUnderscore(forcast.cityName)
+            }
+          }) 
         })
         dispatch(filterForcasts())
         dispatch(hideLoader())
@@ -25,7 +30,7 @@ export const getForcast = (cityName, lat, lng) => async dispatch => {
     .then(res => {
       if (res.status === 200) {
         const data = res.data
-        data.cityName = cityName;
+        data.cityName = capitalize(cityName);
         data.lat = lat;
         data.lng = lng;
         dispatch(setLocationDetail(data));
@@ -41,6 +46,14 @@ export const getForcast = (cityName, lat, lng) => async dispatch => {
         })
       }
     })
+}
+
+function capitalize(str) {
+  return str[0].toUpperCase() + str.slice(1).toLowerCase();
+}
+
+function removeUnderscore(str) {
+  return str.split('_').join(' ');
 }
 
 

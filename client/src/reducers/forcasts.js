@@ -108,10 +108,20 @@ const forcasts = (state = initialState, action) => {
         }
       }
     case 'ADD_SINGLE_FORCAST':
+      const removeDuplicatesFromAllForcasts = state.allForcasts.slice()
+        .filter(forcast => {
+          return (forcast.cityName.toLowerCase() !== action.payload.cityName.toLowerCase())
+        });
+
+      const removeDuplicatesFromFilteredForcasts = state.filteredForcasts.slice()
+        .filter(forcast => {
+          return (forcast.cityName.toLowerCase() !== action.payload.cityName.toLowerCase())
+        });
+
       return {
         ...state,
-        allForcasts: [...state.allForcasts, action.payload],
-        filteredForcasts: [action.payload, ...state.filteredForcasts],
+        allForcasts: [action.payload, ...removeDuplicatesFromAllForcasts],
+        filteredForcasts: [action.payload, ...removeDuplicatesFromFilteredForcasts],
       }
     case 'SET_LOCATION_DETAIL':
       return {
@@ -145,7 +155,7 @@ const forcasts = (state = initialState, action) => {
     const applied = state.appliedValues;
     const sortBy = state.sortedBy;
 
-    let filtered = [...state.allForcasts].filter(forcast => {
+    let filtered = state.allForcasts.slice().filter(forcast => {
       return forcast.temperature > applied.min_temperature &&
              forcast.temperature < applied.max_temperature &&
              forcast.windSpeed < applied.max_windSpeed &&
