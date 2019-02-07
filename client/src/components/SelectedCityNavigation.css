@@ -1,0 +1,14 @@
+.selected-city-navigation {
+  display: flex;
+}
+
+.selected-city-navigation li {
+  border: 2px solid #ddd;
+  padding: 0.5em 2em;
+  margin: 0.4em 0.6em;
+  cursor: pointer;
+}
+
+.selected-nav {
+  background: #ddd;
+}
