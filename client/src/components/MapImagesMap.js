@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 const { compose, withProps, lifecycle } = require("recompose");
 const { withScriptjs, withGoogleMap, GoogleMap } = require("react-google-maps");
 const GOOGLE_API_KEY = process.env.REACT_APP_GOOGLE_API_KEY;
@@ -30,12 +31,19 @@ const MapImagesMap = compose(
 )(props =>
   <GoogleMap
     ref={props.onMapMounted}
-    zoom={15}
-    center={{ lat: 41.9, lng: -87.624 }}
+    zoom={12}
+    center={{ lat: props.mapLocation1.lat, lng: props.mapLocation1.lng }}
     options={{ disableDefaultUI: true, zoomControl: true, }}
     onBoundsChanged={props.onBoundsChanged}
   >
   </GoogleMap>
 );
 
-export default MapImagesMap;
+const mapStateToProps = state => {
+  console.log(state.maps.mapLocation1);
+  return {
+    mapLocation1: state.maps.mapLocation1,
+  }
+}
+
+export default connect(mapStateToProps, null)(MapImagesMap);
