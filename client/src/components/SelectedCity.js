@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import MapCompareContainer from './MapCompareContainer';
+// import MapCompareContainer from './MapCompareContainer';
+import MapImagesContainer from './MapImagesContainer';
 import ForcastDetail from './ForcastDetail';
 import { connect } from 'react-redux';
 import { hideLocationDetail } from '../actions';
@@ -14,7 +15,7 @@ class SelectedCity extends Component {
           className={`modal-background ${displayStatus}`}></div>
         <div className={`selected-city ${displayStatus}`}>
           <ForcastDetail />
-          <MapCompareContainer />
+          <MapImagesContainer />
         </div>
       </div>
     )
