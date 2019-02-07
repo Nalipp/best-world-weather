@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import MapCompareContainer from './MapCompareContainer';
+import MapCompareContainer from './MapCompareContainer';
 import SelectedCityNavigation from './SelectedCityNavigation';
 import MapImagesContainer from './MapImagesContainer';
 import ForcastDetail from './ForcastDetail';
@@ -28,7 +28,8 @@ class SelectedCity extends Component {
           <SelectedCityNavigation 
             handleSelect={this.handleSelect}
             selected={this.state.selected} />
-          <MapImagesContainer />
+          {this.state.selected === 'maps' && <MapCompareContainer />}
+          {this.state.selected === 'images' && <MapImagesContainer />}
         </div>
       </div>
     )
