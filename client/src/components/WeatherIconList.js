@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import WeatherIcon from './WeatherIcon';
 
 const WeatherIconList = ({ allIcons, size }) => {

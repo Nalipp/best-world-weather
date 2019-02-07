@@ -1,10 +1,9 @@
-import React, { Component } from 'react';
-import Search from './Search';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { resetMapLocation1, resetMapLocation2 } from '../actions';
 import './MapCompareMap.css';
-import { withScriptjs, withGoogleMap, GoogleMap, Marker } from "react-google-maps"
+import { withScriptjs, withGoogleMap, GoogleMap } from "react-google-maps"
 
 const MapCompareMap = withScriptjs(withGoogleMap((props) => {
   const curLocation = props[props.mapLocation];
