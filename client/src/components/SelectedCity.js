@@ -8,6 +8,15 @@ import { hideLocationDetail } from '../actions';
 import './SelectedCity.css';
 
 class SelectedCity extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      selected: 'maps',
+    }
+  }
+  handleSelect = (e) => {
+    this.setState({ selected: e.target.id })
+  }
   render() {
     const displayStatus = this.props.locationDetailOn ? 'display-on' : 'display-off';
     return (
@@ -16,7 +25,9 @@ class SelectedCity extends Component {
           className={`modal-background ${displayStatus}`}></div>
         <div className={`selected-city ${displayStatus}`}>
           <ForcastDetail />
-          <SelectedCityNavigation />
+          <SelectedCityNavigation 
+            handleSelect={this.handleSelect}
+            selected={this.state.selected} />
           <MapImagesContainer />
         </div>
       </div>
