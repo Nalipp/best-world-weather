@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import './StreetImage.css';
+const GOOGLE_API_KEY = process.env.REACT_APP_GOOGLE_API_KEY;
 
 class StreetImage extends Component {
   render() {
@@ -35,11 +36,11 @@ class StreetImage extends Component {
       return results;
     }
 
-    const GetImage = ({ cityName, lat, lng }) => {
-      const geoCoords = getGeoCoords(lat, lng, 30);
+    const GetImages = ({ cityName, lat, lng }) => {
+      const geoCoords = getGeoCoords(lat, lng, 40);
       return (
         <div className="street-image">
-          {geoCoords.map(coords => <img key={coords[0] + coords[1]} src={`https://maps.googleapis.com/maps/api/streetview?size=50x50&location=${coords[0]},${coords[1]}&fov=90&heading=235&pitch=10&key=AIzaSyBvwtjPflzBTky_tl2BR8DeJBI_5HkK5zg`} />)}
+          {geoCoords.map(coords => <img key={Math.random(coords[0] * 100)} src={`https://maps.googleapis.com/maps/api/streetview?size=50x50&location=${coords[0]},${coords[1]}&fov=90&heading=235&pitch=10&key=${GOOGLE_API_KEY}`} />)}
         </div>
       )
     }
@@ -49,7 +50,8 @@ class StreetImage extends Component {
         {curLocation 
           ? 
             <div>
-              <GetImage 
+              <p className={"street-image-heading"}>{curLocation.cityName}</p>
+              <GetImages 
                 cityName={curLocation.cityName}
                 lat={curLocation.lat}
                 lng={curLocation.lng} />

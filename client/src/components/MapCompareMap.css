@@ -1,6 +1,7 @@
 .change-city {
   position: absolute;
   z-index: 1;
+  top: -17.5em;
   font-size: 0.4em;
   background: #fff;
   padding: .5em 1em;

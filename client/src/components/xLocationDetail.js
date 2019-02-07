@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import MapCompare from './MapCompare';
+import MapCompareContainer from './MapCompareContainer';
 import { connect } from 'react-redux';
 import ForcastDetail from './ForcastDetail';
 import './CityDetail.css';
