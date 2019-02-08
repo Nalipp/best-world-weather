@@ -1,32 +1,21 @@
 import React, { Component } from 'react';
 import './StreetImagesContainer.css';
 import { connect } from 'react-redux';
-const GOOGLE_API_KEY = process.env.REACT_APP_GOOGLE_API_KEY;
+import ImageList from './ImageList';
 
 class StreetImagesContainer extends Component {
   render() {
-    const curLocation = this.props.mapImagesLocation;
-
-    const getGeoCoords = (count) => {
-      return [[40.6235, -73.9287], [40.6135, -73.9187], [40.6635, -73.9387], [40.6735, -73.9287], [40.6635, -73.9187], [40.6335, -73.9387]]
-    }
-
-    const GetImages = ({ cityName }) => {
-      const geoCoords = getGeoCoords(40);
-      return (
-        <div className="street-image">
-          {geoCoords.map(coords => <img alt={cityName} key={Math.random(coords[0] * 100)} src={`https://maps.googleapis.com/maps/api/streetview?size=105x105&location=${coords[0]},${coords[1]}&fov=90&heading=235&pitch=10&key=${GOOGLE_API_KEY}`} />)}
-        </div>
-      )
-    }
+    const { mapImagesLocation, activeBounds } = this.props;
 
     return (
       <div>
-        {curLocation 
+        {mapImagesLocation && activeBounds
           ? 
             <div>
-              <p className={"street-image-heading"}>{curLocation.cityName}</p>
-              <GetImages cityName={curLocation.cityName} />
+              <p className={"street-image-heading"}>
+                {mapImagesLocation.cityName}
+              </p>
+              <ImageList />
             </div>
           : 
             <div></div>
@@ -39,7 +28,7 @@ class StreetImagesContainer extends Component {
 const mapStateToProps = state => {
   return {
     mapImagesLocation: state.maps.mapImagesLocation,
-    bounds: state.maps.bounds,
+    activeBounds: state.maps.activeBounds,
   }
 }
 

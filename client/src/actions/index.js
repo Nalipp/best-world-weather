@@ -143,6 +143,12 @@ export const setBounds = bounds => async dispatch => {
   })
 }
 
+export const applyActiveBounds = () => async dispatch => {
+  dispatch({
+    type: 'APPLY_ACTIVE_BOUNDS',
+  })
+}
+
 
 // Forcasts
 // ************************************************** 

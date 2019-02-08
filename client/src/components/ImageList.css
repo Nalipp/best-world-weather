@@ -1,0 +1,17 @@
+.street-image {
+  display: flex;
+  overflow: scroll;
+  padding: .5em 1em 1em .5em;
+}
+
+.street-image > img {
+  padding: 0 0.5em;
+}
+
+.refresh-images {
+  border: 2px solid #ddd;
+  margin: auto;
+  padding: 3em 0.3em;
+  font-size: 0.6em;
+}
+

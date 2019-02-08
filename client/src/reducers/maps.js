@@ -1,9 +1,14 @@
+import getGeoCoords from '../helpers/getGeoCoords'
+const GEO_COORDS_COUNT = 8;
+
 const initialState = {
   mapLocation1: null,
   mapLocation2: null,
   mapImagesLocation: null,
   mapZoomLevel: 9,
   bounds: null,
+  activeBounds: null,
+  geoCoords: [],
 }
 
 const maps = (state = initialState, action) => {
@@ -39,9 +44,18 @@ const maps = (state = initialState, action) => {
         mapZoomLevel: initialState.mapZoomLevel,
       }
     case 'SET_BOUNDS':
+      const setActive = state.bounds === null ? 
+        action.payload : state.activeBounds;
       return {
         ...state,
         bounds: action.payload,
+        activeBounds: setActive,
+      }
+    case 'APPLY_ACTIVE_BOUNDS':
+      return {
+        ...state,
+        activeBounds: state.bounds,
+        geoCoords: getGeoCoords(GEO_COORDS_COUNT, state.bounds)
       }
     default:
       return state;

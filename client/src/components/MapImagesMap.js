@@ -22,7 +22,8 @@ const MapImagesMap = compose(
           refs.map = ref;
         },
         onBoundsChanged: () => {
-          this.props.setBounds(refs.map.getBounds())
+          const res = refs.map.getBounds();
+          this.props.setBounds(res)
         },
       })
     },
