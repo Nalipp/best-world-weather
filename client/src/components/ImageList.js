@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { applyActiveBounds } from '../actions';
 import './ImageList.css';
-const RESULT_COUNT = 3;
-const RENDER_PAUSE = 1500;
 const GOOGLE_API_KEY = process.env.REACT_APP_GOOGLE_API_KEY;
 
 class ImageList extends Component {
