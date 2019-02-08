@@ -1,5 +1,5 @@
 import getGeoCoords from '../helpers/getGeoCoords'
-const GEO_COORDS_COUNT = 8;
+const GEO_COORDS_COUNT = 6;
 
 const initialState = {
   mapLocation1: null,
@@ -44,12 +44,9 @@ const maps = (state = initialState, action) => {
         mapZoomLevel: initialState.mapZoomLevel,
       }
     case 'SET_BOUNDS':
-      const setActive = state.bounds === null ? 
-        action.payload : state.activeBounds;
       return {
         ...state,
         bounds: action.payload,
-        activeBounds: setActive,
       }
     case 'APPLY_ACTIVE_BOUNDS':
       return {

@@ -136,7 +136,7 @@ export const resetMapZoom = () => async dispatch => {
   })
 }
 
-export const setBounds = bounds => async dispatch => {
+export const setBounds = (bounds, cb) => async dispatch => {
   dispatch({
     type: 'SET_BOUNDS',
     payload: bounds,

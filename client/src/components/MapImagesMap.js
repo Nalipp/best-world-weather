@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { setBounds, resetMapImagesLocation } from '../actions';
+import { setBounds, resetMapImagesLocation, applyActiveBounds } from '../actions';
 const { compose, withProps, lifecycle } = require("recompose");
 const { withScriptjs, withGoogleMap, GoogleMap } = require("react-google-maps");
 const GOOGLE_API_KEY = process.env.REACT_APP_GOOGLE_API_KEY;
@@ -23,7 +23,13 @@ const MapImagesMap = compose(
         },
         onBoundsChanged: () => {
           const res = refs.map.getBounds();
-          this.props.setBounds(res)
+
+          if (this.props.activeBounds === null) {
+            this.props.setBounds(res)
+            setTimeout(() => this.props.applyActiveBounds(), 200)
+          } else {
+            this.props.setBounds(res);
+          }
         },
       })
     },
@@ -52,6 +58,7 @@ const MapImagesMap = compose(
 const mapStateToProps = state => {
   return {
     mapImagesLocation: state.maps.mapImagesLocation,
+    activeBounds: state.maps.activeBounds,
   }
 }
 
@@ -59,6 +66,7 @@ const mapDispatchToProps = dispatch => {
   return {
     setBounds: newBounds => dispatch(setBounds(newBounds)),
     resetMapImagesLocation: () => dispatch(resetMapImagesLocation()),
+    applyActiveBounds: () => dispatch(applyActiveBounds()),
   }
 }
 
