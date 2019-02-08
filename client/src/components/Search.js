@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { getForcast, setMapLocation1, setMapLocation2 } from '../actions';
+import { getForcast, setMapLocation1, setMapLocation2, setMapImagesLocation } from '../actions';
 import { getGeoCode } from '../helpers/geoCoding';
 import PropTypes from 'prop-types';
 import './Search.css';

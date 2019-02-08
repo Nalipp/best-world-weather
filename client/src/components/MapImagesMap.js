@@ -1,5 +1,6 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
+import { setBounds } from '../actions';
 const { compose, withProps, lifecycle } = require("recompose");
 const { withScriptjs, withGoogleMap, GoogleMap } = require("react-google-maps");
 const GOOGLE_API_KEY = process.env.REACT_APP_GOOGLE_API_KEY;
@@ -21,7 +22,7 @@ const MapImagesMap = compose(
           refs.map = ref;
         },
         onBoundsChanged: () => {
-          console.log(refs.map.getBounds())
+          this.props.setBounds(refs.map.getBounds())
         },
       })
     },
@@ -40,10 +41,15 @@ const MapImagesMap = compose(
 );
 
 const mapStateToProps = state => {
-  console.log(state.maps.mapLocation1);
   return {
     mapLocation1: state.maps.mapLocation1,
   }
 }
 
-export default connect(mapStateToProps, null)(MapImagesMap);
+const mapDispatchToProps = dispatch => {
+  return {
+    setBounds: newBounds => dispatch(setBounds(newBounds)),
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(MapImagesMap);

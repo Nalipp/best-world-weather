@@ -1,7 +1,9 @@
 const initialState = {
   mapLocation1: null,
   mapLocation2: null,
+  mapImagesLocation: null,
   mapZoomLevel: 9,
+  bounds: null,
 }
 
 const maps = (state = initialState, action) => {
@@ -15,6 +17,11 @@ const maps = (state = initialState, action) => {
       return {
         ...state, 
         mapLocation2: action.payload,
+      }
+    case 'SET_MAP_IMAGES_LOCATION':
+      return {
+        ...state, 
+        mapImagesLocation: action.payload,
       }
     case 'INCREASE_MAP_ZOOM':
       return {
@@ -30,6 +37,11 @@ const maps = (state = initialState, action) => {
       return {
         ...state,
         mapZoomLevel: initialState.mapZoomLevel,
+      }
+    case 'SET_BOUNDS':
+      return {
+        ...state,
+        bounds: action.payload,
       }
     default:
       return state;

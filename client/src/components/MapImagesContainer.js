@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import MapImagesMap from './MapImagesMap';
+import StreetImagesContainer from './StreetImagesContainer';
 import './MapImagesContainer.css';
 
 class MapImagesContainer extends Component {
@@ -7,6 +8,7 @@ class MapImagesContainer extends Component {
     return (
       <div className={"map-images-container"}>
         <MapImagesMap />
+        <StreetImagesContainer />
       </div>
     )
   }

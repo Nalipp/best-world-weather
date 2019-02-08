@@ -102,6 +102,13 @@ export const setMapLocation2 = (cityName, lat, lng) => async dispatch => {
   })
 }
 
+export const setMapImagesLocation = (cityName, lat, lng) => async dispatch => {
+  dispatch({
+    type: 'SET_MAP_IMAGES_LOCATION',
+    payload: { cityName, lat, lng, },
+  })
+}
+
 export const resetMapLocation1 = () => async dispatch => {
   dispatch ({
     type: 'SET_MAP_LOCATION_1',
@@ -119,6 +126,13 @@ export const resetMapLocation2 = () => async dispatch => {
 export const resetMapZoom = () => async dispatch => {
   dispatch({
     type: 'RESET_MAP_ZOOM',
+  })
+}
+
+export const setBounds = bounds => async dispatch => {
+  dispatch({
+    type: 'SET_BOUNDS',
+    payload: bounds,
   })
 }
 
