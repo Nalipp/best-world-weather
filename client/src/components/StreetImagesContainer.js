@@ -5,7 +5,7 @@ const GOOGLE_API_KEY = process.env.REACT_APP_GOOGLE_API_KEY;
 
 class StreetImagesContainer extends Component {
   render() {
-    const curLocation = this.props.mapImagesLocation || this.props.mapLocation1;
+    const curLocation = this.props.mapImagesLocation;
 
     const getGeoCoords = (count) => {
       return [[40.6235, -73.9287], [40.6135, -73.9187], [40.6635, -73.9387], [40.6735, -73.9287], [40.6635, -73.9187], [40.6335, -73.9387]]
@@ -38,7 +38,6 @@ class StreetImagesContainer extends Component {
 
 const mapStateToProps = state => {
   return {
-    mapLocation1: state.maps.mapLocation1,
     mapImagesLocation: state.maps.mapImagesLocation,
     bounds: state.maps.bounds,
   }

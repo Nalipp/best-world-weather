@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { setBounds } from '../actions';
+import { setBounds, resetMapImagesLocation } from '../actions';
 const { compose, withProps, lifecycle } = require("recompose");
 const { withScriptjs, withGoogleMap, GoogleMap } = require("react-google-maps");
 const GOOGLE_API_KEY = process.env.REACT_APP_GOOGLE_API_KEY;
@@ -30,25 +30,34 @@ const MapImagesMap = compose(
   withScriptjs,
   withGoogleMap
 )(props =>
-  <GoogleMap
-    ref={props.onMapMounted}
-    zoom={12}
-    center={{ lat: props.mapLocation1.lat, lng: props.mapLocation1.lng }}
-    options={{ disableDefaultUI: true, zoomControl: true, }}
-    onBoundsChanged={props.onBoundsChanged}
-  >
-  </GoogleMap>
+  <div style={{position: 'relative'}}>
+    <div 
+      onClick={props.resetMapImagesLocation}
+      className={'change-city'}
+      style={{top: '-21.5em'}}>
+      change
+    </div>
+    <GoogleMap
+      ref={props.onMapMounted}
+      zoom={12}
+      center={{ lat: props.mapImagesLocation.lat, lng: props.mapImagesLocation.lng }}
+      options={{ disableDefaultUI: true, zoomControl: true, }}
+      onBoundsChanged={props.onBoundsChanged}
+    >
+    </GoogleMap>
+  </div>
 );
 
 const mapStateToProps = state => {
   return {
-    mapLocation1: state.maps.mapLocation1,
+    mapImagesLocation: state.maps.mapImagesLocation,
   }
 }
 
 const mapDispatchToProps = dispatch => {
   return {
     setBounds: newBounds => dispatch(setBounds(newBounds)),
+    resetMapImagesLocation: () => dispatch(resetMapImagesLocation()),
   }
 }
 

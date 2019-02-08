@@ -123,6 +123,13 @@ export const resetMapLocation2 = () => async dispatch => {
   })
 }
 
+export const resetMapImagesLocation = () => async dispatch => {
+  dispatch ({
+    type: 'SET_MAP_IMAGES_LOCATION',
+    payload: null,
+  })
+}
+
 export const resetMapZoom = () => async dispatch => {
   dispatch({
     type: 'RESET_MAP_ZOOM',
@@ -151,6 +158,10 @@ export const setLocationDetail = forcast => async dispatch => {
   })
   dispatch({
     type: 'SET_MAP_LOCATION_1',
+    payload: forcast,
+  })
+  dispatch({
+    type: 'SET_MAP_IMAGES_LOCATION',
     payload: forcast,
   })
 }

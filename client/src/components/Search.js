@@ -15,14 +15,13 @@ class Search extends Component {
   handleSearch = (e) => {
     e.preventDefault();
     const cityName = this.state.value;
+    const searchType = this.props.searchType;
 
     getGeoCode(cityName, (lat, lng) => {
-      if (this.props.searchType === 'getForcast') {
-        this.props[this.props.searchType](cityName, lat, lng);
-      } else {
-        let searchType = 'setM' + this.props.searchType.slice(1);
-        this.props[searchType](cityName, lat, lng);
-      }
+      if (searchType === 'getForcast') this.props.getForcast(cityName, lat, lng);
+      if (searchType === 'mapLocation1') this.props.setMapLocation1(cityName, lat, lng);
+      if (searchType === 'mapLocation2') this.props.setMapLocation2(cityName, lat, lng);
+      if (searchType === 'mapImagesLocation') this.props.setMapImagesLocation(cityName, lat, lng);
     });
 
     this.setState({ value: '' });
@@ -55,6 +54,7 @@ const mapDispatchToProps = dispatch => {
     getForcast: (cityName, lat, lng) => dispatch(getForcast(cityName, lat, lng)),
     setMapLocation1: (cityName, lat, lng) => dispatch(setMapLocation1(cityName, lat, lng)),
     setMapLocation2: (cityName, lat, lng) => dispatch(setMapLocation2(cityName, lat, lng)),
+    setMapImagesLocation: (cityName, lat, lng) => dispatch(setMapImagesLocation(cityName, lat, lng)),
   }
 }
 
