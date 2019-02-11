@@ -20,7 +20,6 @@ class SelectedCityContainer extends Component {
 
   render() {
     const displayStatus = this.props.locationDetailOn ? 'display-on' : 'display-off';
-    console.log(displayStatus);
     return (
       <div className={`selected-city-container ${displayStatus}`}>
         <Search searchType={'getForcast'} />

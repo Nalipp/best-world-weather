@@ -1,9 +1,3 @@
-@value colors: "../colors.css";
-@value base1Dark, base1Light, base2Dark, base2Light, primary-white, primary-green, primary-red from colors;
-
-/* **************************************** */
-/* mobile (first) */
-
 .app {
   display: flex;
   flex-direction: column;
@@ -14,19 +8,3 @@
   bottom: 0;
 }
 
-.main-forcast-container { 
-  width: 90%;
-  background: primary-white;
-  margin: 1em;
-  padding: 1em;
-  border-radius: 1.2em;
-}
-
-/* **************************************** */
-/* full-screen */
-
-@media (min-width: 750px) {
-  .main-forcast-container {
-    width: 40%;
-  }
-}
