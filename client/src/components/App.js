@@ -12,14 +12,12 @@ class App extends Component {
   render() {
     return (
       <div className={'app'}>
-        <Modal locationDetailOn={this.props.locationDetailOn} />
+        <Modal isActive={!this.props.locationDetailOn} />
         <Loader />
         <Heading />
 
         <div style={{display: 'flex'}}>
           <div className={`main-forcast-container`}>
-            <ForcastFilter />
-            <ForcastList />
           </div>
           <SelectedCityContainer />
         </div>
