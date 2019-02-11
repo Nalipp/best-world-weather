@@ -8,17 +8,50 @@
   bottom: 0;
 }
 
-.forcast-control {
+.modal-background {
+  background: rgba(68, 68, 68, 0.6);
   position: fixed;
-  background: #fff;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+}
+
+.main-forcast-container {
   width: 100%;
-  border-bottom: 2px solid #ddd;
 }
 
-.main {
+.main-cityDetail-container {
   display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 2em;
+  background: #fff;
+  flex-grow: 1;
 }
 
-.list {
-  overflow: scroll;
+.display-off {
+  display: none;
+}
+
+.display-on {
+  display: inherit;
+}
+
+@media (min-width: 750px) {
+  .main-cityDetail-container {
+    position: static;
+    width: 60%;
+  }
+
+  .main-forcast-container {
+    width: 40%;
+  }
+
+  .modal-background {
+    display: none;
+  }
 }
