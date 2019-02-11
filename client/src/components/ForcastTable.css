@@ -1,3 +1,6 @@
+@value colors "../colors.css";
+@value base1Light from colors;
+
 .forcast-table {
   border-collapse: collapse; 
   width: 90%;
@@ -9,6 +12,14 @@
   text-align: start;
   font-weigth: normal;
   width: 25%;
+}
+
+.forcast-table > thead > th {
+  cursor: pointer;
+}
+
+.forcast-table > tbody > tr {
+  cursor: pointer;
 }
 
 .forcast-table > tbody ul {
@@ -24,7 +35,7 @@
 }
 
 .forcast-table tbody > tr {
-  border: 2px dashed #ddd;
+  border: 2px dashed base1Light;
 }
 
 .spacing {
