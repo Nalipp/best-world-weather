@@ -4,7 +4,6 @@ import ForcastFilter from './ForcastFilter';
 import ForcastList from './ForcastList';
 import Footer from './Footer';
 import SelectedCity from './SelectedCity';
-import Search from './Search';
 import Loader from './Loader';
 import './App.css';
 
@@ -17,7 +16,6 @@ class App extends Component {
           <div style={{display: 'flex'}}>
             <div style={{flexGrow: '3'}}>
               <ForcastFilter />
-              <Search searchType={'getForcast'} />
               <ForcastList />
             </div>
             <div style={{flexGrow: '4'}}>

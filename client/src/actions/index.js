@@ -128,7 +128,7 @@ export const resetMapImagesLocation = () => async dispatch => {
     type: 'SET_MAP_IMAGES_LOCATION',
     payload: null,
   })
-  dispatch(applyActiveBounds())
+  dispatch(applyActiveBounds());
 }
 
 export const resetMapZoom = () => async dispatch => {

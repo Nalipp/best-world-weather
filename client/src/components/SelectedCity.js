@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Search from './Search';
 import SelectedCityNavigation from './SelectedCityNavigation';
 import ForcastDetailContainer from './ForcastDetailContainer';
 import MapCompareContainer from './MapCompareContainer';
@@ -24,6 +25,7 @@ class SelectedCity extends Component {
         <div onClick={this.props.hideLocationDetail}
           className={`modal-background ${displayStatus}`}></div>
         <div className={`selected-city ${displayStatus}`}>
+          <Search searchType={'getForcast'} />
           <SelectedCityNavigation 
             handleSelect={this.handleSelect}
             selected={this.state.selected} />
