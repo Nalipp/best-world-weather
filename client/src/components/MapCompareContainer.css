@@ -30,7 +30,7 @@
   border-radius: 1em;
 }
 
-@media (min-width: 750px) {
+@media (min-width: 800px) {
   .map-compare_maps {
     height: 13em;
     padding-left: 0.5em;

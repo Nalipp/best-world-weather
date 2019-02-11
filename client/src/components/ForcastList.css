@@ -1,9 +1,7 @@
 .forcast-list {
-  margin: 0 auto 1em auto;
+  margin: 0 auto 2em auto;
   font-size: 0.6em;
   padding: 1%;
   height: 64vh;
-  margin-bottom: 2em;
   overflow: scroll;
-  flex-grow: 2;
 }
