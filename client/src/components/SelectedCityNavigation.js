@@ -7,6 +7,10 @@ class SelectedCityNavigation extends Component {
     const selected = this.props.selected;
     return (
       <ul className={"selected-city-navigation"}>
+        <li
+          className={selected === 'data' ? "selected-nav" : ''}
+          onClick={this.props.handleSelect}
+          id={'data'}>Data</li>
         <li 
           className={selected === 'maps' ? "selected-nav" : ''}
           onClick={this.props.handleSelect}

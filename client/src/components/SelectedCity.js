@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import MapCompareContainer from './MapCompareContainer';
 import SelectedCityNavigation from './SelectedCityNavigation';
+import ForcastDetailContainer from './ForcastDetailContainer';
+import MapCompareContainer from './MapCompareContainer';
 import MapImagesContainer from './MapImagesContainer';
-import ForcastDetail from './ForcastDetail';
 import { connect } from 'react-redux';
 import { hideLocationDetail } from '../actions';
 import './SelectedCity.css';
@@ -11,7 +11,7 @@ class SelectedCity extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      selected: 'maps',
+      selected: 'data',
     }
   }
   handleSelect = (e) => {
@@ -24,10 +24,10 @@ class SelectedCity extends Component {
         <div onClick={this.props.hideLocationDetail}
           className={`modal-background ${displayStatus}`}></div>
         <div className={`selected-city ${displayStatus}`}>
-          <ForcastDetail />
           <SelectedCityNavigation 
             handleSelect={this.handleSelect}
             selected={this.state.selected} />
+          {this.state.selected === 'data' && <ForcastDetailContainer />}
           {this.state.selected === 'maps' && <MapCompareContainer />}
           {this.state.selected === 'images' && <MapImagesContainer />}
         </div>
