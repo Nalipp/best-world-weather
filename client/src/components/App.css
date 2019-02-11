@@ -1,3 +1,9 @@
+@value colors: "../colors.css";
+@value base1Dark, base1Light, base2Dark, base2Light, primary-white, primary-green, primary-red from colors;
+
+/* **************************************** */
+/* mobile (first) */
+
 .app {
   display: flex;
   flex-direction: column;
@@ -17,8 +23,13 @@
   bottom: 0;
 }
 
-.main-forcast-container {
-  width: 100%;
+
+.main-forcast-container { 
+  width: 90%;
+  background: primary-white;
+  margin: 1em;
+  padding: 1em;
+  border-radius: 1.2em;
 }
 
 .main-cityDetail-container {
@@ -29,8 +40,7 @@
   right: 0;
   bottom: 0;
   left: 2em;
-  background: #fff;
-  flex-grow: 1;
+  background: primary-white;
 }
 
 .display-off {
@@ -41,10 +51,17 @@
   display: inherit;
 }
 
+
+/* **************************************** */
+/* full-screen */
+
 @media (min-width: 750px) {
   .main-cityDetail-container {
     position: static;
     width: 60%;
+    margin: 1em;
+    padding: 1em;
+    border-radius: 1.2em;
   }
 
   .main-forcast-container {
@@ -55,7 +72,7 @@
     display: inherit; /* always on for desktop */
   }
 
-  .modal-background { /* order matters here! */
+  .modal-background { /* order matters! */
     display: none;
   }
 

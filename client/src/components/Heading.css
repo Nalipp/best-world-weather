@@ -1,4 +1,8 @@
+@value colors: "../colors.css";
+@value primary-white from colors;
+
 .heading {
+  background: primary-white;
   margin-bottom: 1em;
 }
 
