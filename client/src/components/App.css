@@ -14,16 +14,6 @@
   bottom: 0;
 }
 
-.modal-background {
-  background: rgba(68, 68, 68, 0.6);
-  position: fixed;
-  top: 0;
-  right: 0;
-  left: 0;
-  bottom: 0;
-}
-
-
 .main-forcast-container { 
   width: 90%;
   background: primary-white;
@@ -67,13 +57,4 @@
   .main-forcast-container {
     width: 40%;
   }
-
-  .display-off {
-    display: inherit; /* always on for desktop */
-  }
-
-  .modal-background { /* order matters! */
-    display: none;
-  }
-
 }

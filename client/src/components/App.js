@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
+import Modal from './Modal';
+import Loader from './Loader';
 import Heading from './Heading';
 import ForcastFilter from './ForcastFilter';
 import ForcastList from './ForcastList';
-import Footer from './Footer';
-import SelectedCity from './SelectedCity';
-import Loader from './Loader';
-import { hideLocationDetail } from '../actions';
+import SelectedCityContainer from './SelectedCityContainer';
 import { connect } from 'react-redux';
 import './App.css';
 
@@ -14,11 +13,8 @@ class App extends Component {
     const displayStatus = this.props.locationDetailOn ? 'display-on' : 'display-off';
     return (
       <div className={'app'}>
-
-        <div onClick={this.props.hideLocationDetail} className={`modal-background ${displayStatus}`}></div>
-
+        <Modal displayState={displayStatus} />
         <Loader />
-
         <Heading />
 
         <div style={{display: 'flex'}}>
@@ -27,10 +23,9 @@ class App extends Component {
             <ForcastList />
           </div>
           <div className={`main-cityDetail-container ${displayStatus}`}>
-            <SelectedCity />
+            <SelectedCityContainer />
           </div>
         </div>
-
       </div>
     )
   }
@@ -42,10 +37,4 @@ const mapStateToProps = state => {
   }
 }
 
-const mapDispatchToProps = dispatch => {
-  return {
-    hideLocationDetail: () => dispatch(hideLocationDetail()),
-  }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(mapStateToProps, null)(App);

@@ -4,9 +4,9 @@ import SelectedCityNavigation from './SelectedCityNavigation';
 import ForcastDetailContainer from './ForcastDetailContainer';
 import MapCompareContainer from './MapCompareContainer';
 import MapImagesContainer from './MapImagesContainer';
-import './SelectedCity.css';
+import './SelectedCityContainer.css';
 
-class SelectedCity extends Component {
+class SelectedCityContainer extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -31,5 +31,5 @@ class SelectedCity extends Component {
   }
 }
 
-export default SelectedCity;
+export default SelectedCityContainer;
 
