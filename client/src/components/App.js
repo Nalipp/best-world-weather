@@ -14,7 +14,6 @@ class App extends Component {
         <Modal isActive={this.props.locationDetailOn} />
         <Loader />
         <Heading />
-
         <div style={{display: 'flex'}}>
           <ForcastContainer />
           <SelectedCityContainer />

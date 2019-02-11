@@ -1,14 +1,17 @@
+@value colors: "../colors.css";
+@value base1Light, base2Dark, primary-white from colors;
+
 .forcast-filter {
   width: 90%;
   margin: 0 auto 1em auto;
-  border: 1px solid #ddd;
+  border: 1px solid base1Light;
   border-radius: 0.3em;
 }
 
 .forcast-filter_heading {
   display: flex;
   justify-content: space-between;
-  border-bottom: 1px solid #ddd; 
+  border-bottom: 1px solid base1Light; 
 }
 
 .forcast-filter_heading p {
@@ -17,3 +20,10 @@
   flex-grow: 2;
 }
 
+.forcast-filter > div > button {
+  border-radius: 0 0.3em 0 0;
+  background: primary-white;
+  border: none;
+  border-left: 1px solid base1Light;
+  color: base2Dark;
+}
