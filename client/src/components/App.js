@@ -10,10 +10,9 @@ import './App.css';
 
 class App extends Component {
   render() {
-    const displayStatus = this.props.locationDetailOn ? 'display-on' : 'display-off';
     return (
       <div className={'app'}>
-        <Modal displayState={displayStatus} />
+        <Modal locationDetailOn={this.props.locationDetailOn} />
         <Loader />
         <Heading />
 
@@ -22,9 +21,7 @@ class App extends Component {
             <ForcastFilter />
             <ForcastList />
           </div>
-          <div className={`main-cityDetail-container ${displayStatus}`}>
-            <SelectedCityContainer />
-          </div>
+          <SelectedCityContainer />
         </div>
       </div>
     )

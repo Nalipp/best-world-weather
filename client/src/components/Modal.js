@@ -6,9 +6,10 @@ import { connect } from 'react-redux';
 
 class Modal extends Component {
   render() {
+    const displayStatus = this.props.locationDetailOn ? 'display-on' : 'display-off';
     return (
       <div 
-        className={`modal ${this.props.displayState}`}
+        className={`modal ${displayStatus}`}
         onClick={this.props.hideLocationDetail}>
       </div>
     )
@@ -16,7 +17,7 @@ class Modal extends Component {
 }
 
 Modal.propTypes = {
-  displayState: PropTypes.string,
+  locationDetailOn: PropTypes.bool,
 }
 
 const mapDispatchToProps = dispatch => {

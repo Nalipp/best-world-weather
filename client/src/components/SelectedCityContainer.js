@@ -4,6 +4,7 @@ import SelectedCityNavigation from './SelectedCityNavigation';
 import ForcastDetailContainer from './ForcastDetailContainer';
 import MapCompareContainer from './MapCompareContainer';
 import MapImagesContainer from './MapImagesContainer';
+import { connect } from 'react-redux';
 import './SelectedCityContainer.css';
 
 class SelectedCityContainer extends Component {
@@ -16,9 +17,12 @@ class SelectedCityContainer extends Component {
   handleSelect = (e) => {
     this.setState({ selected: e.target.id })
   }
+
   render() {
+    const displayStatus = this.props.locationDetailOn ? 'display-on' : 'display-off';
+    console.log(displayStatus);
     return (
-      <div>
+      <div className={`selected-city-container ${displayStatus}`}>
         <Search searchType={'getForcast'} />
         <SelectedCityNavigation 
           handleSelect={this.handleSelect}
@@ -31,5 +35,10 @@ class SelectedCityContainer extends Component {
   }
 }
 
-export default SelectedCityContainer;
+const mapStateToProps = state => {
+  return {
+    locationDetailOn: state.forcasts.locationDetailOn, 
+  }
+}
 
+export default connect(mapStateToProps, null)(SelectedCityContainer);

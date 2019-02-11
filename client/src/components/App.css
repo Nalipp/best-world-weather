@@ -22,38 +22,10 @@
   border-radius: 1.2em;
 }
 
-.main-cityDetail-container {
-  display: flex;
-  flex-direction: column;
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 2em;
-  background: primary-white;
-}
-
-.display-off {
-  display: none;
-}
-
-.display-on {
-  display: inherit;
-}
-
-
 /* **************************************** */
 /* full-screen */
 
 @media (min-width: 750px) {
-  .main-cityDetail-container {
-    position: static;
-    width: 60%;
-    margin: 1em;
-    padding: 1em;
-    border-radius: 1.2em;
-  }
-
   .main-forcast-container {
     width: 40%;
   }
