@@ -1,4 +1,11 @@
 .forcast-detail-container {
-  width: 80%;
+  width: 100%;
   margin: 1em auto;
+}
+
+@media (min-width: 800px) {
+  .forcast-detail-container {
+    width: 80%;
+    margin: 1em auto;
+  }
 }

@@ -17,7 +17,7 @@ class ForcastDetail extends Component {
           </div>
           <ul>
             <div className={`forcast-detail_list-heading`}>
-              <h2>Upcomming</h2>
+              <h2>Upcomming forcast</h2>
               <WeatherIconList allIcons={forcast.allIcons} size="medium" />
             </div>
             <li>

@@ -1,11 +1,11 @@
 .forcast-detail {
   padding: 0 0 0 0.3em;
-  border: 2px solid #ddd;
   margin: 0.3em;
   height: 10em;
 }
 
 .forcast-detail_heading {
+  font-size: 1.2em;
   display: flex;
 }
 
@@ -25,16 +25,18 @@
 
 .forcast-detail_list-heading {
   display: flex;
-  padding: 0 0 1em 0;
+  padding: 1.5em 0;
 }
 
 .forcast-detail_list-heading h2 {
   margin: 0 1.2em 0 0;
   align-self: center;
+  width: 8em;
 }
 
 .forcast-detail li {
   display: flex;
+  padding: 0.3em 0;
 }
 
 .forcast-detail li > p:first-child {
@@ -46,3 +48,10 @@
   font-size: 0.8em;
 }
 
+@media (min-width: 800px) {
+  .forcast-detail_heading {
+    font-size: 1.8em;
+  }
+  .forcast-detail_list-heading {
+  }
+}

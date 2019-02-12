@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import ForcastDetail from './ForcastDetail';
 import './ForcastDetailContainer.css';
 
@@ -13,10 +12,4 @@ class ForcastDetailContainer extends Component {
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    // state for determining display or empty container with fixed size
-  }
-}
-
-export default connect(null, null)(ForcastDetailContainer);
+export default ForcastDetailContainer;
