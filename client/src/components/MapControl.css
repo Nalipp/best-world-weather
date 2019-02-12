@@ -1,39 +1,39 @@
 .map-control {
-  height: 2em;
   display: flex;
-  margin: 0.6em;
+  margin: 1.2em 0.8em 2.4em 0.8em;
 }
 
-.map-control button {
+.map-control > div {
   border: 2px solid #ddd;
   border-radius: 0.5em;
   background: none;
+  text-align: center;
   font-size: 1.6em;
   line-height: 0;
-  padding-bottom: 6px;
+  padding: 0.4em 0.4em 0.6em 0.4em;
   color: #444;
   flex-grow: 4;
 }
 
 .map-control span {
-  align-self: center;
   text-align: center;
   color: #444;
+  padding-top: 0.3em;
   flex-grow: 1;
 }
 
 @media (min-width: 800px) {
-  /* .map-control { */
-  /*   flex-direction: column; */
-  /*   height: 10em; */
-  /*   flex-grow: 1; */
-  /* } */
-  /* .map-control > button { */
-  /*   flex-grow: 2; */
-  /* } */
-  /* .map-control > span { */
-  /*   flex-grow: 1; */
-  /* } */
+  .map-control {
+    flex-direction: column;
+  }
+  .map-control > div {
+    padding: 0.4em;
+    line-height: inherit;
+    cursor: pointer;
+  }
+  .map-control > span {
+    flex-grow: 1;
+  }
 }
 
 

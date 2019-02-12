@@ -26,6 +26,7 @@ class MapCompareContainer extends Component {
               <Search searchType={'mapLocation1'} />
             }
           </div>
+          <MapControl />
           <div className={'map-container'}>
             {this.props.mapLocation2 
               ?
@@ -41,7 +42,6 @@ class MapCompareContainer extends Component {
             }
           </div>
         </div>
-        <MapControl />
       </div>
     )
   }

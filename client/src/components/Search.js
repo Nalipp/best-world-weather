@@ -39,7 +39,7 @@ class Search extends Component {
         <form onSubmit={this.handleSearch}>
           <input 
             id="city"
-            placeholder="Change City"
+            placeholder="Select City"
             onChange={this.handleChange}
             value={this.state.value}
           />

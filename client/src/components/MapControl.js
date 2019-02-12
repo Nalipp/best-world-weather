@@ -7,9 +7,9 @@ class MapControl extends Component {
   render() {
     return (
       <div className={'map-control'}>
-        <button onClick={this.props.decreaseMapZoom} type="button">-</button>
+        <div onClick={this.props.decreaseMapZoom}>-</div>
         <span>{this.props.mapZoomLevel}</span>
-        <button onClick={this.props.increaseMapZoom} type="button">+</button>
+        <div onClick={this.props.increaseMapZoom}>+</div>
       </div>
     )
   }
