@@ -15,13 +15,17 @@ class Search extends Component {
   handleSearch = (e) => {
     e.preventDefault();
     const cityName = this.state.value;
-    const searchType = this.props.searchType;
+    const { searchType,
+            getForcast,
+            setMapLocation1,
+            setMapLocation2,
+            setMapImagesLocation } = this.props;
 
     getGeoCode(cityName, (lat, lng) => {
-      if (searchType === 'getForcast') this.props.getForcast(cityName, lat, lng);
-      if (searchType === 'mapLocation1') this.props.setMapLocation1(cityName, lat, lng);
-      if (searchType === 'mapLocation2') this.props.setMapLocation2(cityName, lat, lng);
-      if (searchType === 'mapImagesLocation') this.props.setMapImagesLocation(cityName, lat, lng);
+      if (searchType === 'getForcast') getForcast(cityName, lat, lng);
+      if (searchType === 'mapLocation1') setMapLocation1(cityName, lat, lng);
+      if (searchType === 'mapLocation2') setMapLocation2(cityName, lat, lng);
+      if (searchType === 'mapImagesLocation') setMapImagesLocation(cityName, lat, lng);
     });
 
     this.setState({ value: '' });
@@ -35,7 +39,7 @@ class Search extends Component {
         <form onSubmit={this.handleSearch}>
           <input 
             id="city"
-            placeholder="Search"
+            placeholder="Change City"
             onChange={this.handleChange}
             value={this.state.value}
           />

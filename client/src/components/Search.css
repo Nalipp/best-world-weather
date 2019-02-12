@@ -1,21 +1,36 @@
+@value colors: "../colors.css";
+@value base1Light, base2Dark from colors;
+
 .search {
-  margin: 0 auto 1em 0;
+  margin: 1em;
+  width: 90%;
 }
 
 .search form {
-  align-self: center;
-  margin: auto;
-  width: 80%;
+  margin: 0 auto;
 }
 
 .search input {
   width: 100%;
-  border: 2px solid #eee;
+  border: 2px solid base1Light;
+  color: base2Dark;
   border-radius: 2em;
-  font-size: 0.8em;
   height: 2em;
-  padding-left: 1em;
-  letter-spacing: 1.2px;
+  letter-spacing: 1.4px;
   outline: none;
+  padding: 1em;
+}
+
+@media (min-width: 800px) {
+  .search form {
+    margin: 0;
+  }
+
+  .search input {
+    width: 80%;
+    color: base2Dark;
+    font-size: 0.8em;
+    padding: 1.2em 1em;
+  }
 }
 

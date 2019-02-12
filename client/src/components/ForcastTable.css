@@ -14,14 +14,6 @@
   width: 25%;
 }
 
-.forcast-table > thead > th {
-  cursor: pointer;
-}
-
-.forcast-table > tbody > tr {
-  cursor: pointer;
-}
-
 .forcast-table > tbody ul {
   display: flex;
 }
@@ -32,6 +24,7 @@
 
 .forcast-table td {
   padding: 0.5em;
+  cursor: pointer;
 }
 
 .forcast-table tbody > tr {
