@@ -19,6 +19,7 @@
   letter-spacing: 1.4px;
   outline: none;
   padding: 1em;
+  font-size: 0.4em;
 }
 
 @media (min-width: 800px) {

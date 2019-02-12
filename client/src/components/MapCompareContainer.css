@@ -19,7 +19,7 @@
   margin: 0.5em auto 0 auto;
 }
 
-.map-container input {
+.map-container > input {
   font-size: 0.8em;
   padding: .5em;
   margin: 3em 0 0 1em;

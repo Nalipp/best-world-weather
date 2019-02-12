@@ -1,14 +1,29 @@
 .selected-city-navigation {
   display: flex;
+  width: 100%;
+  border-top: 2px solid #ddd;
+  border-bottom: 2px solid #ddd;
 }
 
 .selected-city-navigation li {
-  border: 2px solid #ddd;
-  padding: 0.5em 2em;
-  margin: 0.4em 0.6em;
+  font-size: 0.6em;
+  padding: 1em 2em;
+  border-right: 2px solid #ddd;
+  flex-grow: 1;
+  text-align: center;
   cursor: pointer;
+}
+
+.selected-city-navigation li:last-child {
+  border: none;
 }
 
 .selected-nav {
   background: #ddd;
+}
+
+@media (min-width: 800px) {
+  .selected-city-navigation li {
+    font-size: 1em;
+  }
 }
