@@ -1,4 +1,24 @@
-# Todo app example deployment
+## To Start
+
+api runs on http://localhost:8080
+
+```
+./
+
+$ npm start
+```
+
+client server runs on http://localhost:8081
+
+```
+./client
+
+$ npm start
+```
+
+
+
+## Deployment (notes)
 
 ### for additional reference on this topic
 
