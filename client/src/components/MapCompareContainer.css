@@ -30,7 +30,7 @@
   border-radius: 1em;
 }
 
-.map-location-container {
+.empty-map-location-container {
   border: 2px dashed #ddd;
   border-radius: 0.6em;
   height: 10em;
@@ -39,7 +39,7 @@
   justify-content: space-evenly;
 }
 
-.map-location-container > p {
+.empty-map-location-container > p {
   font-size: 0.8em;
   align-self: center; 
 }

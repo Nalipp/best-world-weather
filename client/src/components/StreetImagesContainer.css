@@ -1,5 +1,9 @@
-.street-image-heading {
-  font-size: 0.6em;
-  padding: 0 0 0 1em;
-  border-top: 2px solid #ddd;
+.refresh-images {
+  border: 2px solid #ddd;
+  border-radius: 1em;
+  margin: 0.5em auto;
+  padding: 1em 0.5em;
+  font-size: 0.8em;
+  cursor: pointer;
+  display: inline-block;
 }

@@ -8,14 +8,6 @@
   padding: 0 0.5em;
 }
 
-.refresh-images {
-  border: 2px solid #ddd;
-  margin: auto;
-  padding: 3em 0.3em;
-  font-size: 0.6em;
-}
-
-
 img[src="https://maps.gstatic.com/mapfiles/api-3/images/google4.png"], a[href^="https://www.google.com/intl/en-US_US/help/terms_maps.html"]{
     display:none !important;
 }

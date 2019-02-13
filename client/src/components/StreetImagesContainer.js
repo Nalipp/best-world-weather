@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './StreetImagesContainer.css';
+import { applyActiveBounds } from '../actions';
 import { connect } from 'react-redux';
 import ImageList from './ImageList';
 
@@ -12,9 +13,13 @@ class StreetImagesContainer extends Component {
         {mapImagesLocation && activeBounds
           ? 
             <div>
-              <p className={"street-image-heading"}>
-                {mapImagesLocation.cityName}
-              </p>
+              <div>
+                <span
+                  className={"refresh-images"} 
+                  onClick={this.props.applyActiveBounds}>
+                  refresh images
+                </span>
+              </div>
               <ImageList />
             </div>
           : 
@@ -32,5 +37,11 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps, null)(StreetImagesContainer);
+const mapDispatchToProps = dispatch => {
+  return {
+    applyActiveBounds: () => dispatch(applyActiveBounds()),
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(StreetImagesContainer);
 
