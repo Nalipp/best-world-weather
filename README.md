@@ -1,5 +1,31 @@
 ## To Start
 
+Manually load necessary api keys prior to starting the app or place in a bash file.
+These need to also be added to Heroku config before deployment.
+
+```
+$ export GOOGLE_API_KEY=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+$ export REACT_APP_GOOGLE_API_KEY=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+$ export DARKSKY_API_KEY=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+```
+
+Uncomment getForcasts('initialize') to seed the database in the api/index.js file.
+
+This should only be run on first setting up the database or after the db has been droped.
+
+getForcasts('update'); can be used to update the database with the current weather info and automatically called at set intervals.
+
+
+```
+api/index.js
+
+getForcasts('initialize') // only run after db.forcasts.drop()
+getForcasts('update');
+```
+
+
+#### start the client and api
+
 api runs on http://localhost:8080
 
 ```

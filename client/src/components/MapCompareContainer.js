@@ -7,6 +7,13 @@ import './MapCompareContainer.css';
 const GOOGLE_API_KEY = process.env.REACT_APP_GOOGLE_API_KEY;
 const googleUrl = `https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=${GOOGLE_API_KEY}`
 
+const MapLocationContainer = ({ searchType }) => (
+  <div className={'map-location-container'}>
+    <p>compare city size with...</p>
+    <Search searchType={searchType} />
+  </div>
+)
+
 class MapCompareContainer extends Component {
   render() {
     return (
@@ -23,7 +30,7 @@ class MapCompareContainer extends Component {
                 mapElement={<div style={{ height: `100%` }} />}
               />
               :
-              <Search searchType={'mapLocation1'} />
+              <MapLocationContainer searchType={'mapLocation1'} />
             }
           </div>
           <MapControl />
@@ -38,7 +45,7 @@ class MapCompareContainer extends Component {
                 mapElement={<div style={{ height: `100%` }} />}
               />
               :
-              <Search searchType={'mapLocation2'} />
+              <MapLocationContainer searchType={'mapLocation2'} />
             }
           </div>
         </div>
