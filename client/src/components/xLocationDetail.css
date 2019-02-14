@@ -1,5 +1,8 @@
+@value colors: '../colors.css';
+@value base1Light from colors;
+
 .city-detail {
-  border: 2px solid #ddd;
+  border: 2px solid base1Light;
   margin: 0.3em;
   height: 10em;
 }

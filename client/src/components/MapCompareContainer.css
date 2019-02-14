@@ -1,3 +1,6 @@
+@value colors: '../colors.css';
+@value base1Light from colors;
+
 .map-compare {
   display: flex;
   flex-direction: column;
@@ -26,12 +29,12 @@
   width: 80%;
   letter-spacing: 1.2px;
   outline: none;
-  border: 2px solid #ddd;
+  border: 2px solid base1Light;
   border-radius: 1em;
 }
 
 .empty-map-location-container {
-  border: 2px dashed #ddd;
+  border: 2px dashed base1Light;
   border-radius: 0.6em;
   height: 10em;
   display: flex;

@@ -1,9 +1,12 @@
+@value colors: '../colors.css';
+@value primary-white from colors;
+
 .change-city {
   position: absolute;
   z-index: 1;
   top: -17.5em;
   font-size: 0.4em;
-  background: #fff;
+  background: primary-white;
   padding: .5em 1em;
   border: 2px solid #eee;
   letter-spacing: 1.5px;

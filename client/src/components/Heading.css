@@ -1,5 +1,5 @@
 @value colors: "../colors.css";
-@value primary-white from colors;
+@value primary-white, base1Light from colors;
 
 .heading {
   background: primary-white;
@@ -14,5 +14,5 @@
 .heading p {
   font-size: 0.8em;
   padding: 0 0 1.2em 1em;
-  border-bottom: 2px solid #ddd;
+  border-bottom: 2px solid base1Light;
 }

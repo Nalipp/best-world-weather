@@ -1,14 +1,17 @@
+@value colors: '../colors.css';
+@value base1Light from colors;
+
 .selected-city-navigation {
   display: flex;
   width: 100%;
-  border-top: 2px solid #ddd;
-  border-bottom: 2px solid #ddd;
+  border-top: 2px solid base1Light;
+  border-bottom: 2px solid base1Light;
 }
 
 .selected-city-navigation li {
   font-size: 0.6em;
   padding: 1em 2em;
-  border-right: 2px solid #ddd;
+  border-right: 2px solid base1Light;
   flex-grow: 1;
   text-align: center;
   cursor: pointer;
@@ -19,7 +22,7 @@
 }
 
 .selected-nav {
-  background: #ddd;
+  background: base1Light;
 }
 
 @media (min-width: 800px) {
