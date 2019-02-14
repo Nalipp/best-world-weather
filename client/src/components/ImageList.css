@@ -1,11 +1,14 @@
 .street-image {
   display: flex;
   overflow: scroll;
-  padding: .5em 1em 1em .5em;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
 }
 
 .street-image > img {
-  padding: 0 0.5em;
+  padding: 0.5em;
 }
 
 img[src="https://maps.gstatic.com/mapfiles/api-3/images/google4.png"], a[href^="https://www.google.com/intl/en-US_US/help/terms_maps.html"]{

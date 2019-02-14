@@ -1,9 +1,4 @@
-.refresh-images {
-  border: 2px solid #ddd;
-  border-radius: 1em;
-  margin: 0.5em auto;
-  padding: 1em 0.5em;
-  font-size: 0.8em;
-  cursor: pointer;
-  display: inline-block;
+.street-images-container {
+  position: relative;
 }
+

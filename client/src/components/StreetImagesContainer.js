@@ -11,11 +11,11 @@ class StreetImagesContainer extends Component {
       <div>
         {mapImagesLocation
           ? 
-            <div>
+            <div className={'street-images-container'}>
               <ImageList />
             </div>
           : 
-            <div></div>
+            <div className={'street-images-container'}></div>
         }
       </div>
     )

@@ -21,8 +21,10 @@ const MapImagesMap = compose(
         onMapMounted: ref => {
           refs.map = ref;
           setTimeout(() => {
-            this.props.setBounds(ref.getBounds()); 
-          }, 1000);
+            if (ref) {
+              this.props.setBounds(ref.getBounds()); 
+            }
+          }, 1500);
         },
         onDragEnd: () => {
           console.log('drag ended...');
