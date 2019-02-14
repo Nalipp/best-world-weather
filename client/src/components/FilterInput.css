@@ -1,11 +1,12 @@
 .filter-input {
-  padding: 0.5em;
+  padding: 3px;
   display: flex;
 }
 
-.filter-input > label:first-child {
+.filter-input > label {
   flex-basis: 60%;
   cursor: pointer;
+  font-size: 0.9em;
 }
 
 .filter-input div {
@@ -33,3 +34,8 @@
   color: #bbb;
 }
 
+@media (min-width: 800px) {
+  .filter-input {
+    padding: 0.4em;
+  }
+}

@@ -4,7 +4,7 @@
 .change-city {
   position: absolute;
   z-index: 1;
-  top: -10em;
+  top: -8em;
   font-size: 1em;
   background: primary-white;
   padding: .5em 1em;

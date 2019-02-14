@@ -138,16 +138,6 @@ const forcasts = (state = initialState, action) => {
         ...state,
         locationDetailOn: false,
       }
-    case 'SHOW_FILTERS':
-      return {
-        ...state,
-        displayFilters: true,
-      }
-    case 'HIDE_FILTERS':
-      return {
-        ...state,
-        displayFilters: false,
-      }
     default:
       return state
   }

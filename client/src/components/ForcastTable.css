@@ -4,14 +4,15 @@
 .forcast-table {
   border-collapse: collapse; 
   width: 90%;
-  margin: auto;
+  margin: 0 auto 4em;
 }
 
 .forcast-table th {
   cursor: pointer;
   text-align: start;
-  font-weigth: normal;
-  width: 25%;
+  font-weight: 100;
+  font-size: 0.8em;
+  width: 20%;
 }
 
 .forcast-table > tbody ul {

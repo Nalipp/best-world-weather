@@ -26,7 +26,7 @@ class MapCompareContainer extends Component {
                 mapLocation="mapLocation1"
                 googleMapURL={googleUrl}
                 loadingElement={<div style={{ height: `100%` }} />}
-                containerElement={<div style={{ height: `10em` }} />}
+                containerElement={<div style={{ height: `8em` }} />}
                 mapElement={<div style={{ height: `100%` }} />}
               />
               :
@@ -41,7 +41,7 @@ class MapCompareContainer extends Component {
                 mapLocation="mapLocation2"
                 googleMapURL={googleUrl}
                 loadingElement={<div style={{ height: `100%` }} />}
-                containerElement={<div style={{ height: `10em` }} />}
+                containerElement={<div style={{ height: `8em` }} />}
                 mapElement={<div style={{ height: `100%` }} />}
               />
               :

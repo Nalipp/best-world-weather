@@ -6,13 +6,13 @@
 }
 
 .heading h1 {
-  font-size: 1em;
-  padding: 2px 0 0 2px;
+  font-size: 1.2em;
+  padding: 4px 0 0 4px;
 }
 
 .heading p {
   font-size: 0.4em;
-  padding: 0 0 0.8em 0.6em;
+  padding: 0 0 0.8em 0.8em;
   border-bottom: 2px solid base1Light;
 }
 

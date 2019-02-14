@@ -3,15 +3,17 @@
 
 .forcast-container { 
   width: 90%;
+  margin: 0.5em 1em;
+  padding: 0.6em;
   background: primary-white;
-  margin: 1em;
-  padding: 1em;
   border-radius: 1.2em;
 }
 
 @media (min-width: 800px) {
   .forcast-container {
     width: 40%;
+    margin: 0.8em;
+    padding: 1em;
   }
 }
 

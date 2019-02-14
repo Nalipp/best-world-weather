@@ -248,16 +248,3 @@ export const hideInputFilter = filterName => async dispatch => {
     filterName,
   });
 }
-
-export const showFilters = () => async dispatch => {
-  dispatch({
-    type: 'SHOW_FILTERS',
-  });
-}
-
-export const hideFilters = () => async dispatch => {
-  dispatch({
-    type: 'HIDE_FILTERS',
-  });
-}
-
