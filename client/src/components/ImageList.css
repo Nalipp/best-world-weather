@@ -9,6 +9,7 @@
 }
 
 .full-screen-images, .street-images {
+  -webkit-overflow-scrolling: touch;
   display: flex;
   overflow: scroll;
   position: absolute;
