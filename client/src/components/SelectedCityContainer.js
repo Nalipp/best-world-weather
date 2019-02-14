@@ -22,13 +22,15 @@ class SelectedCityContainer extends Component {
     const displayStatus = this.props.locationDetailOn ? 'display-on' : 'display-off';
     return (
       <div className={`selected-city-container ${displayStatus}`}>
-        <Search searchType={'getForcast'} />
-        <SelectedCityNavigation 
-          handleSelect={this.handleSelect}
-          selected={this.state.selected} />
-        {this.state.selected === 'data' && <ForcastDetailContainer />}
-        {this.state.selected === 'maps' && <MapCompareContainer />}
-        {this.state.selected === 'images' && <MapImagesContainer />}
+        <div>
+          <Search searchType={'getForcast'} />
+          <SelectedCityNavigation 
+            handleSelect={this.handleSelect}
+            selected={this.state.selected} />
+          {this.state.selected === 'data' && <ForcastDetailContainer />}
+          {this.state.selected === 'maps' && <MapCompareContainer />}
+          {this.state.selected === 'images' && <MapImagesContainer />}
+        </div>
       </div>
     )
   }

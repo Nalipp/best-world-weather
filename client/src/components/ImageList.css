@@ -2,7 +2,7 @@
   position: absolute;
   top: 0;
   right: 0;
-  left: 0;
+  left: -2em;
   bottom: 0;
   background: rgba(68, 68, 68, 0.9);
   z-index: 5;

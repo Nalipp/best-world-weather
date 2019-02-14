@@ -48,7 +48,7 @@ const MapImagesMap = compose(
     <div 
       onClick={props.resetMapImagesLocation}
       className={'change-city'}
-      style={{top: '-21.5em'}}>
+      style={{top: '-12.5em'}}>
       change
     </div>
     <GoogleMap

@@ -3,16 +3,32 @@
 
 .heading {
   background: primary-white;
-  margin-bottom: 1em;
 }
 
 .heading h1 {
-  font-size: 2em;
-  padding: 0.2em 0 0 0.2em;
+  font-size: 1em;
+  padding: 2px 0 0 2px;
 }
 
 .heading p {
-  font-size: 0.8em;
-  padding: 0 0 1.2em 1em;
+  font-size: 0.4em;
+  padding: 0 0 0.8em 0.6em;
   border-bottom: 2px solid base1Light;
+}
+
+@media (min-width: 800px) {
+  .heading {
+    margin-bottom: 1em;
+  }
+
+  .heading h1 {
+    font-size: 2em;
+    padding: 0.2em 0 0 0.2em;
+  }
+
+  .heading p {
+    font-size: 0.8em;
+    padding: 0 0 1.2em 1em;
+    border-bottom: 2px solid base1Light;
+  }
 }
