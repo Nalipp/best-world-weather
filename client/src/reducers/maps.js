@@ -1,5 +1,5 @@
 import getGeoCoords from '../helpers/getGeoCoords'
-const GEO_COORDS_COUNT = 6;
+const GEO_COORDS_COUNT = 15;
 
 const initialState = {
   mapLocation1: null,
@@ -8,6 +8,7 @@ const initialState = {
   mapZoomLevel: 9,
   bounds: null,
   geoCoords: [],
+  fullScreenImages: false,
 }
 
 const maps = (state = initialState, action) => {
@@ -47,6 +48,16 @@ const maps = (state = initialState, action) => {
         ...state,
         bounds: action.payload,
         geoCoords: getGeoCoords(GEO_COORDS_COUNT, action.payload)
+      }
+    case 'ACTIVATE_FULL_SCREEN_IMAGES':
+      return {
+        ...state,
+        fullScreenImages: true,
+      }
+    case 'DISABLE_FULL_SCREEN_IMAGES':
+      return {
+        ...state,
+        fullScreenImages: false,
       }
     default:
       return state;

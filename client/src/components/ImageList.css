@@ -1,13 +1,33 @@
-.street-image {
+.full-screen-images-modal {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background: rgba(68, 68, 68, 0.9);
+  z-index: 5;
+}
+
+.full-screen-images, .street-images {
   display: flex;
   overflow: scroll;
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
+  cursor: pointer;
+  z-index: 5;
 }
 
-.street-image > img {
+.full-screen-images {
+  top: 20vh;
+}
+
+.full-screen-images > img {
+  padding: 1em;
+}
+
+.street-images > img {
   padding: 0.5em;
 }
 

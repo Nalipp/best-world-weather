@@ -143,6 +143,18 @@ export const setBounds = (bounds) => async dispatch => {
   })
 }
 
+export const activateFullScreenImages = () => async dispatch => {
+  dispatch({
+    type: 'ACTIVATE_FULL_SCREEN_IMAGES',
+  })
+}
+
+export const disableFullScreenImages = () => async dispatch => {
+  dispatch({
+    type: 'DISABLE_FULL_SCREEN_IMAGES',
+  })
+}
+
 // Forcasts
 // ************************************************** 
 
