@@ -7,7 +7,6 @@ const initialState = {
   mapImagesLocation: null,
   mapZoomLevel: 9,
   bounds: null,
-  activeBounds: null,
   geoCoords: [],
 }
 
@@ -47,12 +46,7 @@ const maps = (state = initialState, action) => {
       return {
         ...state,
         bounds: action.payload,
-      }
-    case 'APPLY_ACTIVE_BOUNDS':
-      return {
-        ...state,
-        activeBounds: state.bounds,
-        geoCoords: getGeoCoords(GEO_COORDS_COUNT, state.bounds)
+        geoCoords: getGeoCoords(GEO_COORDS_COUNT, action.payload)
       }
     default:
       return state;

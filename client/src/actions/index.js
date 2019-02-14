@@ -128,7 +128,6 @@ export const resetMapImagesLocation = () => async dispatch => {
     type: 'SET_MAP_IMAGES_LOCATION',
     payload: null,
   })
-  dispatch(applyActiveBounds());
 }
 
 export const resetMapZoom = () => async dispatch => {
@@ -137,19 +136,12 @@ export const resetMapZoom = () => async dispatch => {
   })
 }
 
-export const setBounds = (bounds, cb) => async dispatch => {
+export const setBounds = (bounds) => async dispatch => {
   dispatch({
     type: 'SET_BOUNDS',
     payload: bounds,
   })
 }
-
-export const applyActiveBounds = () => async dispatch => {
-  dispatch({
-    type: 'APPLY_ACTIVE_BOUNDS',
-  })
-}
-
 
 // Forcasts
 // ************************************************** 

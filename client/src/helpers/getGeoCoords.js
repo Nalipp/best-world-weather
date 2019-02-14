@@ -1,7 +1,7 @@
-const getGeoCoords = (count, activeBounds) => {
+const getGeoCoords = (count, bounds) => {
   const results = [];
-  const lngs = activeBounds.ga;
-  const lats = activeBounds.ma;
+  const lngs = bounds.ga;
+  const lats = bounds.ma;
   const latsDiff = lats.l - lats.j;
   const lngsDiff = lngs.l - lngs.j;
 
