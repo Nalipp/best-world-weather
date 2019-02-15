@@ -19,9 +19,24 @@ class ForcastFilter extends Component {
               type="button">reset</button>}
         </div>
         <div>
-          <FilterInput label="Max Temp" name="max_temperature" />
-          <FilterInput label="Min Temp" name="min_temperature" />
-          <FilterInput label="Max Clouds" name="max_cloudCover" />
+          <FilterInput 
+            label="Min Temp"
+            min={0}
+            max={100}
+            step={1}
+            name="min_temperature" />
+          <FilterInput
+            label="Max Humidity"
+            min={0}
+            max={100}
+            step={1}
+            name="max_humidity" />
+          <FilterInput
+            label="Min Sunlight"
+            min={8}
+            max={14}
+            step={0.1}
+            name="min_sunlight" />
         </div>
       </form>
     )

@@ -4,31 +4,26 @@ const initialState = {
   locationDetailOn: false,
   singleForcast: null,
   sortedBy: 'iconPoints',
-  displayFilters: false,
   reverseSort: false,
   appliedValues: { // filters actually applied to forcast list
-    max_temperature: Infinity,
     min_temperature: -Infinity,
-    max_windSpeed: Infinity,
-    max_cloudCover: Infinity,
+    max_humidity: 100,
+    min_sunlight: 0,
   },
   currentValues: { // filter values (may or may not be applied)
-    max_temperature: 72,
-    min_temperature: 65,
-    max_windSpeed: 10,
-    max_cloudCover: 10
+    min_temperature: 72,
+    max_humidity: 80,
+    min_sunlight: 10,
   },
   resetValues: { // when applied show all forcasts
-    max_temperature: Infinity,
     min_temperature: -Infinity,
-    max_windSpeed: Infinity,
-    max_cloudCover: Infinity,
+    max_humidity: 100,
+    min_sunlight: 0,
   },
   isShowing: {
-    max_temperature: false,
     min_temperature: false,
-    max_windSpeed: false,
-    max_cloudCover: false,
+    max_humidity: false,
+    min_sunlight: false,
   }
 }
 
@@ -147,9 +142,8 @@ const forcasts = (state = initialState, action) => {
 
     let filtered = state.allForcasts.slice().filter(forcast => {
       return forcast.temperature > applied.min_temperature &&
-             forcast.temperature < applied.max_temperature &&
-             forcast.windSpeed < applied.max_windSpeed &&
-             forcast.cloudCover < applied.max_cloudCover
+             forcast.sunlightHours > applied.min_sunlight &&
+             forcast.humidity * 100 < applied.max_humidity
     });
 
     let sorted = filtered.sort(function(acc, forcast) {

@@ -15,8 +15,6 @@ class FilterInput extends Component {
     super(props);
     this.state = {
       value: '',
-      incrementId: null,
-      currentCount: 0,
     }
   }
   componentDidMount() {
@@ -30,56 +28,18 @@ class FilterInput extends Component {
     this.props.showInputFilter(this.props.name);
     this.props.applyCurrentFilter(this.props.name);
   }
-  startIncrease = () => {
-    this.show();
-    this.setState({ value: this.state.value + 1}, () => {
-      this.props.updateCurrentValue(this.props.name, this.state.value);
-    });
-    this.setState({ incrementId: setInterval(() => {
-      this.setState({ 
-        value: this.state.value + 1,
-        currentCount: this.state.currentCount + 1}, () => {
-        this.props.updateCurrentValue(this.props.name, this.state.value);
-        if (this.state.currentCount > 2) {
-          this.stopIncrement();
-          this.setState({ currentCount: 0 }, () => {
-            this.setState({ incrementId: setInterval(() => {
-              this.setState({ value: this.state.value + 1 }, () => {
-                this.props.updateCurrentValue(this.props.name, this.state.value);
-              });
-            }, 80) });
-          });
-        }
-      });
-    }, 160) });
-  }
-  startDecrease = () => {
-    this.show();
-    this.setState({ value: this.state.value - 1}, () => {
-      this.props.updateCurrentValue(this.props.name, this.state.value);
-    });
-    this.setState({ incrementId: setInterval(() => {
-      this.setState({
-        value: this.state.value - 1,
-        currentCount: this.state.currentCount + 1}, () => {
-        this.props.updateCurrentValue(this.props.name, this.state.value);
-        if (this.state.currentCount > 2) {
-          this.stopIncrement();
-          this.setState({ currentCount: 0 }, () => {
-            this.setState({ incrementId: setInterval(() => {
-              this.setState({ value: this.state.value - 1 }, () => {
-                this.props.updateCurrentValue(this.props.name, this.state.value);
-              });
-            }, 80) });
-          });
-        }
-      });
-    }, 160) });
-  }
-  stopIncrement = () => {
-    this.setState({ incrementId: clearInterval(this.state.incrementId) });
+  handleChange = e => {
+    const curValue = e.target.value;
+    this.props.showInputFilter(this.props.name);
+    this.setState({ value: curValue });
+    this.props.updateCurrentValue(this.props.name, curValue)
   }
   render() {
+
+    // min_temperature: 72,
+    // max_humidity: 80,
+    // min_sunlight: 10,
+
     const showingClass = this.props.isShowing ? null : 'showing';
     return (
       <div className={`filter-input ${showingClass}`}>
@@ -88,22 +48,16 @@ class FilterInput extends Component {
           {this.props.label}
         </label>
         <div>
-          <button 
-            className={showingClass}
-            onMouseDown={this.startDecrease} 
-            onMouseUp={this.stopIncrement} 
-            onTouchStart={this.startDecrease}
-            onTouchEnd={this.stopIncrement}
-            type="button">-</button>
-          <input type="hidden" value={this.state.value}/>
-          <span>{this.props.currentValue}</span>
-          <button 
-            className={showingClass}
-            onMouseDown={this.startIncrease} 
-            onMouseUp={this.stopIncrement} 
-            onTouchStart={this.startIncrease}
-            onTouchEnd={this.stopIncrement}
-            type="button">+</button>
+          <input 
+            onChange={this.handleChange}
+            type="range"
+            min={this.props.min}
+            max={this.props.max}
+            step={this.props.step}
+            value={this.state.value}/>
+        </div>
+        <div>
+          <span>{this.state.value}</span>
         </div>
       </div>
     )

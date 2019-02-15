@@ -15,17 +15,6 @@
   text-align: center;
 }
 
-.filter-input div button {
-  flex-grow: 1;
-  border: 2px solid #eee;
-  background: none;
-  border-radius: 10em;
-  height: 20px;
-  width: 1px;
-  outline: none;
-  cursor: pointer;
-}
-
 .filter-input div span {
   flex-grow: 2;
 }
