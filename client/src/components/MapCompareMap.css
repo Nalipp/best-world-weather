@@ -1,14 +1,15 @@
 @value colors: '../colors.css';
-@value primary-white from colors;
+@value primary-white, base1Light, base1Dark from colors;
 
 .change-city {
   position: absolute;
   z-index: 1;
   top: 0;
   font-size: 1em;
-  background: primary-white;
+  background: base1Light;
+  color: base1Dark;
   padding: .5em 1em;
-  border: 2px solid #eee;
+  border: 2px solid base1Light;
   letter-spacing: 1.5px;
   cursor: pointer;
 }

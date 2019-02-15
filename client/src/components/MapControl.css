@@ -3,7 +3,7 @@
 
 .map-control {
   display: flex;
-  margin: 1.2em 0.8em 2.4em 0.8em;
+  margin: 1em;
 }
 
 .map-control > div {
@@ -13,29 +13,26 @@
   text-align: center;
   font-size: 1.6em;
   line-height: 0;
-  padding: 0.4em 0.4em 0.6em 0.4em;
-  color: base1Dark;
-  flex-grow: 4;
+  padding: 15px;  color: base1Dark;
+  flex-grow: 1;
 }
 
 .map-control span {
   text-align: center;
   color: base1Dark;
-  padding-top: 0.3em;
+  padding-top: 0.5em;
   flex-grow: 1;
 }
 
 @media (min-width: 800px) {
   .map-control {
-    flex-direction: column;
+    margin: 0.5em 0 0 0;
   }
   .map-control > div {
-    padding: 0.4em;
+    padding: 0.2em;
     line-height: inherit;
     cursor: pointer;
-  }
-  .map-control > span {
-    flex-grow: 1;
+    flex-grow: 2;
   }
 }
 

@@ -4,15 +4,9 @@
 .map-compare {
   display: flex;
   flex-direction: column;
-}
-
-.map-compare_maps {
-  display: flex;
-  flex-direction: column;
-  height: 11em;
   width: 97.5%;
   padding-left: 0.3em;
-  margin: auto;
+  margin: 0 auto;
 }
 
 .map-container {

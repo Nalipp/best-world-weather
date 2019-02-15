@@ -33,38 +33,36 @@ class MapCompareContainer extends Component {
   render() {
     return (
       <div className={'map-compare'}>
-        <div className={'map-compare_maps'}>
-          <div className={'map-container'}>
-            {this.props.mapLocation1 
-              ?
-              <MapCompareMap
-                mapLocation="mapLocation1"
-                googleMapURL={googleUrl}
-                loadingElement={<div style={{ height: `100%` }} />}
-                containerElement={<div style={{ 
-                  height: `${this.state.quarterHeight}px` }} />}
-                mapElement={<div style={{ height: `100%` }} />}
-              />
-              :
-              <EmptyMapLocationContainer searchType={'mapLocation1'} />
-            }
-          </div>
-          <MapControl />
-          <div className={'map-container'}>
-            {this.props.mapLocation2 
-              ?
-              <MapCompareMap
-                mapLocation="mapLocation2"
-                googleMapURL={googleUrl}
-                loadingElement={<div style={{ height: `100%` }} />}
-                containerElement={<div style={{ 
-                  height: `${this.state.quarterHeight}px` }} />}
-                mapElement={<div style={{ height: `100%` }} />}
-              />
-              :
-              <EmptyMapLocationContainer searchType={'mapLocation2'} />
-            }
-          </div>
+        <div className={'map-container'}>
+          {this.props.mapLocation1 
+            ?
+            <MapCompareMap
+              mapLocation="mapLocation1"
+              googleMapURL={googleUrl}
+              loadingElement={<div style={{ height: `100%` }} />}
+              containerElement={<div style={{ 
+                height: `${this.state.quarterHeight}px` }} />}
+              mapElement={<div style={{ height: `100%` }} />}
+            />
+            :
+            <EmptyMapLocationContainer searchType={'mapLocation1'} />
+          }
+        </div>
+        <MapControl />
+        <div className={'map-container'}>
+          {this.props.mapLocation2 
+            ?
+            <MapCompareMap
+              mapLocation="mapLocation2"
+              googleMapURL={googleUrl}
+              loadingElement={<div style={{ height: `100%` }} />}
+              containerElement={<div style={{ 
+                height: `${this.state.quarterHeight}px` }} />}
+              mapElement={<div style={{ height: `100%` }} />}
+            />
+            :
+            <EmptyMapLocationContainer searchType={'mapLocation2'} />
+          }
         </div>
       </div>
     )
