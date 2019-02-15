@@ -26,8 +26,6 @@ class MapCompareContainer extends Component {
     this.setState({ 
       height: window.innerHeight,
       quarterHeight: window.innerHeight / 4,
-    }, () => {
-      console.log(this.state);
     });
   }
   render() {

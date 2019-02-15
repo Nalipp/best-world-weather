@@ -130,12 +130,6 @@ export const resetMapImagesLocation = () => async dispatch => {
   })
 }
 
-export const resetMapZoom = () => async dispatch => {
-  dispatch({
-    type: 'RESET_MAP_ZOOM',
-  })
-}
-
 export const setBounds = (bounds) => async dispatch => {
   dispatch({
     type: 'SET_BOUNDS',
@@ -165,16 +159,18 @@ export const setLocationDetail = forcast => async dispatch => {
     payload: forcast,
   })
   dispatch({
-    type: 'RESET_MAP_ZOOM',
-  })
-  dispatch({
     type: 'SET_MAP_LOCATION_1',
     payload: forcast,
   })
   dispatch({
-    type: 'SET_MAP_IMAGES_LOCATION',
-    payload: forcast,
+    type: 'RESET_MAP_IMAGES_LOCATION',
   })
+  setTimeout(() => {
+    dispatch({
+      type: 'SET_MAP_IMAGES_LOCATION',
+      payload: forcast,
+    })
+  });
 }
 
 export const showLocationDetail = () => async dispatch => {

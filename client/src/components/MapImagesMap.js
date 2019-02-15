@@ -24,17 +24,17 @@ const MapImagesMap = compose(
             if (ref) {
               this.props.setBounds(ref.getBounds()); 
             }
-          }, 1500);
+          }, 1000);
         },
         onDragEnd: () => {
           setTimeout(() => {
             this.props.setBounds(refs.map.getBounds());
-          }, 1000)
+          }, 500)
         },
         onZoomChanged: () => {
           setTimeout(() => {
             this.props.setBounds(refs.map.getBounds());
-          }, 1000)
+          }, 500)
         },
       })
     },
@@ -51,7 +51,7 @@ const MapImagesMap = compose(
     </div>
     <GoogleMap
       ref={props.onMapMounted}
-      zoom={12}
+      defaultZoom={props.mapZoomLevel}
       center={{ lat: props.mapImagesLocation.lat, lng: props.mapImagesLocation.lng }}
       options={{ disableDefaultUI: true, zoomControl: true, }}
       onDragEnd={props.onDragEnd}
@@ -64,6 +64,7 @@ const MapImagesMap = compose(
 const mapStateToProps = state => {
   return {
     mapImagesLocation: state.maps.mapImagesLocation,
+    mapZoomLevel: state.maps.mapZoomLevel,
   }
 }
 

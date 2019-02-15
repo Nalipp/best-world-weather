@@ -11,6 +11,7 @@
   left: 2em;
   background: primary-white;
   width: 100%;
+  z-index: 2;
 }
 
 .selected-city-container > div {

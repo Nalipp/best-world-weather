@@ -5,7 +5,7 @@ const initialState = {
   mapLocation1: null,
   mapLocation2: { cityName: "San francisco", lat: 37.7749295, lng: -122.4194155 },
   mapImagesLocation: null,
-  mapZoomLevel: 9,
+  mapZoomLevel: 10,
   bounds: null,
   geoCoords: [],
   fullScreenImages: false,
@@ -38,10 +38,10 @@ const maps = (state = initialState, action) => {
         ...state, 
         mapZoomLevel: state.mapZoomLevel - 1,
       }
-    case 'RESET_MAP_ZOOM':
+    case 'RESET_MAP_IMAGES_LOCATION':
       return {
         ...state,
-        mapZoomLevel: initialState.mapZoomLevel,
+        mapImagesLocation: null,
       }
     case 'SET_BOUNDS':
       return {
