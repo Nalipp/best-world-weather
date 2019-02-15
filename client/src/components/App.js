@@ -10,8 +10,8 @@ import './App.css';
 
 class App extends Component {
   componentDidUpdate() {
-    const { filteredForcasts, setLocationDetail } = this.props;
-    filteredForcasts.length > 0 && setLocationDetail(filteredForcasts[0]);
+    const { filteredForcasts, singleForcast, setLocationDetail } = this.props;
+    filteredForcasts.length > 0 && !singleForcast && setLocationDetail(filteredForcasts[0]);
   }
   render() {
     return (
@@ -30,6 +30,7 @@ class App extends Component {
 
 const mapStateToProps = state => {
   return {
+    singleForcast: state.forcasts.singleForcast,
     locationDetailOn: state.forcasts.locationDetailOn, 
     filteredForcasts: state.forcasts.filteredForcasts,
   }
