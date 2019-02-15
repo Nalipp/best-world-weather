@@ -32,5 +32,9 @@
     width: 60%;
     margin: 1em;
     border-radius: 1.2em;
+    display: inherit;
+  }
+  .selected-city-container > div {
+    width: 100%;
   }
 }

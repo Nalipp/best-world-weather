@@ -6,7 +6,16 @@ import './ForcastDetail.css';
 
 class ForcastDetail extends Component {
   render() {
-    const forcast = this.props.singleForcast;
+    const { singleForcast, filteredForcasts} = this.props;
+    let forcast;
+
+    if (singleForcast) {
+      forcast = singleForcast;
+    } else if (filteredForcasts) {
+      forcast = filteredForcasts[0];
+    }
+
+    console.log(forcast);
     return (
       <div>
         {forcast && <div className={'forcast-detail'}>
@@ -46,6 +55,7 @@ class ForcastDetail extends Component {
 const mapStateToProps = state => {
   return {
     singleForcast: state.forcasts.singleForcast,
+    filteredForcasts: state.forcasts.filteredForcasts,
   }
 }
 
