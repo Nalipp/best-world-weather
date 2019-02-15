@@ -15,6 +15,21 @@ const EmptyMapLocationContainer = ({ searchType }) => (
 )
 
 class MapCompareContainer extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { 
+      height: 0,
+      quarterHeight: 0,
+    };
+  }
+  componentWillMount(){
+    this.setState({ 
+      height: window.innerHeight,
+      quarterHeight: window.innerHeight / 4,
+    }, () => {
+      console.log(this.state);
+    });
+  }
   render() {
     return (
       <div className={'map-compare'}>
@@ -26,7 +41,8 @@ class MapCompareContainer extends Component {
                 mapLocation="mapLocation1"
                 googleMapURL={googleUrl}
                 loadingElement={<div style={{ height: `100%` }} />}
-                containerElement={<div style={{ height: `8em` }} />}
+                containerElement={<div style={{ 
+                  height: `${this.state.quarterHeight}px` }} />}
                 mapElement={<div style={{ height: `100%` }} />}
               />
               :
@@ -41,7 +57,8 @@ class MapCompareContainer extends Component {
                 mapLocation="mapLocation2"
                 googleMapURL={googleUrl}
                 loadingElement={<div style={{ height: `100%` }} />}
-                containerElement={<div style={{ height: `8em` }} />}
+                containerElement={<div style={{ 
+                  height: `${this.state.quarterHeight}px` }} />}
                 mapElement={<div style={{ height: `100%` }} />}
               />
               :

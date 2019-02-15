@@ -14,7 +14,7 @@ const MapCompareMap = withScriptjs(withGoogleMap((props) => {
   }
 
   return (
-    <div style={{position: 'relative'}}>
+    <div>
       <div onClick={handleMapReset} className={'change-city'}>
         change
       </div>
