@@ -27,13 +27,11 @@ const MapImagesMap = compose(
           }, 1500);
         },
         onDragEnd: () => {
-          console.log('drag ended...');
           setTimeout(() => {
             this.props.setBounds(refs.map.getBounds());
           }, 1000)
         },
         onZoomChanged: () => {
-          console.log('zoom changed...');
           setTimeout(() => {
             this.props.setBounds(refs.map.getBounds());
           }, 1000)

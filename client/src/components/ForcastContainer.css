@@ -8,6 +8,7 @@
   background: primary-white;
   border-radius: 1.2em;
   overflow: scroll;
+  -webkit-overflow-scrolling: touch;
 }
 
 @media (min-width: 800px) {

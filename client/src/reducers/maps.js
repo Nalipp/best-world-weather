@@ -3,7 +3,7 @@ const GEO_COORDS_COUNT = 15;
 
 const initialState = {
   mapLocation1: null,
-  mapLocation2: null,
+  mapLocation2: { cityName: "San francisco", lat: 37.7749295, lng: -122.4194155 },
   mapImagesLocation: null,
   mapZoomLevel: 9,
   bounds: null,

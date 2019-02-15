@@ -33,7 +33,6 @@ class ImageList extends Component {
 }
 
 const mapStateToProps = state => {
-  console.log(state); 
   return {
     fullScreenImages: state.maps.fullScreenImages,
     mapImagesLocation: state.maps.mapImagesLocation,

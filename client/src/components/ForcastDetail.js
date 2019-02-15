@@ -15,7 +15,6 @@ class ForcastDetail extends Component {
       forcast = filteredForcasts[0];
     }
 
-    console.log(forcast);
     return (
       <div>
         {forcast && <div className={'forcast-detail'}>

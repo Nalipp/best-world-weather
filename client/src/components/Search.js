@@ -42,6 +42,7 @@ class Search extends Component {
             placeholder="Select City"
             onChange={this.handleChange}
             value={this.state.value}
+            autoFocus={true}
           />
         </form>
       </div>
