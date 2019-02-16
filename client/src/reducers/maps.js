@@ -1,6 +1,3 @@
-import getGeoCoords from '../helpers/getGeoCoords'
-const GEO_COORDS_COUNT = 15;
-
 const initialState = {
   mapLocation1: null,
   mapLocation2: { cityName: "San francisco", lat: 37.7749295, lng: -122.4194155 },
@@ -47,7 +44,16 @@ const maps = (state = initialState, action) => {
       return {
         ...state,
         bounds: action.payload,
-        geoCoords: getGeoCoords(GEO_COORDS_COUNT, action.payload)
+      }
+    case 'RESET_GEO_CORDS':
+      return {
+        ...state,
+        geoCoords: [],
+      }
+    case 'ADD_GEO_COORD':
+      return {
+        ...state,
+        geoCoords: [...state.geoCoords, action.payload],
       }
     case 'ACTIVATE_FULL_SCREEN_IMAGES':
       return {

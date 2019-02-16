@@ -1,4 +1,6 @@
+import getGeoCoords from '../helpers/getGeoCoords'
 import axios from 'axios';
+const GEO_COORDS_COUNT = 15;
 
 export const getForcasts = () => async dispatch =>  {
   axios.get('/api/forcasts/')
@@ -135,6 +137,10 @@ export const setBounds = (bounds) => async dispatch => {
     type: 'SET_BOUNDS',
     payload: bounds,
   })
+  dispatch({
+    type: 'RESET_GEO_CORDS',
+  })
+  getGeoCoords(dispatch, GEO_COORDS_COUNT, bounds)
 }
 
 export const activateFullScreenImages = () => async dispatch => {
