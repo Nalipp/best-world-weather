@@ -1,3 +1,6 @@
+@value colors: "../colors.css";
+@value primary-green from colors;
+
 .full-screen-images-modal {
   position: absolute;
   top: 0;
@@ -15,13 +18,14 @@
   position: absolute;
   top: 0;
   left: 0;
-  right: 0;
+  right: 4em;
   cursor: pointer;
   z-index: 5;
 }
 
 .full-screen-images {
   top: 20vh;
+  align-items: center;
 }
 
 .full-screen-images > img {
@@ -30,6 +34,20 @@
 
 .street-images > img {
   padding: 0.5em;
+}
+
+.no-images {
+  padding: 1em 0;
+}
+
+.more-images {
+  width: 5em;
+  height: 4em;
+  padding: 1em 5em;
+  border-radius: 1em;
+  line-height: 2;
+  margin: 3em;
+  background: primary-green;
 }
 
 img[src="https://maps.gstatic.com/mapfiles/api-3/images/google4.png"], a[href^="https://www.google.com/intl/en-US_US/help/terms_maps.html"]{

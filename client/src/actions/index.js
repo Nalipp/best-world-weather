@@ -132,7 +132,7 @@ export const resetMapImagesLocation = () => async dispatch => {
   })
 }
 
-export const setBounds = (bounds) => async dispatch => {
+export const setBounds = bounds => async dispatch => {
   dispatch({
     type: 'SET_BOUNDS',
     payload: bounds,
@@ -141,6 +141,10 @@ export const setBounds = (bounds) => async dispatch => {
     type: 'RESET_GEO_CORDS',
   })
   getGeoCoords(dispatch, GEO_COORDS_COUNT, bounds)
+}
+
+export const addGeoCodes = (count, bounds) => async dispatch => {
+  getGeoCoords(dispatch, count, bounds)
 }
 
 export const activateFullScreenImages = () => async dispatch => {

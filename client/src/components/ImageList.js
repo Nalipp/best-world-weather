@@ -8,6 +8,7 @@ class ImageList extends Component {
   render() {
     return (
       <div>
+        {this.props.geoCoords.length === 0 && <div className={'no-images'}>no images available</div>}
         {this.props.fullScreenImages 
           ?
             <div 
@@ -17,6 +18,7 @@ class ImageList extends Component {
                 className="full-screen-images"
                 onClick={this.props.activateFullScreenImages}>
                 {this.props.geoCoords.map(coords => <img alt={this.props.mapImagesLocation.cityName} key={Math.random(coords[0] * 100)} src={`https://maps.googleapis.com/maps/api/streetview?size=300x300&location=${coords[0]},${coords[1]}&fov=90&heading=235&pitch=10&key=${GOOGLE_API_KEY}`} />)}
+                <div className={'more-images'}>+</div>
               </div>
             </div>
           :
