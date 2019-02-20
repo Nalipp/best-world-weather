@@ -11,6 +11,17 @@
   z-index: 5;
 }
 
+.showing-jumbo-image {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: 6;
+  cursor: pointer;
+  background: rgba(68, 68, 68, 0.9);
+}
+
 .full-screen-images, .street-images {
   -webkit-overflow-scrolling: touch;
   display: flex;
