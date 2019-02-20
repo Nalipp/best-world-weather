@@ -138,12 +138,14 @@ export const setBounds = bounds => async dispatch => {
     payload: bounds,
   })
   dispatch({
-    type: 'RESET_GEO_CORDS',
+    type: 'RESET_GEO_COORDS',
   })
-  getGeoCoords(dispatch, GEO_COORDS_COUNT, bounds)
+  setTimeout(() => {
+    getGeoCoords(dispatch, GEO_COORDS_COUNT, bounds)
+  });
 }
 
-export const addGeoCodes = (count, bounds) => async dispatch => {
+export const addGeoCoords = (count, bounds) => async dispatch => {
   getGeoCoords(dispatch, count, bounds)
 }
 

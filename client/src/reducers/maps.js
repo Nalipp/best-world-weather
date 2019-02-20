@@ -45,7 +45,7 @@ const maps = (state = initialState, action) => {
         ...state,
         bounds: action.payload,
       }
-    case 'RESET_GEO_CORDS':
+    case 'RESET_GEO_COORDS':
       return {
         ...state,
         geoCoords: [],

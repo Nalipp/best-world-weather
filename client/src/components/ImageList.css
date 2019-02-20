@@ -1,5 +1,5 @@
 @value colors: "../colors.css";
-@value primary-green from colors;
+@value base1Light  from colors;
 
 .full-screen-images-modal {
   position: absolute;
@@ -41,13 +41,9 @@
 }
 
 .more-images {
-  width: 5em;
-  height: 4em;
-  padding: 1em 5em;
-  border-radius: 1em;
-  line-height: 2;
-  margin: 3em;
-  background: primary-green;
+  padding: 1.75em 0.5em;
+  font-size: 4em;
+  background: base1Light;
 }
 
 img[src="https://maps.gstatic.com/mapfiles/api-3/images/google4.png"], a[href^="https://www.google.com/intl/en-US_US/help/terms_maps.html"]{
