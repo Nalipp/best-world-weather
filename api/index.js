@@ -1,3 +1,4 @@
+var http = require("http");
 var express = require('express');
 var app = express();
 var port = process.env.PORT || 8080;
@@ -28,8 +29,12 @@ app.post('/api/forcast/', function(req, res) {
   });
 })
 
-// getForcasts('initialize') // 'only run after db.forcasts.drop()'
+getForcasts('initialize') // 'only run after db.forcasts.drop()'
 // getForcasts('update');
+
+setInterval(function() {
+    http.get("https://best-world-weather.herokuapp.com/");
+}, 1799999); // ping the website every 30 minutes
 
 setInterval(function() {
   getForcasts('update'); // update cities in the database every 12 hours
