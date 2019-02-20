@@ -1,3 +1,32 @@
+## Intro
+
+Find the best weather forcast from the most frequently traveled worldwide tourist destinations.
+
+Apply filters and sort acording to your preferences
+
+![screenshot](./images/filter_and_sort_city_forcasts.png)
+
+Synchronized zoom between two cities allows you to compare the size of your destination with a city you are familar with.
+
+![screenshot](./images/compare_city_size_1.png)
+
+![screenshot](./images/compare_city_size_2.png)
+
+![screenshot](./images/compare_city_size_3.png)
+
+See random images from googles static images api to see what the city actually looks like.
+
+Images are randomly generated from within the geocoordinates inside the edge boundries of the map.
+
+Zoom or drag the map to generate new images.
+
+![screenshot](./images/map_images.png)
+
+Use the jumbo view to enlarge the images and add more from within the same boundries.
+
+![screenshot](./images/map_images_jumbo.png)
+
+
 ## To Start
 
 Manually load necessary api keys prior to starting the app or place in a bash file.
