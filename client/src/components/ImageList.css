@@ -34,6 +34,11 @@
   z-index: 5;
 }
 
+.full-screen-images::-webkit-scrollbar, 
+.street-images::-webkit-scrollbar { 
+    display: none;
+}
+
 .full-screen-images {
   top: 20vh;
   align-items: center;
