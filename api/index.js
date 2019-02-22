@@ -32,8 +32,11 @@ app.post('/api/forcast/', function(req, res) {
 // getForcasts('initialize') // 'only run after db.forcasts.drop()'
 // getForcasts('update');
 
-// setInterval(function() {
-//     https.get("https://best-world-weather.herokuapp.com/");
+setInterval(function() {
+  https.get("https://best-world-weather.herokuapp.com/", res => {
+    console.log(res.statusCode);
+  });
+}, 10000); 
 // }, 1799999); // ping the website every 30 minutes
 
 setInterval(function() {
