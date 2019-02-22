@@ -32,9 +32,9 @@ app.post('/api/forcast/', function(req, res) {
 // getForcasts('initialize') // 'only run after db.forcasts.drop()'
 // getForcasts('update');
 
-setInterval(function() {
-    https.get("https://best-world-weather.herokuapp.com/");
-}, 1799999); // ping the website every 30 minutes
+// setInterval(function() {
+//     https.get("https://best-world-weather.herokuapp.com/");
+// }, 1799999); // ping the website every 30 minutes
 
 setInterval(function() {
   getForcasts('update'); // update cities in the database every 12 hours
