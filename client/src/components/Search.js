@@ -1,18 +1,31 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { getForcast, setMapLocation1, setMapLocation2, setMapImagesLocation } from '../actions';
+import { 
+         loadCityPopulations,
+         getForcast, 
+         setMapLocation1,
+         setMapLocation2, 
+         setMapImagesLocation } from '../actions';
 import { getGeoCode } from '../helpers/geoCoding';
+import { getChoiceList, generateCitySearchTree } from '../helpers/getCityPopulations';
 import PropTypes from 'prop-types';
 import './Search.css';
+
 
 class Search extends Component {
   constructor(props) {
     super(props)
     this.state = {
       value: '',
+      choiceList: [],
     }
   }
-  handleSearch = (e) => {
+
+  componentDidMount() {
+    this.props.loadCityPopulations();
+  }
+
+  handleSubmit = (e) => {
     e.preventDefault();
     const cityName = this.state.value;
     const { searchType,
@@ -28,15 +41,25 @@ class Search extends Component {
       if (searchType === 'mapImagesLocation') setMapImagesLocation(cityName, lat, lng);
     });
 
-    this.setState({ value: '' });
+    this.setState({ 
+      value: '',
+      choiceList: [],
+    });
   }
+
   handleChange = (e) => {
-    this.setState({value: e.target.value})
+    const curValue = e.target.value;
+
+    this.setState({ 
+      value: curValue,
+      choiceList: getChoiceList(curValue),
+    });
   }
+
   render() {
     return (
       <div className={'search'}>
-        <form onSubmit={this.handleSearch}>
+        <form onSubmit={this.handleSubmit}>
           <input 
             id="city"
             placeholder="Select City"
@@ -45,6 +68,13 @@ class Search extends Component {
             autoFocus={true}
           />
         </form>
+        <div className="search_choice-list">
+          {this.state.choiceList && <ul>
+            {this.state.choiceList.map(city => {
+              return <li key={city[0] + Math.random()} >{city[0]} {city[1]}</li>
+            })}
+          </ul>}
+        </div>
       </div>
     )
   }
@@ -54,8 +84,18 @@ Search.propTypes = {
   searchType: PropTypes.string,
 }
 
+const mapStateToProps = state => {
+  if (state.maps.cityPopulations.length > 0) {
+    generateCitySearchTree(state.maps.cityPopulations);
+  }
+  return {
+    cityPopulations: state.maps.cityPopulations,
+  }
+}
+
 const mapDispatchToProps = dispatch => {
   return {
+    loadCityPopulations: () => dispatch(loadCityPopulations()),
     getForcast: (cityName, lat, lng) => dispatch(getForcast(cityName, lat, lng)),
     setMapLocation1: (cityName, lat, lng) => dispatch(setMapLocation1(cityName, lat, lng)),
     setMapLocation2: (cityName, lat, lng) => dispatch(setMapLocation2(cityName, lat, lng)),
@@ -63,5 +103,5 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-export default connect(null, mapDispatchToProps)(Search);
+export default connect(mapStateToProps, mapDispatchToProps)(Search);
 

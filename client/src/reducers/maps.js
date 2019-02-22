@@ -6,6 +6,7 @@ const initialState = {
   bounds: null,
   geoCoords: [],
   fullScreenImages: false,
+  cityPopulations: [],
 }
 
 const maps = (state = initialState, action) => {
@@ -64,6 +65,11 @@ const maps = (state = initialState, action) => {
       return {
         ...state,
         fullScreenImages: false,
+      }
+    case 'SET_CITY_POPULATIONS':
+      return {
+        ...state, 
+        cityPopulations: action.payload,
       }
     default:
       return state;

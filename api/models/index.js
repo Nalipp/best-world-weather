@@ -1,5 +1,7 @@
 var mongoose = require('mongoose');
 mongoose.set('debug', true);
+const Forcast = require("./forcast");
+const Population = require("./population");
 
 if (process.env.MONGO_URI) {
   console.log('connecting to MONGO_URI..');
@@ -11,4 +13,8 @@ if (process.env.MONGO_URI) {
 
 mongoose.Promise = Promise;
 
-module.exports.Forcast = require("./forcast");
+module.exports = {
+  Forcast,
+  Population,
+}
+// module.exports.Population = require("./population");

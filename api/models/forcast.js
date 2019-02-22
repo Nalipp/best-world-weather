@@ -63,6 +63,6 @@ var forcastSchema = new mongoose.Schema({
     },
 });
 
-var Forcast = mongoose.model('Forcast', forcastSchema);
+var Forcast = mongoose.model('Forcast', forcastSchema, 'forcasts');
 
 module.exports = Forcast;

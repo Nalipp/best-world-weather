@@ -15,13 +15,23 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 app.get('/api/forcasts/', function(req, res){
   db.Forcast.find()
-  .then(function(forcasts){
-    res.json(forcasts);
-  })
-  .catch(function(err){
-    res.send(err);
-  })
+    .then(function(forcasts){
+      res.json(forcasts);
+    })
+    .catch(function(err){
+      res.send(err);
+    })
 })
+
+app.get('/api/populations/', function(req, res) {
+  db.Population.find()
+    .then(function(populations){
+      res.json(populations.slice(0, 10000));
+    })
+    .catch(function(err){
+      res.send(err);
+    })
+});
 
 app.post('/api/forcast/', function(req, res) {
   getForcast(req.body.lat, req.body.lng, function(data) {

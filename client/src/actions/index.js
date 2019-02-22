@@ -1,4 +1,4 @@
-import getGeoCoords from '../helpers/getGeoCoords'
+import getGeoCoords from '../helpers/getGeoCoords';
 import axios from 'axios';
 const GEO_COORDS_COUNT = 15;
 
@@ -46,6 +46,20 @@ export const getForcast = (cityName, lat, lng) => async dispatch => {
           type: 'ERROR_MESSAGE', 
           payload: 'error connecting to the database'
         })
+      }
+    })
+}
+
+export const loadCityPopulations = () => async dispatch => {
+  axios.get('/api/populations/')
+    .then(res => {
+      if (res.status === 200) {
+        dispatch({
+          type: 'SET_CITY_POPULATIONS',
+          payload: res.data,
+        })
+      } else {
+        console.log('there was an error');
       }
     })
 }
