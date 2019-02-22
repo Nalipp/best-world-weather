@@ -33,15 +33,14 @@ app.post('/api/forcast/', function(req, res) {
 // getForcasts('update');
 
 setInterval(function() {
+  getForcasts('update'); 
+}, 43200000); // update cities in the database every 12 hours
+
+setInterval(function() {
   https.get("https://best-world-weather.herokuapp.com/", res => {
     console.log(res.statusCode);
   });
-}, 10000); 
-// }, 1799999); // ping the website every 30 minutes
-
-setInterval(function() {
-  getForcasts('update'); // update cities in the database every 12 hours
-}, 43200000);
+}, 1799999); // ping the website every 30 minutes to wake heroku
 
 app.listen(port, function(){
     console.log("APP IS RUNNING ON PORT " + port);
