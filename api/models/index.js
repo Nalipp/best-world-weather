@@ -17,4 +17,3 @@ module.exports = {
   Forcast,
   Population,
 }
-// module.exports.Population = require("./population");

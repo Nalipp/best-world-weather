@@ -1,5 +1,5 @@
 @value colors: "../colors.css";
-@value base1Light, base2Dark from colors;
+@value base1Light, primary-white, base2Dark from colors;
 
 .search {
   margin: 1em;
@@ -23,9 +23,42 @@
 }
 
 .search_choice-list {
-  position: absolute;
-  top: 0, 
+  position: relative;
 }
+
+.search_choice-list > ul {
+  position: absolute;
+  top: 0;
+  background: primary-white;
+  margin: 0 1em;
+  z-index: 2;
+}
+
+.search_choice-list > ul > li {
+  border-right: 2px solid base1Light;
+  border-bottom: 2px solid base1Light;
+  border-left: 2px solid base1Light;
+  padding: 0.3em 0.4em;
+  width: 14em;
+  cursor: pointer;
+  letter-spacing: 1px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.search_choice-list > ul > li:hover {
+  background: base1Light;
+}
+
+.search_choice-list > ul > li > span:first-child {
+  font-size: 0.8em;
+}
+
+.search_choice-list > ul > li > span:last-child {
+  font-size: 0.6em;
+  align-self: center;
+}
+
 
 @media (min-width: 800px) {
   .search form {

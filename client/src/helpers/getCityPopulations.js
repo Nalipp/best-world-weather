@@ -11,7 +11,7 @@ export const getChoiceList = value => {
 };
 
 export const generateCitySearchTree = cities => {
-  citySearchTree = generateTree(cities);
+  citySearchTree = !citySearchTree ? generateTree(cities) : citySearchTree;
 }
 
 
@@ -25,9 +25,9 @@ function generateTree(cities) {
       let curSubstr = curCityName.slice(0, i);
 
       if (tree[curSubstr] === undefined) {
-        tree[curSubstr] = [ [curCityName, city.population] ]
+        tree[curSubstr] = [ [curCityName, city.population, city.latitude, city.longitude] ]
       } else {
-        tree[curSubstr].push([curCityName,city.population]);
+        tree[curSubstr].push([curCityName, city.population, city.latitude, city.longitude]);
       }
     }
   });
@@ -36,37 +36,27 @@ function generateTree(cities) {
 }
 
 
-
-
-
-// const buildCityPopulationTree = () => {
+// The generateTree() will create a object that looks something like the following.
+// Allowing for constant time lookup of a city by its name and also return the population.
+// 
+// citySearchTree = {
+//   s: [ ['shanghai', 22315474], ['shenzen', 10358381], ['seoul', 10349312] ],
+//   sh: [ ['shanghai', 22315474], ['shenzen', 10358381] ],
+//   sha: [ ['shanghai', 22315474] ],
+//   shan: [ ['shanghai', 22315474] ],
+//   shang: [ ['shanghai', 22315474] ],
+//   shangh: [ ['shanghai', 22315474] ],
+//   shangha: [ ['shanghai', 22315474] ],
+//   shanghai: [ ['shanghai', 22315474] ],
+//   she: [ ['shenzen', 10358381 ] ],
+//   shen: [ ['shenzen', 10358381 ] ],
+//   shenz: [ ['shenzen', 10358381 ] ],
+//   shenzh: [ ['shenzen', 10358381 ] ],
+//   shenzhe: [ ['shenzen', 10358381 ] ],
+//   shenzhen: [ ['shenzen', 10358381 ] ],
+//   se: [ ['seoul', 10349312] ],
+//   seo: [ ['seoul', 10349312] ],
+//   seou: [ ['seoul', 10349312] ],
+//   seoul: [ ['seoul', 10349312] ],
 // }
-
-// const initializeCityPopulation = () => {
-//   axios.get('/api/populations/', res => {
-//     console.log(res);
-//   });
-// }
-
-// export const cityPopulationTree = () => {
-// }
-
-// initializeCityPopulation();
-
-
-
-
-// export const getGeoCode = (city, cb) => {
-//   city = city.split(' ').join('+');
-
-//   axios.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${city}&key=${GOOGLE_API_KEY}`).then((res) => {
-//     if (res.data.status === 'OK') {
-//       const location = res.data.results[0].geometry.location;
-//       cb(location.lat, location.lng);
-//     } else {
-//       console.log('address not found');
-//     }
-//   })
-// }
-
 

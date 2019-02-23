@@ -24,6 +24,31 @@ class Search extends Component {
   componentDidMount() {
     this.props.loadCityPopulations();
   }
+  componentWillMount() {
+    document.addEventListener('mousedown', this.resetSearch, false)
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('mousedown', this.resetSearch, false)
+  }
+  
+  resetSearch = e => {
+    const id = e.target.id;
+    if (id !== 'search-city_name' && id !== 'search-list_item') {
+      this.setState({
+        value: '',
+        choiceList: [],
+      });
+    }
+  }
+
+  handleDropdownSubmit = (cityName, lat, lng) => {
+    this.props.getForcast(cityName, lat, lng)
+    this.setState({
+      value: '',
+      choiceList: [],
+    });
+  }
 
   handleSubmit = (e) => {
     e.preventDefault();
@@ -70,9 +95,15 @@ class Search extends Component {
         </form>
         <div className="search_choice-list">
           {this.state.choiceList && <ul>
-            {this.state.choiceList.map(city => {
-              return <li key={city[0] + Math.random()} >{city[0]} {city[1]}</li>
-            })}
+            {this.state.choiceList.map(city => (
+              <li 
+                onClick={this.handleDropdownSubmit.bind(this, city[0], city[2], city[3])} 
+                id='search-list_item'
+                key={city[0] + Math.random()}>
+                <span id='search-city_name'>{city[0]}</span>
+                <span>pop : {city[1]}</span>
+              </li>
+            ))}
           </ul>}
         </div>
       </div>
