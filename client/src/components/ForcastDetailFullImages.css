@@ -9,14 +9,19 @@
 }
 
 .forcast-detail-full-images_list {
-  margin: 4em 0 0 4em;
+  margin: 1em 0 0 1em;
   overflow: scroll;
   display: flex;
 }
 
 .forcast-detail-full-images_list li {
-  padding: 2em;
+  padding: 1em 2em 0 0;
 }
+
+.forcast-detail-full-images_list li img {
+  max-height: 17em;
+}
+
 
 ::-webkit-scrollbar {
     width: 0px;  /* remove scrollbar space */
@@ -27,4 +32,17 @@
   .forcast-detail-full-images {
     left: 0;
   }
+
+  .forcast-detail-full-images_list li img {
+    max-height: 25em;
+  }
+
+  .forcast-detail-full-images_list {
+    margin: 4em 0 0 4em;
+  }
+
+  .forcast-detail-full-images_list li {
+    padding: 2em;
+  }
 }
+
