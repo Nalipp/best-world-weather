@@ -1,0 +1,30 @@
+.forcast-detail-full-images {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: -2em;
+  bottom: 0;
+  background: rgba(68, 68, 68, 0.9);
+  cursor: pointer;
+}
+
+.forcast-detail-full-images_list {
+  margin: 4em 0 0 4em;
+  overflow: scroll;
+  display: flex;
+}
+
+.forcast-detail-full-images_list li {
+  padding: 2em;
+}
+
+::-webkit-scrollbar {
+    width: 0px;  /* remove scrollbar space */
+    background: transparent;  /* optional: just make scrollbar invisible */
+}
+
+@media (min-width: 800px) {
+  .forcast-detail-full-images {
+    left: 0;
+  }
+}

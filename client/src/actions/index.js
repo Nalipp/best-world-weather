@@ -276,7 +276,7 @@ export const hideInputFilter = filterName => async dispatch => {
 // pixaBay Images
 // ************************************************** 
 
-export const getPixabayImages = (cityName) => async dispatch => {
+export const getPixabayImages = cityName => async dispatch => {
   cityName =cityName.split(' ').join('+');
   axios.get(`https://pixabay.com/api/?key=${PIXABAY_API_KEY}&q=${cityName}&image_type=photo&pretty=true&category=places`).then(res => {
     dispatch({
@@ -286,3 +286,14 @@ export const getPixabayImages = (cityName) => async dispatch => {
   });
 }
 
+export const showFullPixabayImage = () => async dispatch => {
+  dispatch({
+    type: 'SHOW_FULL_PIXABAY_IMAGE',
+  })
+}
+
+export const hideFullPixabayImage = () => async dispatch => {
+  dispatch({
+    type: 'HIDE_FULL_PIXABAY_IMAGE',
+  })
+}

@@ -51,16 +51,8 @@
   font-size: 0.8em;
 }
 
-.forcast-detail_image-container {
-  display: flex;
-}
-
-.forcast-detail_image-container ul {
-  width: 50%;
-}
-
 .forcast-detail_image-container div {
-  width: 50%;
+  cursor: pointer;
 }
 
 .forcast-detail_image-container div div {
@@ -89,6 +81,16 @@
   .forcast-detail_heading {
     font-size: 1.8em;
   }
-  .forcast-detail_list-heading {
+
+  .forcast-detail_image-container {
+    display: flex;
+  }
+
+  .forcast-detail_image-container ul {
+    width: 50%;
+  }
+
+  .forcast-detail_image-container div {
+    width: 50%;
   }
 }

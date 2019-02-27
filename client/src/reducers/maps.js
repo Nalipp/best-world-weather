@@ -6,6 +6,7 @@ const initialState = {
     lng: -122.4194155 
   },
   pixabayImages: [],
+  pixabayFullDisplayOn: false,
   mapImagesLocation: null,
   mapZoomLevel: 10,
   bounds: null,
@@ -30,11 +31,6 @@ const maps = (state = initialState, action) => {
       return {
         ...state, 
         mapImagesLocation: action.payload,
-      }
-    case 'SET_PIXABAY_IMAGES':
-      return {
-        ...state,
-        pixabayImages: action.payload,
       }
     case 'INCREASE_MAP_ZOOM':
       return {
@@ -80,6 +76,21 @@ const maps = (state = initialState, action) => {
       return {
         ...state, 
         cityPopulations: action.payload,
+      }
+    case 'SET_PIXABAY_IMAGES':
+      return {
+        ...state,
+        pixabayImages: action.payload,
+      }
+    case 'SHOW_FULL_PIXABAY_IMAGE':
+      return {
+        ...state,
+        pixabayFullDisplayOn: true,
+      }
+    case 'HIDE_FULL_PIXABAY_IMAGE':
+      return {
+        ...state,
+        pixabayFullDisplayOn: false,
       }
     default:
       return state;

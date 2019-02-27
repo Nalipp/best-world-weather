@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { showFullPixabayImage } from '../actions';
 import WeatherIcon from './WeatherIcon';
 import WeatherIconList from './WeatherIconList';
+import ForcastDetailFullImages from './ForcastDetailFullImages';
 import './ForcastDetail.css';
 
 class ForcastDetail extends Component {
@@ -17,6 +19,7 @@ class ForcastDetail extends Component {
 
     return (
       <div>
+        {this.props.pixabayFullDisplayOn && <ForcastDetailFullImages />}
         {forcast && <div className={'forcast-detail'}>
           <div className={`forcast-detail_heading`}>
             <h1>{forcast.cityName}</h1>
@@ -50,7 +53,8 @@ class ForcastDetail extends Component {
               {this.props.pixabayImages.length > 0 && 
                 <div>
                   <img
-                    width="240"
+                    width="200"
+                    onClick={this.props.showFullPixabayImage}
                     alt={this.props.pixabayImages[0].tags}
                     src={this.props.pixabayImages[0].webformatURL}/>
                 </div>
@@ -68,8 +72,15 @@ const mapStateToProps = state => {
     singleForcast: state.forcasts.singleForcast,
     filteredForcasts: state.forcasts.filteredForcasts,
     pixabayImages: state.maps.pixabayImages,
+    pixabayFullDisplayOn: state.maps.pixabayFullDisplayOn,
     mapLocation1: state.maps.mapLocation1,
   }
 }
 
-export default connect(mapStateToProps, null)(ForcastDetail);
+const mapDispatchToProps = dispatch => {
+  return {
+    showFullPixabayImage: () => dispatch(showFullPixabayImage()),
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ForcastDetail);
