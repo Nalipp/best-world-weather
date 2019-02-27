@@ -12,13 +12,13 @@ class SelectedCityNavigation extends Component {
           onClick={this.props.handleSelect}
           id={'data'}>Data</li>
         <li 
-          className={selected === 'maps' ? "selected-nav" : ''}
-          onClick={this.props.handleSelect}
-          id={'maps'}>Maps</li>
-        <li
           className={selected === 'images' ? "selected-nav" : ''}
           onClick={this.props.handleSelect}
           id={'images'}>Images</li>
+        <li
+          className={selected === 'maps' ? "selected-nav" : ''}
+          onClick={this.props.handleSelect}
+          id={'maps'}>Maps</li>
       </ul>
     )
   }

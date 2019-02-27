@@ -23,28 +23,40 @@ class ForcastDetail extends Component {
             <span>{Math.floor(forcast.apparentTemperature)}</span>
             <span><WeatherIcon size={'medium'} icon={forcast.icon}/></span>
           </div>
-          <ul>
-            <div className={`forcast-detail_list-heading`}>
-              <h2>Upcomming forcast</h2>
-              <WeatherIconList allIcons={forcast.allIcons} size="medium" />
+          <div className={`forcast-detail_list-heading`}>
+            <h2>Upcomming forcast</h2>
+            <WeatherIconList allIcons={forcast.allIcons} size="medium" />
+          </div>
+          <div className={`forcast-detail_image-container`}>
+            <ul>
+              <li>
+                <p>Average max</p>
+                <p>{forcast.averageMaxTemp}</p>
+              </li>
+              <li>
+                <p>Average min</p>
+                <p>{forcast.averageMinTemp}</p>
+              </li>
+              <li>
+                <p>Average feels like</p>
+                <p>{forcast.averageApparentTemperatureMaxMin}</p>
+              </li>
+              <li>
+                <p>Total sunlight hours</p>
+                <p>{forcast.sunlightHours}</p>
+              </li>
+            </ul>
+            <div>
+              {this.props.pixabayImages.length > 0 && 
+                <div>
+                  <img
+                    width="240"
+                    alt={this.props.pixabayImages[0].tags}
+                    src={this.props.pixabayImages[0].webformatURL}/>
+                </div>
+              }
             </div>
-            <li>
-              <p>Average max</p>
-              <p>{forcast.averageMaxTemp}</p>
-            </li>
-            <li>
-              <p>Average min</p>
-              <p>{forcast.averageMinTemp}</p>
-            </li>
-            <li>
-              <p>Average feels like</p>
-              <p>{forcast.averageApparentTemperatureMaxMin}</p>
-            </li>
-            <li>
-              <p>Total sunlight hours</p>
-              <p>{forcast.sunlightHours}</p>
-            </li>
-          </ul>
+          </div>
         </div>}
       </div>
     )
@@ -55,6 +67,8 @@ const mapStateToProps = state => {
   return {
     singleForcast: state.forcasts.singleForcast,
     filteredForcasts: state.forcasts.filteredForcasts,
+    pixabayImages: state.maps.pixabayImages,
+    mapLocation1: state.maps.mapLocation1,
   }
 }
 

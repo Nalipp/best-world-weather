@@ -13,7 +13,7 @@ class ForcastTable extends Component {
     return str.length > num ? str.slice(0, num) + '..' : str;
   }
   handleSetSingleForcast(forcast) {
-    this.props.setLocationDetail(forcast);
+    this.props.setLocationDetail(forcast, forcast.cityName);
     this.props.showLocationDetail();
   }
 

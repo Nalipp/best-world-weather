@@ -1,3 +1,6 @@
+@value colors: "../colors.css";
+@value primary-red, primary-green from colors;
+
 .forcast-detail {
   padding: 0 0 0 0.3em;
   margin: 0.3em;
@@ -46,6 +49,40 @@
 
 .forcast-detail li > p:last-child {
   font-size: 0.8em;
+}
+
+.forcast-detail_image-container {
+  display: flex;
+}
+
+.forcast-detail_image-container ul {
+  width: 50%;
+}
+
+.forcast-detail_image-container div {
+  width: 50%;
+}
+
+.forcast-detail_image-container div div {
+  max-height: 15em;
+  overflow: hidden;
+  width: 14em;
+}
+
+.forcast-detail_image-container div div span:nth-child(1),
+.forcast-detail_image-container div div span:nth-child(2) {
+  display: inline-block;
+  font-size: 3em;
+  width: 1.5em;
+  cursor: pointer;
+}
+
+.forcast-detail_image-container div div span:nth-child(1) {
+  color: primary-green;
+}
+
+.forcast-detail_image-container div div span:nth-child(2) {
+  color: primary-red;
 }
 
 @media (min-width: 800px) {

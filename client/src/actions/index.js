@@ -1,6 +1,7 @@
 import getGeoCoords from '../helpers/getGeoCoords';
 import axios from 'axios';
 const GEO_COORDS_COUNT = 15;
+const PIXABAY_API_KEY = process.env.REACT_APP_PIXABAY_API_KEY;
 
 export const getForcasts = () => async dispatch =>  {
   axios.get('/api/forcasts/')
@@ -35,7 +36,7 @@ export const getForcast = (cityName, lat, lng) => async dispatch => {
         data.cityName = capitalize(cityName);
         data.lat = lat;
         data.lng = lng;
-        dispatch(setLocationDetail(data));
+        dispatch(setLocationDetail(data, cityName));
         dispatch({
           type: 'ADD_SINGLE_FORCAST',
           payload: data,
@@ -180,6 +181,7 @@ export const disableFullScreenImages = () => async dispatch => {
 
 
 export const setLocationDetail = forcast => async dispatch => {
+  dispatch(getPixabayImages(forcast.cityName))
   dispatch({
     type: 'SET_LOCATION_DETAIL',
     payload: forcast,
@@ -270,3 +272,17 @@ export const hideInputFilter = filterName => async dispatch => {
     filterName,
   });
 }
+
+// pixaBay Images
+// ************************************************** 
+
+export const getPixabayImages = (cityName) => async dispatch => {
+  cityName =cityName.split(' ').join('+');
+  axios.get(`https://pixabay.com/api/?key=${PIXABAY_API_KEY}&q=${cityName}&image_type=photo&pretty=true&category=places`).then(res => {
+    dispatch({
+      type: 'SET_PIXABAY_IMAGES',
+      payload: res.data.hits,
+    })
+  });
+}
+

@@ -1,6 +1,11 @@
 const initialState = {
   mapLocation1: null,
-  mapLocation2: { cityName: "San francisco", lat: 37.7749295, lng: -122.4194155 },
+  mapLocation2: { 
+    cityName: "San francisco",
+    lat: 37.7749295,
+    lng: -122.4194155 
+  },
+  pixabayImages: [],
   mapImagesLocation: null,
   mapZoomLevel: 10,
   bounds: null,
@@ -25,6 +30,11 @@ const maps = (state = initialState, action) => {
       return {
         ...state, 
         mapImagesLocation: action.payload,
+      }
+    case 'SET_PIXABAY_IMAGES':
+      return {
+        ...state,
+        pixabayImages: action.payload,
       }
     case 'INCREASE_MAP_ZOOM':
       return {
