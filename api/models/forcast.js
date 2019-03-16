@@ -61,6 +61,9 @@ var forcastSchema = new mongoose.Schema({
     allIcons: {
       type: [String],
     },
+    flights: {
+      type: Object,
+    },
 });
 
 var Forcast = mongoose.model('Forcast', forcastSchema, 'forcasts');

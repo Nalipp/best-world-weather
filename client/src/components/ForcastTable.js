@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import './ForcastTable.css';
 import { connect } from 'react-redux';
-import { setSortedBy, setLocationDetail, showLocationDetail } from '../actions';
 import WeatherIconList from './WeatherIconList';
+import { setSortedBy,
+         setLocationDetail,
+         showLocationDetail } from '../actions';
 
 class ForcastTable extends Component {
   handleSort = (e) => {
@@ -18,7 +20,8 @@ class ForcastTable extends Component {
   }
 
   render() {
-    let forcasts = this.props.forcasts;
+    let { filteredForcasts } = this.props;
+
     return (
       <table className="forcast-table">
         <thead>
@@ -27,10 +30,10 @@ class ForcastTable extends Component {
             <th id="iconPoints">icon</th>
             <th id="averageMaxTemp">avg max</th>
             <th id="humidity">humid</th>
-            <th id="sunlightHours">sunlight</th>
+            <th id="flightCost">flight</th>
           </tr>
         </thead>
-        {forcasts.map(forcast => (
+        {filteredForcasts.map(forcast => (
           <tbody 
             onClick={this.handleSetSingleForcast.bind(this, forcast)}
             key={forcast.cityName}>
@@ -44,7 +47,12 @@ class ForcastTable extends Component {
               </td>
               <td>{forcast.averageMaxTemp}</td>
               <td>{Math.round(forcast.humidity * 100)}</td>
-              <td>{forcast.sunlightHours}</td>
+              {forcast.flights 
+                ?
+                <td>$ {forcast.flights.sfo.cost}</td>
+                :
+                <td></td>
+              }
             </tr>
           </tbody>
         ))}
@@ -56,8 +64,10 @@ class ForcastTable extends Component {
 const mapStateToProps = state => {
   return {
     singleForcast: state.forcasts.singleForcast,
-    forcasts: state.forcasts.filteredForcasts,
+    filteredForcasts: state.forcasts.filteredForcasts,
     sortedBy: state.forcasts.sortedBy,
+    filteredForcasts: state.forcasts.filteredForcasts,
+    currentFlightOrigin: state.flights.currentFlightOrigin,
   }
 }
 

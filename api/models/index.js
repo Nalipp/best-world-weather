@@ -2,6 +2,7 @@ var mongoose = require('mongoose');
 mongoose.set('debug', true);
 const Forcast = require("./forcast");
 const Population = require("./population");
+const City = require("./city");
 
 if (process.env.MONGO_URI) {
   console.log('connecting to MONGO_URI..');
@@ -16,4 +17,5 @@ mongoose.Promise = Promise;
 module.exports = {
   Forcast,
   Population,
+  City,
 }

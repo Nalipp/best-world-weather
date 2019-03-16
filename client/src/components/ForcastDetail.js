@@ -46,7 +46,7 @@ class ForcastDetail extends Component {
               </li>
               <li>
                 <p>Total sunlight hours</p>
-                <p>{forcast.sunlightHours}</p>
+                <p>{forcast.flightCost}</p>
               </li>
             </ul>
             <div>

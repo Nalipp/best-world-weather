@@ -8,6 +8,9 @@ var db = require('./models');
 var axios = require('axios');
 var getForcasts = require('./helpers/api_calls').getForcasts;
 var getForcast = require('./helpers/api_calls').getForcast;
+var getFlights = require('./helpers/api_calls').getFlights;
+var worldCities = require('./helpers/cities_list').worldCities;
+var cityIdx = 0;
 
 app.use(express.static(path.resolve(__dirname, '../client/build')));
 app.use(bodyParser.json());
@@ -33,11 +36,10 @@ app.get('/api/populations/', function(req, res) {
     })
 });
 
-app.post('/api/forcast/', function(req, res) {
-  getForcast(req.body.lat, req.body.lng, function(data) {
-    res.send(data);
-  });
-})
+setInterval(function() {
+  getFlights('sfo', worldCities[cityIdx % worldCities.length - 1]);
+  cityIdx += 1;
+}, 1200000);
 
 // getForcasts('initialize') // 'only run after db.forcasts.drop()'
 // getForcasts('update');
@@ -50,7 +52,7 @@ setInterval(function() {
   https.get("https://best-world-weather.herokuapp.com/", res => {
     console.log(res.statusCode);
   });
-}, 1799999); // ping the website every 30 minutes to wake heroku
+}, 1700000); // ping the website every 30 minutes to wake heroku
 
 app.listen(port, function(){
     console.log("APP IS RUNNING ON PORT " + port);

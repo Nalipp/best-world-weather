@@ -3,7 +3,7 @@ import axios from 'axios';
 const GEO_COORDS_COUNT = 15;
 const PIXABAY_API_KEY = process.env.REACT_APP_PIXABAY_API_KEY;
 
-export const getForcasts = () => async dispatch =>  {
+export const getForcasts = () => dispatch =>  {
   axios.get('/api/forcasts/')
     .then(res => {
       if (res.status === 200) {
@@ -27,7 +27,7 @@ export const getForcasts = () => async dispatch =>  {
     })
 };
 
-export const getForcast = (cityName, lat, lng) => async dispatch => {
+export const getForcast = (cityName, lat, lng) => dispatch => {
   dispatch(showLoader());
   axios.post('/api/forcast/', { lat, lng, })
     .then(res => {
@@ -51,7 +51,7 @@ export const getForcast = (cityName, lat, lng) => async dispatch => {
     })
 }
 
-export const loadCityPopulations = () => async dispatch => {
+export const loadCityPopulations = () => dispatch => {
   axios.get('/api/populations/')
     .then(res => {
       if (res.status === 200) {
@@ -77,13 +77,13 @@ function removeUnderscore(str) {
 // UserInterface
 // ************************************************** 
 
-export const showLoader = () => async dispatch => {
+export const showLoader = () => dispatch => {
   dispatch({
     type: 'SHOW_LOADER',
   })
 }
 
-export const hideLoader = () => async dispatch => {
+export const hideLoader = () => dispatch => {
   dispatch({
     type: 'HIDE_LOADER',
   })
@@ -93,54 +93,54 @@ export const hideLoader = () => async dispatch => {
 // Maps
 // ************************************************** 
 
-export const increaseMapZoom = () => async dispatch => {
+export const increaseMapZoom = () => dispatch => {
   dispatch({
     type: 'INCREASE_MAP_ZOOM',
   })
 }
 
-export const decreaseMapZoom = () => async dispatch => {
+export const decreaseMapZoom = () => dispatch => {
   dispatch({
     type: 'DECREASE_MAP_ZOOM',
   })
 }
 
-export const setMapLocation1 = (cityName, lat, lng) => async dispatch => {
+export const setMapLocation1 = (cityName, lat, lng) => dispatch => {
   dispatch({
     type: 'SET_MAP_LOCATION_1',
     payload: { cityName, lat, lng, },
   })
 }
 
-export const setMapLocation2 = (cityName, lat, lng) => async dispatch => {
+export const setMapLocation2 = (cityName, lat, lng) => dispatch => {
   dispatch({
     type: 'SET_MAP_LOCATION_2',
     payload: { cityName, lat, lng, },
   })
 }
 
-export const setMapImagesLocation = (cityName, lat, lng) => async dispatch => {
+export const setMapImagesLocation = (cityName, lat, lng) => dispatch => {
   dispatch({
     type: 'SET_MAP_IMAGES_LOCATION',
     payload: { cityName, lat, lng, },
   })
 }
 
-export const resetMapLocation1 = () => async dispatch => {
+export const resetMapLocation1 = () => dispatch => {
   dispatch ({
     type: 'SET_MAP_LOCATION_1',
     payload: null,
   })
 }
 
-export const resetMapLocation2 = () => async dispatch => {
+export const resetMapLocation2 = () => dispatch => {
   dispatch ({
     type: 'SET_MAP_LOCATION_2',
     payload: null,
   })
 }
 
-export const resetMapImagesLocation = () => async dispatch => {
+export const resetMapImagesLocation = () => dispatch => {
   dispatch ({
     type: 'SET_MAP_IMAGES_LOCATION',
     payload: null,
@@ -152,25 +152,23 @@ export const setBounds = bounds => async dispatch => {
     type: 'SET_BOUNDS',
     payload: bounds,
   })
-  dispatch({
+  await dispatch({
     type: 'RESET_GEO_COORDS',
   })
-  setTimeout(() => {
-    getGeoCoords(dispatch, GEO_COORDS_COUNT, bounds)
-  });
+  getGeoCoords(dispatch, GEO_COORDS_COUNT, bounds)
 }
 
-export const addGeoCoords = (count, bounds) => async dispatch => {
+export const addGeoCoords = (count, bounds) => dispatch => {
   getGeoCoords(dispatch, count, bounds)
 }
 
-export const activateFullScreenImages = () => async dispatch => {
+export const activateFullScreenImages = () => dispatch => {
   dispatch({
     type: 'ACTIVATE_FULL_SCREEN_IMAGES',
   })
 }
 
-export const disableFullScreenImages = () => async dispatch => {
+export const disableFullScreenImages = () => dispatch => {
   dispatch({
     type: 'DISABLE_FULL_SCREEN_IMAGES',
   })
@@ -190,36 +188,34 @@ export const setLocationDetail = forcast => async dispatch => {
     type: 'SET_MAP_LOCATION_1',
     payload: forcast,
   })
-  dispatch({
+  await dispatch({
     type: 'RESET_MAP_IMAGES_LOCATION',
   })
-  setTimeout(() => {
-    dispatch({
-      type: 'SET_MAP_IMAGES_LOCATION',
-      payload: forcast,
-    })
-  });
+  dispatch({
+    type: 'SET_MAP_IMAGES_LOCATION',
+    payload: forcast,
+  })
 }
 
-export const showLocationDetail = () => async dispatch => {
+export const showLocationDetail = () => dispatch => {
   dispatch({
     type: 'SHOW_LOCATION_DETAIL',
   })
 }
 
-export const hideLocationDetail = () => async dispatch => {
+export const hideLocationDetail = () => dispatch => {
   dispatch({
     type: 'HIDE_LOCATION_DETAIL',
   })
 }
 
-export const filterForcasts = () => async dispatch => {
+export const filterForcasts = () => dispatch => {
   dispatch({
     type: 'FILTER_FORCASTS',
   });
 }
 
-export const updateCurrentValue = (filterName, value) => async dispatch => {
+export const updateCurrentValue = (filterName, value) => dispatch => {
   dispatch({
     type: 'UPDATE_CURRENT_FILTER',
     filterName,
@@ -228,7 +224,7 @@ export const updateCurrentValue = (filterName, value) => async dispatch => {
   dispatch(filterForcasts());
 }
 
-export const applyCurrentFilter = filterName => async dispatch => {
+export const applyCurrentFilter = filterName => dispatch => {
   dispatch({
     type: 'APPLY_CURRENT_FILTER',
     filterName,
@@ -236,7 +232,7 @@ export const applyCurrentFilter = filterName => async dispatch => {
   dispatch(filterForcasts());
 }
 
-export const removeCurrentFilter = filterName => async dispatch => {
+export const removeCurrentFilter = filterName => dispatch => {
   dispatch({
     type: 'REMOVE_CURRENT_FILTER',
     filterName,
@@ -244,7 +240,7 @@ export const removeCurrentFilter = filterName => async dispatch => {
   dispatch(filterForcasts());
 }
 
-export const setSortedBy = sortBy => async dispatch => {
+export const setSortedBy = sortBy => dispatch => {
   dispatch({
     type: 'SET_SORTED_BY',
     sortBy,
@@ -252,21 +248,21 @@ export const setSortedBy = sortBy => async dispatch => {
   dispatch(filterForcasts());
 }
 
-export const resetFilters = () => async dispatch => {
+export const resetFilters = () => dispatch => {
   dispatch({
     type: 'RESET_FILTERS',
   });
   dispatch(filterForcasts());
 }
 
-export const showInputFilter = filterName => async dispatch => {
+export const showInputFilter = filterName => dispatch => {
   dispatch({
     type: 'SHOW_INPUT_FILTER',
     filterName,
   });
 }
 
-export const hideInputFilter = filterName => async dispatch => {
+export const hideInputFilter = filterName => dispatch => {
   dispatch({
     type: 'HIDE_INPUT_FILTER',
     filterName,
@@ -276,7 +272,7 @@ export const hideInputFilter = filterName => async dispatch => {
 // pixaBay Images
 // ************************************************** 
 
-export const getPixabayImages = cityName => async dispatch => {
+export const getPixabayImages = cityName => dispatch => {
   cityName =cityName.split(' ').join('+');
   axios.get(`https://pixabay.com/api/?key=${PIXABAY_API_KEY}&q=${cityName}&image_type=photo&pretty=true&category=places`).then(res => {
     dispatch({
@@ -286,13 +282,13 @@ export const getPixabayImages = cityName => async dispatch => {
   });
 }
 
-export const showFullPixabayImage = () => async dispatch => {
+export const showFullPixabayImage = () => dispatch => {
   dispatch({
     type: 'SHOW_FULL_PIXABAY_IMAGE',
   })
 }
 
-export const hideFullPixabayImage = () => async dispatch => {
+export const hideFullPixabayImage = () => dispatch => {
   dispatch({
     type: 'HIDE_FULL_PIXABAY_IMAGE',
   })

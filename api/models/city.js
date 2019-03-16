@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 
-var populationSchema = new mongoose.Schema({
+var citySchema = new mongoose.Schema({
   cityName: {
     type: String,
   },
@@ -25,8 +25,15 @@ var populationSchema = new mongoose.Schema({
   timezone: {
     type: String,
   },
+  forcast: {
+    type: Object,
+  },
+  flights: {
+    type: Array,
+  }
 });
 
-var Population = mongoose.model('Population', populationSchema, 'populations');
+var City = mongoose.model('City', citySchema, 'city');
 
-module.exports = Population;
+module.exports = City;
+
