@@ -230,7 +230,7 @@ function getFlights(flightOriginCity, flightDestinationArr) {
         })
     })
     .catch(err => { 
-      console.log('unable to gain access token...', err.response.data) 
+      console.log('unable to gain access token...', err) 
     })
 }
 

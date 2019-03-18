@@ -47,7 +47,7 @@ class ForcastTable extends Component {
               </td>
               <td>{forcast.averageMaxTemp}</td>
               <td>{Math.round(forcast.humidity * 100)}</td>
-              {forcast.flights 
+              {forcast.flights && forcast.flights.sfo 
                 ?
                 <td>$ {forcast.flights.sfo.cost}</td>
                 :

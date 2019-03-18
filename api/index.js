@@ -10,7 +10,7 @@ var getForcasts = require('./helpers/api_calls').getForcasts;
 var getForcast = require('./helpers/api_calls').getForcast;
 var getFlights = require('./helpers/api_calls').getFlights;
 var worldCities = require('./helpers/cities_list').worldCities;
-var cityIdx = 0;
+var cityIdx = 9;
 
 app.use(express.static(path.resolve(__dirname, '../client/build')));
 app.use(bodyParser.json());
