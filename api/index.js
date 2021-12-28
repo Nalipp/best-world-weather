@@ -1,3 +1,4 @@
+require('dotenv').config()
 var https = require("https");
 var express = require('express');
 var app = express();
@@ -15,6 +16,12 @@ var cityIdx = 9;
 app.use(express.static(path.resolve(__dirname, '../client/build')));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
+
+app.get('/api/initialize/', function(req, res){
+  // 'run db.forcasts.drop() from mongo prior to running'
+  getForcasts('initialize');
+  res.send('done');
+})
 
 app.get('/api/forcasts/', function(req, res){
   db.Forcast.find()
@@ -40,9 +47,6 @@ setInterval(function() {
   getFlights('sfo', worldCities[cityIdx % worldCities.length - 1]);
   cityIdx += 1;
 }, 1200000);
-
-// getForcasts('initialize') // 'only run after db.forcasts.drop()'
-// getForcasts('update');
 
 setInterval(function() {
   getForcasts('update'); 
