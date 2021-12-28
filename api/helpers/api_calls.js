@@ -6,32 +6,32 @@ var AMADEUS_API_KEY = process.env.AMADEUS_API_KEY;
 var AMADEUS_API_SECRET = process.env.AMADEUS_API_SECRET;
 
 function getForcast(lat, lng, cb) {
-    axios.get(`https://api.darksky.net/forecast/${DARKSKY_API_KEY}/${lat},${lng}?exclude=minutely,hourly`)
-      .then(city => {
-        var currentCity = {
-          summary: city.data.currently.summary,
-          icon: city.data.currently.icon,
-          precipIntensity: city.data.currently.precipIntensity,
-          precipProbability: city.data.currently.precipProbability,
-          temperature: city.data.currently.temperature,
-          apparentTemperature: city.data.currently.apparentTemperature,
-          humidity: city.data.currently.humidity,
-          windSpeed: city.data.currently.windSpeed,
-          cloudCover: city.data.currently.cloudCover,
-          uvIndex: city.data.currently.uvIndex,
-          averageMaxTemp: getTempAverage(city.data.daily.data, 'apparentTemperatureMax'),
-          averageMinTemp: getTempAverage(city.data.daily.data, 'apparentTemperatureMin'),
-          averageApparentTemperatureMaxMin: getTempAverageMaxMin(city.data.daily.data),
-          sunlightHours: getSunlightAverage(city.data.daily.data),
-          iconPoints: getIconPoints(city.data.daily.data),
-          allIcons: getAllIcons(city.data.daily.data),
-        };
+  axios.get(`https://api.darksky.net/forecast/${DARKSKY_API_KEY}/${lat},${lng}?exclude=minutely,hourly`)
+    .then(city => {
+      var currentCity = {
+        summary: city.data.currently.summary,
+        icon: city.data.currently.icon,
+        precipIntensity: city.data.currently.precipIntensity,
+        precipProbability: city.data.currently.precipProbability,
+        temperature: city.data.currently.temperature,
+        apparentTemperature: city.data.currently.apparentTemperature,
+        humidity: city.data.currently.humidity,
+        windSpeed: city.data.currently.windSpeed,
+        cloudCover: city.data.currently.cloudCover,
+        uvIndex: city.data.currently.uvIndex,
+        averageMaxTemp: getTempAverage(city.data.daily.data, 'apparentTemperatureMax'),
+        averageMinTemp: getTempAverage(city.data.daily.data, 'apparentTemperatureMin'),
+        averageApparentTemperatureMaxMin: getTempAverageMaxMin(city.data.daily.data),
+        sunlightHours: getSunlightAverage(city.data.daily.data),
+        iconPoints: getIconPoints(city.data.daily.data),
+        allIcons: getAllIcons(city.data.daily.data),
+      };
 
-        cb(currentCity)
-      })
-      .catch(err => {
-        console.log('err with darksky api request...', err);
-      })
+      cb(currentCity)
+    })
+    .catch(err => {
+      console.log('err with darksky api request...', err);
+    })
 }
 
 function getForcasts(type) {
@@ -81,7 +81,7 @@ function getForcasts(type) {
               console.log('err updating database...', err);
             })
         } else if (type === 'initialize') {
-          db.Forcast.create(currentCity)
+          db.Forcast.update({cityName: city.config.cityName}, currentCity, { upsert : true })
             .then(function(res) {
               console.log('successful initialization...', currentCity.cityName);
             })
@@ -92,9 +92,6 @@ function getForcasts(type) {
           console.log(`err... getForcasts(type), type ${type} is not defined`)
         }
       })
-    .catch(function(err) {
-      console.log('err receiving forcasts data...', err);
-    });
   })
 }
 
@@ -125,7 +122,12 @@ function getSunlightAverage(forcasts) {
   var hours = minutes / 60;
 
   var sections = String(hours).split('.');
-  return Number(sections[0] + '.' + sections[1].slice(0, 2));
+
+  if (sections[1]) {
+    return Number(sections[0] + '.' + sections[1].slice(0, 2));
+  } else {
+    return 0;
+  }
 }
 
 function getIconPoints(forcasts) {
