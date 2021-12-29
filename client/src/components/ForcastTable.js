@@ -30,7 +30,7 @@ class ForcastTable extends Component {
             <th id="iconPoints">icon</th>
             <th id="averageMaxTemp">avg max</th>
             <th id="humidity">humid</th>
-            <th id="flightCost">flight</th>
+            <th id="flightCost">flight cost</th>
           </tr>
         </thead>
         {filteredForcasts.map(forcast => (
@@ -47,9 +47,11 @@ class ForcastTable extends Component {
               </td>
               <td>{forcast.averageMaxTemp}</td>
               <td>{Math.round(forcast.humidity * 100)}</td>
-              {forcast.flights && forcast.flights.sfo 
+              {forcast.flights 
+                && forcast.flights.SFO 
+                && forcast.flights.SFO.cost !== 'NA' 
                 ?
-                <td>$ {forcast.flights.sfo.cost}</td>
+                <td>$ {forcast.flights.SFO.cost}</td>
                 :
                 <td></td>
               }
