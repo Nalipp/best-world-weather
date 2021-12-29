@@ -147,7 +147,15 @@ const forcasts = (state = initialState, action) => {
     });
 
     let sorted = filtered.sort(function(acc, forcast) {
-      return acc[sortBy] < forcast[sortBy] ? 1 : -1;
+      if (sortBy === 'cost') {
+        const curVal = Number(forcast.flights.SFO.cost);
+        const accCurVal = Number(acc.flights.SFO.cost);
+
+        return accCurVal < curVal ? 1 : -1;
+      } else {
+
+        return acc[sortBy] < forcast[sortBy] ? 1 : -1;
+      }
     });
 
     return state.reverseSort ? sorted.reverse() : sorted;

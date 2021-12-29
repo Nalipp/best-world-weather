@@ -30,7 +30,7 @@ class ForcastTable extends Component {
             <th id="iconPoints">icon</th>
             <th id="averageMaxTemp">avg max</th>
             <th id="humidity">humid</th>
-            <th id="flightCost">flight cost</th>
+            <th id="cost">flight cost</th>
           </tr>
         </thead>
         {filteredForcasts.map(forcast => (
