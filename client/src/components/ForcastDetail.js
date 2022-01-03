@@ -51,19 +51,21 @@ class ForcastDetail extends Component {
                 </li>
                 <li>
                   <p>Flight cost estimate</p>
-                <p>{forcast.flights ? forcast.flights.SFO.cost : 'NA'}</p>
+                <p>${forcast.flights ? forcast.flights.SFO.cost : 'NA'}</p>
               </li>
             </ul>
-            <div>
-              {this.props.pixabayImages.length > 0 && 
-                <div>
-                  <img
-                    width="200"
-                    onClick={this.props.showFullPixabayImage}
-                    alt={this.props.pixabayImages[0].tags}
-                    src={this.props.pixabayImages[0].webformatURL}/>
-                </div>
-              }
+            <div className={`forcast-detail_images`}>
+              <ul>
+                {this.props.pixabayImages.map(image => (
+                  <li key={image.webformatURL}>
+                    <img
+                      width="200"
+                      onClick={this.props.showFullPixabayImage}
+                      alt={image.tags}
+                      src={image.webformatURL}/>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
         </div>}
