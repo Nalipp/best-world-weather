@@ -1,6 +1,18 @@
 @value colors: "../colors.css";
 @value primary-red, primary-green from colors;
 
+.forcast-detail-container {
+  width: 100%;
+  margin: 1em auto;
+}
+
+@media (min-width: 800px) {
+  .forcast-detail-container {
+    width: 90%;
+    margin: 1em auto;
+  }
+}
+
 .forcast-detail {
   padding: 0 0 0 0.3em;
   margin: 0.3em;

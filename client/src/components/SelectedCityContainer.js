@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Search from './Search';
 import SelectedCityNavigation from './SelectedCityNavigation';
-import ForcastDetailContainer from './ForcastDetailContainer';
+import ForcastDetail from './ForcastDetail';
 import MapCompareContainer from './MapCompareContainer';
 import MapImagesContainer from './MapImagesContainer';
 import { connect } from 'react-redux';
@@ -27,7 +27,7 @@ class SelectedCityContainer extends Component {
           <SelectedCityNavigation 
             handleSelect={this.handleSelect}
             selected={this.state.selected} />
-          {this.state.selected === 'data' && <ForcastDetailContainer />}
+          {this.state.selected === 'data' && <ForcastDetail />}
           {this.state.selected === 'maps' && <MapCompareContainer />}
           {this.state.selected === 'images' && <MapImagesContainer />}
         </div>
