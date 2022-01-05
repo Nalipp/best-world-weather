@@ -4,7 +4,7 @@ const Forcast = require("./forcast");
 const Population = require("./population");
 const City = require("./city");
 
-if (process.env.MONGO_URI) {
+if (process.env.MONGODB_URI) {
   console.log('connecting to MONGO_URI..');
   mongoose.connect(process.env.MONGO_URI);
 } else {
