@@ -4,7 +4,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon -r dotenv/config index.js",
+    "start": "node -r dotenv/config index.js",
+    "dev": "nodemon -r dotenv/config index.js",
     "debug": "node -r dotenv/config --inspect index.js"
   },
   "author": "",
