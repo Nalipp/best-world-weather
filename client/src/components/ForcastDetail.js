@@ -51,7 +51,7 @@ class ForcastDetail extends Component {
                 </li>
                 <li>
                   <p>Flight cost estimate</p>
-                <p>${forcast.flights ? forcast.flights.SFO.cost : 'NA'}</p>
+                <p>${forcast.flights ? Math.round(forcast.flights.SFO.cost) : 'NA'}</p>
               </li>
             </ul>
             <div className={`forcast-detail_images`}>

@@ -51,7 +51,7 @@ class ForcastTable extends Component {
                 && forcast.flights.SFO 
                 && forcast.flights.SFO.cost !== 'NA' 
                 ?
-                <td>$ {forcast.flights.SFO.cost}</td>
+                <td>$ {Math.round(forcast.flights.SFO.cost)}</td>
                 :
                 <td></td>
               }
