@@ -1,4 +1,3 @@
-require('dotenv').config()
 var https = require("https");
 var express = require('express');
 var app = express();
