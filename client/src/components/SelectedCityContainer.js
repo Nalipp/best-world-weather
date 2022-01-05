@@ -23,7 +23,7 @@ class SelectedCityContainer extends Component {
     return (
       <div className={`selected-city-container ${displayStatus}`}>
         <div>
-          <Search searchType={'getForcast'} />
+          {/*<Search searchType={'getForcast'} />*/}
           <SelectedCityNavigation 
             handleSelect={this.handleSelect}
             selected={this.state.selected} />
