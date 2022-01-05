@@ -13,6 +13,7 @@ if (process.env.MONGODB_URI) {
 }
 
 const options = {
+  useMongoClient: true,
   useNewUrlParser: true,
   useUnifiedTopology: true,
   serverSelectionTimeoutMS: 5000,
