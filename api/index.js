@@ -36,13 +36,13 @@ app.get('/api/populations/', function(req, res) {
     })
 });
 
-app.get('/api/forcast/initialize/', function(req, res){
+app.get('/api/forcasts/initialize/', function(req, res){
   // 'run db.forcasts.drop() from mongo prior to running'
   getForcasts('initialize');
   res.send('forcast/initialize...finished');
 });
 
-app.get('/api/flight/initialize/', function(req, res){
+app.get('/api/flights/initialize/', function(req, res){
   // allows you to get flight cost data for each city (writes to db)
   // recursive setTimeout avoids rate limit
   // takes about 20 minutes to run

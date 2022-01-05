@@ -1,5 +1,3 @@
-var getAirportCode = require('./api_calls').getAirportCode;
-
 var usCities = [
   ['new_york', '40.6635', '-73.9387'],
   ['los_angeles', '34.0194', '-118.4108'],
