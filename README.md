@@ -2,17 +2,20 @@
 
 Find the best weather forcast from the most frequently traveled worldwide tourist destinations.
 
+[https://best-world-weather.herokuapp.com/](https://best-world-weather.herokuapp.com/).
+
+
 Apply filters and sort acording to your preferences
 
 ![screenshot](./images/filter_and_sort_city_forcasts.png)
 
 Synchronized zoom between two cities allows you to compare the size of your destination with a city you are familar with.
 
-![screenshot](./images/compare_city_size_1.png)
+<!-- ![screenshot](./images/compare_city_size_1.png) -->
 
 ![screenshot](./images/compare_city_size_2.png)
 
-![screenshot](./images/compare_city_size_3.png)
+<!-- ![screenshot](./images/compare_city_size_3.png) -->
 
 See random images from googles static images api to see what the city actually looks like.
 
