@@ -50,7 +50,7 @@ class ImageList extends Component {
             mapImagesLocation={this.state.mapImagesLocation} />}
 
         {this.props.geoCoords.length === 0 && 
-          <div className={'no-images'}>no images available</div>}
+          <div className={'no-images'}>no images available (try zooming in)</div>}
 
         {this.props.fullScreenImages 
           ?
