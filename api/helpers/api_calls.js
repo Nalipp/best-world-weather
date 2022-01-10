@@ -51,9 +51,6 @@ function getForcasts(type) {
       results.forEach(function(city) {
 
         var currentCity = {
-          cityName: city.config.cityName,
-          lat: city.config.lat,
-          lng: city.config.lng,
           summary: city.data.currently.summary,
           icon: city.data.currently.icon,
           precipIntensity: city.data.currently.precipIntensity,
@@ -83,7 +80,7 @@ function getForcasts(type) {
         } else if (type === 'initialize') {
           db.Forcast.update({cityName: city.config.cityName}, currentCity, { upsert : true })
             .then(function(res) {
-              console.log('successful initialization...', currentCity.cityName);
+              console.log('successful initialization...', city.config.cityName);
             })
             .catch(function(err) {
               console.log('err initializing database...', err);
@@ -92,7 +89,34 @@ function getForcasts(type) {
           console.log(`err... getForcasts(type), type ${type} is not defined`)
         }
       })
-  })
+  }).catch(function(err) {
+    console.log('there was an error requesting forcast data...', err)
+  });
+}
+
+function getCities(type) {
+  worldCities.forEach(function(city) {
+
+    let currentCity = {
+      cityName: city[0],
+      lat: city[1],
+      lng: city[2],
+      airportCode: city[3],
+      population: city[4],
+      country: city[5],
+    }
+    console.log('currentCity...', currentCity);
+
+    if (type === 'initialize') {
+      db.Forcast.update({cityName: currentCity.cityName}, currentCity, { upsert : true})
+        .then(function(res) {
+          console.log('successful initialization...', currentCity.cityName);
+        })
+        .catch(function(err) {
+          console.log('err initializing database...', err);
+        })
+    }
+  });
 }
 
 function getTempAverageMaxMin(forcasts) {
@@ -238,4 +262,5 @@ module.exports = {
   getForcasts: getForcasts,
   getForcast: getForcast,
   getFlights: getFlights,
+  getCities: getCities,
 }
