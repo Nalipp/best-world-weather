@@ -5,6 +5,7 @@ import WeatherIcon from './WeatherIcon';
 import WeatherIconList from './WeatherIconList';
 import ForcastDetailFullImages from './ForcastDetailFullImages';
 import './ForcastDetail.css';
+import addCommas from '../helpers/general';
 
 class ForcastDetail extends Component {
   render() {
@@ -34,6 +35,14 @@ class ForcastDetail extends Component {
             <div className={`forcast-detail_image-container`}>
               <ul>
                 <li>
+                  <p>Country</p>
+                  <p>{forcast.country ? forcast.country : 'NA'}</p>
+                </li>
+                <li>
+                  <p>Population estimate</p>
+                  <p>{forcast.population ? addCommas(forcast.population) : 'NA'}</p>
+                </li>
+                <li>
                   <p>Average max</p>
                   <p>{forcast.averageMaxTemp}</p>
                 </li>
@@ -51,9 +60,9 @@ class ForcastDetail extends Component {
                 </li>
                 <li>
                   <p>Flight cost estimate</p>
-                <p>${forcast.flights ? Math.round(forcast.flights.SFO.cost) : 'NA'}</p>
-              </li>
-            </ul>
+                  <p>${forcast.flights ? Math.round(forcast.flights.SFO.cost) : 'NA'}</p>
+                </li>
+              </ul>
             <div className={`forcast-detail_images`}>
               <ul>
                 {this.props.pixabayImages.map(image => (
