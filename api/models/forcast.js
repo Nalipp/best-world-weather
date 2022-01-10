@@ -64,6 +64,15 @@ var forcastSchema = new mongoose.Schema({
     flights: {
       type: Object,
     },
+    airportCode: {
+      type: String,
+    },
+    population: {
+      type: Number,
+    },
+    country: {
+      type: String,
+    },
 });
 
 var Forcast = mongoose.model('Forcast', forcastSchema, 'forcasts');
