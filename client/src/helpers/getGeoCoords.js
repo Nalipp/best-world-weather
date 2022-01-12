@@ -1,9 +1,16 @@
 import axios from 'axios';
 const GOOGLE_API_KEY = process.env.REACT_APP_GOOGLE_API_KEY;
+console.log('GOOGLE_API_KEY...', GOOGLE_API_KEY)
 
 const getGeoCoords = (dispatch, count, bounds) => {
-  const lats = bounds.zb // references this format {g: h: } 
-  const lngs = bounds.Qa // references this format {g: h: } 
+  console.log('bounds...', bounds)
+  // Note in January of 2021 google changed the api unexpectedly from the following 
+  // commented out code, this broke the app
+  // const lats = bounds.zb // references this format {g: h: } 
+  // const lngs = bounds.Qa // references this format {g: h: } 
+
+  const lats = bounds.Ab // references this format {g: h: } 
+  const lngs = bounds.Ra // references this format {g: h: } 
 
   const latsDiff = lats.h - lats.g;
   const lngsDiff = lngs.h - lngs.g;
