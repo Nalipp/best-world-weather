@@ -5,7 +5,7 @@ export const getChoiceList = value => {
     let results = citySearchTree[value];
 
     return results ? results.slice(0, 6) : [];
-  }
+  } 
 
   return []
 };
@@ -25,9 +25,9 @@ function generateTree(cities) {
       let curSubstr = curCityName.slice(0, i);
 
       if (tree[curSubstr] === undefined) {
-        tree[curSubstr] = [ [curCityName, city.population, city.latitude, city.longitude] ]
+        tree[curSubstr] = [ [curCityName, city.population, city.lat, city.lng] ]
       } else {
-        tree[curSubstr].push([curCityName, city.population, city.latitude, city.longitude]);
+        tree[curSubstr].push([curCityName, city.population, city.lat, city.lng]);
       }
     }
   });
