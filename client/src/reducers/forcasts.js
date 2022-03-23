@@ -147,10 +147,15 @@ const forcasts = (state = initialState, action) => {
 
     let sorted = filtered.sort(function(acc, forcast) {
       if (sortBy === 'cost') {
-        const curVal = Number(forcast.flights.SFO.cost);
-        const accCurVal = Number(acc.flights.SFO.cost);
+        if (forcast.flights && acc.flights) {
+          const curVal = Number(forcast.flights.SFO.cost);
+          const accCurVal = Number(acc.flights.SFO.cost);
 
-        return accCurVal < curVal ? 1 : -1;
+          return accCurVal < curVal ? 1 : -1;
+        } else {
+
+          return -1;
+        }
       } else {
 
         return acc[sortBy] < forcast[sortBy] ? 1 : -1;
