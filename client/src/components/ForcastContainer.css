@@ -6,7 +6,6 @@
   margin: 0.5em 1em;
   padding: 0.6em;
   background: primary-white;
-  border-radius: 1.2em;
   overflow: scroll;
   -webkit-overflow-scrolling: touch;
 }
