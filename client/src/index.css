@@ -29,9 +29,9 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  background: base2Light;
+  background: #344559;
   font-weight: 500;
-  color: base2Dark;
+  color: #344559;
 }
 
 h2 {

@@ -1,25 +1,22 @@
-@value colors: "../colors.css";
-@value base1Dark, base1Light from colors;
-
 .map-control {
   display: flex;
   margin: 1em;
 }
 
 .map-control > div {
-  border: 2px solid base1Light;
+  border: 2px solid #ddd;
   border-radius: 0.5em;
   background: none;
   text-align: center;
   font-size: 1.6em;
   line-height: 0;
-  padding: 15px;  color: base1Dark;
+  padding: 15px;  color: #444;
   flex-grow: 1;
 }
 
 .map-control span {
   text-align: center;
-  color: base1Dark;
+  color: #444;
   padding-top: 0.5em;
   flex-grow: 1;
 }
