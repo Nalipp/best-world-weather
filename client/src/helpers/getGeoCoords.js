@@ -8,11 +8,17 @@ const getGeoCoords = (dispatch, count, bounds) => {
   //   const lngs = bounds.Qa // references this format {g: h: } 
   //
   // Note noticed in March of 2022 google changed the api unexpectedly again from the following
-  //   const lats = bounds.Ab // references this format {g: h: } 
-  //   const lngs = bounds.Ra // references this format {g: h: } 
+  //   const lats = bounds.Ab 
+  //   const lngs = bounds.Ra
   //
-  const lats = bounds.wb // references this format {g: h: } 
-  const lngs = bounds.Sa // references this format {g: h: } 
+  //   again changed from
+  //     const lats = bounds.wb 
+  //     const lngs = bounds.Sa
+  //   
+
+  console.log('bounds...', bounds) 
+  const lats = bounds.zb // references this format {g: h: } 
+  const lngs = bounds.Ua // references this format {g: h: } 
   console.log('lats...', lats) 
   console.log('lngs...', lngs) 
 
