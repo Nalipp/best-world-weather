@@ -77,8 +77,7 @@ const forcasts = (state = initialState, action) => {
       }
     case 'SET_SORTED_BY':
       return {
-        ...state,
-        sortedBy: action.sortBy,
+        ...state, sortedBy: action.sortBy,
         reverseSort: !state.reverseSort,
       }
     case 'RESET_FILTERS':

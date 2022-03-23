@@ -6,6 +6,66 @@ import { setSortedBy,
          setLocationDetail,
          showLocationDetail } from '../actions';
 
+// function ForcastTable({ filteredForcasts, setSortedBy, setLocationDetail, showLocationDetail }) {
+//   function handleSort(evt) {
+//     const sortBy = evt.target.id;
+//     setSortedBy(sortBy);
+//   }
+
+//   function setMaxChar(str, num) {
+//     return str.length > num ? str.slice(0, num) + '..' : str;
+//   }
+
+//   function handleSetSingleForcast(forcast) {
+//     setLocationDetail(forcast, forcast.cityName);
+//     showLocationDetail();
+//   }
+
+//   return (
+//      <table className="forcast-table">
+//         <thead>
+//           <tr onClick={handleSort}>
+//             <th id="cityName">city</th>
+//             <th id="iconPoints">icon</th>
+//             <th id="averageMaxTemp">avg max</th>
+//             <th id="humidity">humid</th>
+//             <th id="cost">flight cost</th>
+//           </tr>
+//         </thead>
+//         {filteredForcasts.map(forcast => (
+//           <tbody 
+//             onClick={handleSetSingleForcast.bind(this, forcast)}
+//             key={forcast.cityName}>
+//             <tr className={'spacing'}></tr>
+//             <tr>
+//               <td>{setMaxChar(forcast.cityName, 9)}</td>
+//               <td>
+//                 <ul>
+//                   <WeatherIconList allIcons={forcast.allIcons} />
+//                 </ul>
+//               </td>
+//               <td>{forcast.averageMaxTemp}</td>
+//               <td>{Math.round(forcast.humidity * 100)}</td>
+//               {forcast.flights 
+//                 && forcast.flights.SFO 
+//                 && forcast.flights.SFO.cost !== 'NA' 
+//                 ?
+//                 <td>$ {Math.round(forcast.flights.SFO.cost)}</td>
+//                 :
+//                 <td></td>
+//               }
+//             </tr>
+//           </tbody>
+//         ))}
+//       </table>
+//   )
+// }
+
+     
+      
+       
+        
+
 class ForcastTable extends Component {
   handleSort = (e) => {
     const sortBy = e.target.id;
