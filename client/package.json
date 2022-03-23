@@ -3,13 +3,16 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@emotion/react": "^11.8.2",
+    "@emotion/styled": "^11.8.1",
+    "@mui/material": "^5.5.2",
     "axios": "^0.18.0",
     "prop-types": "^15.6.2",
-    "react": "^16.6.3",
+    "react": "^16.0.0",
     "react-dom": "^16.6.3",
     "react-google-maps": "^9.4.5",
     "react-redux": "^6.0.0",
-    "react-scripts": "1.0.17",
+    "react-scripts": "^1.0.0",
     "recompose": "^0.30.0",
     "redux": "^4.0.1",
     "redux-thunk": "^2.3.0"
@@ -20,5 +23,17 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }

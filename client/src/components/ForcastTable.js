@@ -1,12 +1,29 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './ForcastTable.css';
+
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
+import Paper from '@mui/material/Paper';
+
 import { connect } from 'react-redux';
 import WeatherIconList from './WeatherIconList';
 import { setSortedBy,
          setLocationDetail,
-         showLocationDetail } from '../actions';
+         showLocationDetail 
+       } from '../actions';
 
-function ForcastTable({ filteredForcasts, setSortedBy, setLocationDetail, showLocationDetail }) {
+
+function ForcastTable({ 
+    filteredForcasts, 
+    setSortedBy, 
+    setLocationDetail, 
+    showLocationDetail 
+  }) {
+
   function handleSort(evt) {
     const sortBy = evt.target.id;
     setSortedBy(sortBy);
@@ -22,53 +39,68 @@ function ForcastTable({ filteredForcasts, setSortedBy, setLocationDetail, showLo
   }
 
   return (
-     <table className="forcast-table">
-        <thead>
-          <tr onClick={handleSort}>
-            <th id="cityName">city</th>
-            <th id="iconPoints">icon</th>
-            <th id="averageMaxTemp">avg max</th>
-            <th id="humidity">humid</th>
-            <th id="cost">flight cost</th>
-          </tr>
-        </thead>
-        {filteredForcasts.map(forcast => (
-          <tbody 
-            onClick={handleSetSingleForcast.bind(this, forcast)}
-            key={forcast.cityName}>
-            <tr className={'spacing'}></tr>
-            <tr>
-              <td>{setMaxChar(forcast.cityName, 9)}</td>
-              <td>
+    <TableContainer className={'forcast-table'} component={Paper}>
+      <Table 
+        sx={{ minWidth: 500 }} 
+        size="small" aria-label="a dense table of Forcast Locations"
+      >
+        <TableHead>
+          <TableRow onClick={handleSort}>
+            <TableCell id="cityName">city</TableCell>
+            <TableCell id="iconPoints">icon</TableCell>
+            <TableCell id="averageMaxTemp">avg max</TableCell>
+            <TableCell id="humidity">humid</TableCell>
+            <TableCell id="cost">flight cost</TableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          {filteredForcasts.map((forcast) => (
+            <TableRow 
+              onClick={handleSetSingleForcast.bind(this, forcast)}
+              sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+              key={forcast.cityName}
+            >
+
+              <TableCell>{setMaxChar(forcast.cityName, 9)}</TableCell>
+              <TableCell>
                 <ul>
                   <WeatherIconList allIcons={forcast.allIcons} />
                 </ul>
-              </td>
-              <td>{forcast.averageMaxTemp}</td>
-              <td>{Math.round(forcast.humidity * 100)}</td>
+              </TableCell>
+              <TableCell>{forcast.averageMaxTemp}</TableCell>
+              <TableCell>{Math.round(forcast.humidity * 100)}</TableCell>
               {forcast.flights 
                 && forcast.flights.SFO 
                 && forcast.flights.SFO.cost !== 'NA' 
                 ?
-                <td>$ {Math.round(forcast.flights.SFO.cost)}</td>
+                <TableCell>$ {Math.round(forcast.flights.SFO.cost)}</TableCell>
                 :
-                <td></td>
+                <TableCell></TableCell>
               }
-            </tr>
-          </tbody>
-        ))}
-      </table>
-  )
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
+    </TableContainer>
+
+  );
 }
 
 
 const mapStateToProps = state => {
+
+  const { 
+    singleForcast,
+    sortedBy,
+    filteredForcasts,
+    currentFlightOrigin 
+  } = state.forcasts;
+
   return {
-    singleForcast: state.forcasts.singleForcast,
-    filteredForcasts: state.forcasts.filteredForcasts,
-    sortedBy: state.forcasts.sortedBy,
-    filteredForcasts: state.forcasts.filteredForcasts,
-    currentFlightOrigin: state.flights.currentFlightOrigin,
+    singleForcast,
+    filteredForcasts,
+    sortedBy,
+    currentFlightOrigin,
   }
 }
 
