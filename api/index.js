@@ -1,3 +1,4 @@
+require('dotenv').config()
 var https = require("https");
 var express = require('express');
 var app = express();
@@ -25,6 +26,12 @@ app.get('/api/forcasts/', function(req, res){
     .catch(function(err){
       res.send(err);
     })
+})
+
+app.post('/api/forcast/', function(req, res) {
+  getForcast(req.body.lat, req.body.lng, function(data) {
+    res.send(data);
+  });
 })
 
 app.get('/api/populations/', function(req, res) {
