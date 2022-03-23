@@ -1,40 +1,4 @@
-@value colors "../colors.css";
-@value base1Light from colors;
-
-.forcast-table {
-  border-collapse: collapse; 
-  width: 90%;
-  margin: 0 auto 4em;
-}
-
-.forcast-table th {
-  cursor: pointer;
-  text-align: start;
-  font-weight: 100;
-  font-size: 0.8em;
-  width: 20%;
-}
-
-.forcast-table > tbody ul {
-  display: flex;
-}
-
-.forcast-table > tbody li {
-  height: 15px;
-}
-
-.forcast-table td {
-  padding: 0.5em;
+.forcast-table tr {
   cursor: pointer;
 }
-
-.forcast-table tbody > tr {
-  border: 2px dashed base1Light;
-}
-
-.spacing {
-  height: 1em;
-}
-
-
 
