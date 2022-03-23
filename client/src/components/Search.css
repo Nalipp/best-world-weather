@@ -1,6 +1,3 @@
-@value colors: "../colors.css";
-@value base1Light, primary-white, base2Dark from colors;
-
 .search {
   margin: 1em;
   width: 90%;
@@ -12,8 +9,8 @@
 
 .search input {
   width: 100%;
-  border: 2px solid base1Light;
-  color: base2Dark;
+  border: 2px solid #ddd;
+  color: #344559;
   border-radius: 2em;
   height: 2em;
   letter-spacing: 1.4px;
@@ -29,15 +26,15 @@
 .search_choice-list > ul {
   position: absolute;
   top: 0;
-  background: primary-white;
+  background: #fff;
   margin: 0 1em;
   z-index: 2;
 }
 
 .search_choice-list > ul > li {
-  border-right: 2px solid base1Light;
-  border-bottom: 2px solid base1Light;
-  border-left: 2px solid base1Light;
+  border-right: 2px solid #ddd;
+  border-bottom: 2px solid #ddd;
+  border-left: 2px solid #ddd;
   padding: 0.3em 0.4em;
   width: 14em;
   cursor: pointer;
@@ -47,7 +44,7 @@
 }
 
 .search_choice-list > ul > li:hover {
-  background: base1Light;
+  background: #ddd;
 }
 
 .search_choice-list > ul > li > span:first-child {
@@ -67,7 +64,7 @@
 
   .search input {
     width: 80%;
-    color: base2Dark;
+    color: #344559;
     font-size: 0.8em;
     padding: 1.2em 1em;
   }

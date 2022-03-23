@@ -1,11 +1,8 @@
-@value colors: "../colors.css";
-@value primary-white from colors;
-
 .forcast-container { 
   width: 90%;
   margin: 0.5em 1em;
   padding: 0.6em;
-  background: primary-white;
+  background: #fff;
   overflow: scroll;
   -webkit-overflow-scrolling: touch;
 }

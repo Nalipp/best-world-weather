@@ -1,8 +1,5 @@
-@value colors: "../colors.css";
-@value primary-white, base1Light from colors;
-
 .heading {
-  background: primary-white;
+  background: #fff;
 }
 
 .heading h1 {
@@ -13,7 +10,7 @@
 .heading p {
   font-size: 0.4em;
   padding: 0 0 0.8em 0.8em;
-  border-bottom: 2px solid base1Light;
+  border-bottom: 2px solid #ddd;
 }
 
 @media (min-width: 800px) {
@@ -29,6 +26,6 @@
   .heading p {
     font-size: 0.8em;
     padding: 0 0 1.2em 1em;
-    border-bottom: 2px solid base1Light;
+    border-bottom: 2px solid #ddd;
   }
 }
