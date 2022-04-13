@@ -17,7 +17,9 @@ const getGeoCoords = (dispatch, count, bounds) => {
   //   
 
   console.log('bounds...', bounds) 
-  const lats = bounds.zb // references this format {g: h: } 
+  // const lats = bounds.zb // references this format {g: h: } 
+  //     ---Discovered this be outdated 4/13/2022--- (changed bounds.zb to bounds.Ab)
+  const lats = bounds.Ab // references this format {g: h: } 
   const lngs = bounds.Ua // references this format {g: h: } 
   console.log('lats...', lats) 
   console.log('lngs...', lngs) 
